@@ -1,0 +1,1 @@
+# Uses a few different attributes to detect kicks

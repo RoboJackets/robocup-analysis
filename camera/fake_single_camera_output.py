@@ -1,0 +1,1 @@
+# Fakes the output for a single camera given the true ball position

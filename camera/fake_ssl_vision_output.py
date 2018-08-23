@@ -1,0 +1,1 @@
+# Fakes output for a set of cameras each frame
