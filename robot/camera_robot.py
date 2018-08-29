@@ -1,9 +1,9 @@
 # Kalman filter for one robot
 
 class CameraRobot:
-    def __init__(self, time_captured, confidence, x, y, bot_id):
-        self.time_captured = time_captured
+    def __init__(self, confidence, x, y, orientation, bot_id):
         self.confidence = confidence
         self.x = x
         self.y = y
+        self.orientation = orientation
         self.bot_id = bot_id

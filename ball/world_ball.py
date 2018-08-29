@@ -2,5 +2,5 @@
 from ball.kalman_ball import KalmanBall
 
 class WorldBall:
-    def __init__(self, kalmna_balls):
+    def __init__(self, kalman_balls):
         pass

@@ -1,9 +1,10 @@
 # xy pos/vel
 from filter.kalman_filter import KalmanFilter
+import util.config
 
 class KalmanFilter2D(KalmanFilter):
-    def __init__(self, process_noise, observation_noise):
-        KalmanFilter.__init__(self, 4)
+    def __init__(self, initial_state):
+        KalmanFilter.__init__(self, 4, 2)
 
         # State transition matrix (A)
         # F_k
