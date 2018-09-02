@@ -14,9 +14,9 @@ class KalmanFilter:
         self.y_k_k1 = np.zeros((observation_size, 1))
         self.y_k_k  = np.zeros((observation_size, 1))
 
-        self.P_k1_k1 = np.zeros((state_size, state_size))
-        self.P_k_k1  = np.zeros((state_size, state_size))
-        self.P_k_k   = np.zeros((state_size, state_size))
+        self.P_k1_k1 = np.identity((state_size))
+        self.P_k_k1  = np.identity((state_size))
+        self.P_k_k   = np.identity((state_size))
 
         self.S_k = np.zeros((observation_size, observation_size))
         self.K_k = np.zeros((state_size, observation_size))
@@ -40,6 +40,9 @@ class KalmanFilter:
         self.P_k_k = self.P_k_k1
             
     def predict_and_update(self):
+        self.x_k1_k1 = self.x_k_k
+        self.P_k1_k1 = self.P_k_k
+
         self.x_k_k1 = self.F_k * self.x_k1_k1 + self.B_k*self.u_k
         
         self.P_k_k1 = self.F_k * self.P_k1_k1 * self.F_k.transpose() + self.Q_k
@@ -50,7 +53,7 @@ class KalmanFilter:
 
         self.K_k = self.P_k_k1 * self.H_k.transpose() * self.S_k.getI()
 
-        self.x_k_k = self.x_k_k1 + self.K_k * self.y_k_k
+        self.x_k_k = self.x_k_k1 + self.K_k * self.y_k_k1
 
         self.P_k_k = (self.I - self.K_k * self.H_k) * self.P_k_k1 * (self.I - self.K_k * self.H_k).transpose() + self.K_k * self.R_k * self.K_k.transpose()
 
