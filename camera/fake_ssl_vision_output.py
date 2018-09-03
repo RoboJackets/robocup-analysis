@@ -37,7 +37,7 @@ class FakeSSLVisionOutput:
 
     # Returns list of frames given the current time for all cameras
     def get_frames(self, time):
-        ball_pos = (5*math.sin(time), 5 + 5*math.sin(time))
+        ball_pos = (4*math.cos(time), 5 + 4*math.sin(time))
         blue_robots = []
         yellow_robots = []
 

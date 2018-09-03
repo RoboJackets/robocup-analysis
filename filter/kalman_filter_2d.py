@@ -2,6 +2,7 @@
 from filter.kalman_filter import KalmanFilter
 import util.config
 import numpy as np
+import math
 
 class KalmanFilter2D(KalmanFilter):
     def __init__(self, x, y, x_vel, y_vel):
@@ -47,12 +48,17 @@ class KalmanFilter2D(KalmanFilter):
         # Covariance of process noise (how wrong A is)
         # There is a constant deceleration so velocity should have a higher process noise
         # There aren't any major problems with the position process
-        # May need to split the process noise between xy states and heading states
-        p = util.config.ball_process_noise
-        self.Q_k = np.matrix([[p, 0, 0, 0],
-                              [0, 10*p, 0, 0],
-                              [0, 0, p, 0],
-                              [0, 0, 0, 10*p]])
+        # This is called optimal process noise (from TrackingFilterPosVel2D in the Tigers code)
+        p = util.config.ball_process_error
+        sigma = math.sqrt((3.0 * p) / dt) / dt
+        dt3 = 1.0 / 3.0 * dt * dt * dt * sigma * sigma
+        dt2 = 1.0 / 2.0 * dt * dt * sigma * sigma
+        dt1 = dt * sigma * sigma
+
+        self.Q_k = np.matrix([[dt3, dt2,   0, 0],
+                              [dt2, dt1,   0, 0],
+                              [0,     0, dt3, dt2],
+                              [0,     0, dt2, dt1]])
 
 
         # Covariance of observation noise (how wrong z_k is)

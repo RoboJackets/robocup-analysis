@@ -18,14 +18,14 @@ class KalmanBall:
         self.speed_x.set_label('x vel')
         self.speed_y.set_label('y vel')
         self.ax.legend()
-        self.figure.show()
+        #self.figure.show()
 
         self.speed_x_list = [0]
         self.speed_y_list = [0]
         self.time = [0]
 
     def predict(self):
-        self.health -= util.config.health_dec
+        self.health = max(self.health - util.config.health_dec, util.config.health_min)
         self.filter.predict()
 
         self.plot_speed()
@@ -39,7 +39,12 @@ class KalmanBall:
         self.plot_speed()
 
     def is_unhealthy(self):
-        return self.health < util.config.health_bad
+        # Checks how many frames it's has dropped recently
+        valid_health = self.health <= util.config.health_bad
+        # Checks time since last update (May not trigger a bad health though)
+        updated_recently = True
+
+        return valid_health and updated_recently
 
     def plot_speed(self):
         state = self.filter.x_k_k
