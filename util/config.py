@@ -7,8 +7,8 @@ robot_process_noise = 0.1
 robot_observation_noise = 0.1
 
 ball_init_covariance = 100
-ball_process_error = 0.1
-ball_observation_noise = 2.0
+ball_process_error = 0.01
+ball_observation_noise = 0.5
 
 max_num_robots_per_team = 20
 max_num_cameras = 10
@@ -31,3 +31,6 @@ num_cameras_length = 4
 camera_percent_overlap = 0
 
 ball_merger_power = 1.5 # Should be between 1 and 2, higher number results in more jitter
+
+camera_noise = 0.2
+sim_ball_speed = 3.0

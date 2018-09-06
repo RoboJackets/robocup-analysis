@@ -1,3 +1,5 @@
+import numpy as np
+
 # Fakes the output for a single camera given the true ball position
 from camera.frame import Frame
 from ball.camera_ball import CameraBall
@@ -26,7 +28,7 @@ class FakeSingleCameraOutput:
         if (self.item_in_view(ball_position)):
             # TODO: Add in the multiple ball detections
             viewed_balls.append(
-                CameraBall(time, ball_confidence, ball_position[0], ball_position[1])
+                CameraBall(time, ball_confidence, *np.random.normal(ball_position, util.config.camera_noise))
             )
 
         for robot_yellow in robots_yellow_position:

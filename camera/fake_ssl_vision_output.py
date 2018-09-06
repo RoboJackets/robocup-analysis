@@ -2,6 +2,8 @@
 from camera.fake_single_camera_output import FakeSingleCameraOutput
 import util.config
 
+import numpy as np
+
 import math
 
 class FakeSSLVisionOutput:
@@ -37,7 +39,13 @@ class FakeSSLVisionOutput:
 
     # Returns list of frames given the current time for all cameras
     def get_frames(self, time):
-        ball_pos = (4*math.cos(time), 5 + 4*math.sin(time))
+        pt1 = np.array([-2.5, 2.5])
+        pt2 = np.array([2.5, 5.5])
+        line = pt2 - pt1
+        line_len = np.linalg.norm(line)
+        ball_speed = 2
+        ball_pos = ((util.config.sim_ball_speed * time) % line_len) * line / line_len + pt1
+
         blue_robots = []
         yellow_robots = []
 

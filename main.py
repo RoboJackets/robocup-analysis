@@ -1,3 +1,10 @@
+from sys import platform
+if platform == "darwin":
+    # MACOS - use a different backend so the animations work
+    # note, this import must be before any other matploblib import
+    import matplotlib
+    matplotlib.use('TkAgg')
+
 from camera.camera import Camera
 from camera.fake_ssl_vision_output import FakeSSLVisionOutput
 

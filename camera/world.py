@@ -3,6 +3,7 @@ from ball.world_ball import WorldBall
 from robot.world_robot import WorldRobot
 import util.config
 import matplotlib.pyplot as plt
+import matplotlib
 
 class World:
     def __init__(self):
