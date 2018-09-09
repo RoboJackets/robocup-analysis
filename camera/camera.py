@@ -36,7 +36,7 @@ class Camera:
         if (util.config.use_multi_hypothesis):
             if (len(self.kalman_balls) == 0):
                 camera_ball_pos = [] # TODO: Make 2d matrix of x,y
-                self.kalman_balls.append(KalmanBall(0,0))
+                self.kalman_balls.append(KalmanBall(0, 0, 0, 0, 0))
                 camera_balls_list.pop(0)
 
             for camera_ball in camera_balls_list:
@@ -73,7 +73,7 @@ class Camera:
                     x_vel = previous_world_ball.x_vel
                     y_vel = previous_world_ball.y_vel
                 
-                self.kalman_balls.append(KalmanBall(x_avg, y_avg, x_vel, y_vel))
+                self.kalman_balls.append(KalmanBall(camera_balls_list[0].time, x_avg, y_avg, x_vel, y_vel))
 
                 return
             
@@ -90,7 +90,7 @@ class Camera:
             average_pos_y /= len(camera_balls_list)
 
             if len(camera_balls_list) > 0:
-                self.kalman_balls[0].predict_and_update(average_pos_x, average_pos_y)
+                self.kalman_balls[0].predict_and_update(camera_balls_list[0].time, average_pos_x, average_pos_y)
             else:
                 self.kalman_balls[0].predict()
         

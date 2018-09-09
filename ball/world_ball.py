@@ -78,6 +78,7 @@ class WorldBall:
         if (total_filter_pos_weight <= 0 or total_filter_vel_weight <= 0):
             print('WorldBall::ERROR::WeightsAreLTZero')
 
+        # Scale back to the normal values
         x_avg     /= total_filter_pos_weight
         x_vel_avg /= total_filter_vel_weight
         y_avg     /= total_filter_pos_weight

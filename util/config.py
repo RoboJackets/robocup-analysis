@@ -2,9 +2,9 @@ sample_rate = 100
 dt = 1/sample_rate
 camera_rate = 60
 
-robot_init_covariance = 0.1
+robot_init_covariance = 100
 robot_process_noise = 0.1
-robot_observation_noise = 0.1
+robot_observation_noise = 2.0
 
 ball_init_covariance = 100
 ball_process_error = 0.01
@@ -15,14 +15,13 @@ max_num_cameras = 10
 
 use_multi_hypothesis = False
 multi_hypothesis_radius_cutoff = .1
-single_kalman_radius_cutoff = .1
 
-health_init = 2
-health_dec = 1
-health_inc = 2
-health_max = 20
-health_bad = 1
-health_min = 1
+health_init = 2 # What health it starts out with
+health_dec = 1 # Every prediction (without a observation) we decrement the health by this amount
+health_inc = 2 # Every prediction with observation we increment the health
+health_max = 20 # Max health limit
+health_min = 1 # Minimum health limit (must be > 0) to keep the math nice
+health_bad = 1 # Removes kalman_ball when health less then equal to this
 
 field_width = 10
 field_length = 20

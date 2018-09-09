@@ -48,7 +48,15 @@ class KalmanFilter2D(KalmanFilter):
         # Covariance of process noise (how wrong A is)
         # There is a constant deceleration so velocity should have a higher process noise
         # There aren't any major problems with the position process
-        # This is called optimal process noise (from TrackingFilterPosVel2D in the Tigers code)
+        # Based on a guassian white noise w_k in x_dot = A*x + B*u + G*w
+        # The noise can be propogated through the model resulting in a process noise
+        # of the form 
+        #
+        #  [1/3 T^3     1/2 T^2] * sigma^2
+        #  [1/2 T^2           T] 
+        # Where sigma is the standard deviation of the process noise
+        # the change in velocity over one time step should be around sqrt(T * sigma^2)
+        # Note: T is the sample period
         p = util.config.ball_process_error
         sigma = math.sqrt((3.0 * p) / dt) / dt
         dt3 = 1.0 / 3.0 * dt * dt * dt * sigma * sigma

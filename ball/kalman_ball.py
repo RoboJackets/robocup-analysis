@@ -5,23 +5,25 @@ from filter.kalman_filter_2d import KalmanFilter2D
 import util.config
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 
 class KalmanBall:
-    def __init__(self, x, y, x_vel, y_vel):
+    def __init__(self, time, x, y, x_vel, y_vel):
+        self.last_update_time = time
         self.filter = KalmanFilter2D(x, y, x_vel, y_vel)
         self.health = util.config.health_init
 
         # Plotting stuff
         self.figure, self.ax = plt.subplots()
         self.speed_x, self.speed_y = self.ax.plot([],[], 'r', [],[], 'b')
-        self.ax.axis([0, 100, -10, 10])
+        self.ax.axis([1, 100, -30, 30])
         self.speed_x.set_label('x vel')
         self.speed_y.set_label('y vel')
         self.ax.legend()
-        #self.figure.show()
+        self.figure.show()
 
-        self.speed_x_list = [0]
-        self.speed_y_list = [0]
+        self.speed_x_list    = [0]
+        self.speed_y_list    = [0]
         self.time = [0]
 
     def predict(self):
@@ -30,7 +32,8 @@ class KalmanBall:
 
         self.plot_speed()
 
-    def predict_and_update(self, x, y):
+    def predict_and_update(self, time, x, y):
+        self.last_update_time = time
         self.health = min(self.health + util.config.health_inc, util.config.health_max)
 
         self.filter.z_k = np.matrix([[x], [y]])
@@ -48,6 +51,7 @@ class KalmanBall:
 
     def plot_speed(self):
         state = self.filter.x_k_k
+        cov = self.filter.P_k_k
         self.speed_x_list.append(state.item(1))
         self.speed_y_list.append(state.item(3))
         self.time.append(self.time[len(self.time) - 1] + 1)

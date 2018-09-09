@@ -1,5 +1,9 @@
 import numpy as np
 
+# General kalman filter
+# State size is length of x vector
+# Observation size is length of y vector
+# Assumes u is 1x1 (Not used in most cases)
 class KalmanFilter:
     def __init__(self, state_size, observation_size):
         # x_[at time step]_[using data from time step]
