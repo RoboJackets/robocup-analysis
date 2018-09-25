@@ -20,8 +20,8 @@ ball_observation_noise = 0.5
 max_num_robots_per_team = 20
 max_num_cameras = 10
 
-use_multi_hypothesis = False
-multi_hypothesis_radius_cutoff = .1
+use_multi_hypothesis = True # False
+multi_hypothesis_radius_cutoff = 1
 
 health_init = 2 # What health it starts out with
 health_dec = 1 # Every prediction (without a observation) we decrement the health by this amount

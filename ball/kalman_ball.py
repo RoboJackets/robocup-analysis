@@ -39,6 +39,9 @@ class KalmanBall:
 
         return valid_health and updated_recently
 
+    def pos(self):
+        return [self.filter.x_k_k[0], self.filter.x_k_k[2]]
+
     def setup_plots(self):
         self.figure, self.ax = plt.subplots()
         self.speed_x, self.speed_y = self.ax.plot([],[], 'r', [],[], 'b')

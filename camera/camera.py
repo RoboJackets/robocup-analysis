@@ -52,19 +52,82 @@ class Camera:
 
             return
 
+        # Try merging some kalman filters together
+        # Should check states against each other
+        # If all the norms almost match up
+        # Merge like we do in the world ball stuff
+
+        # Observation is all the camera balls
+        # Measurement is what we feed the kalman filters as a z_k
+
+        # Keeps track of what the average ball measurement for this filter
+        pos_measurements = np.zeros((len(self.kalman_balls), 2))
+        # Time of measurement
+        time_measurements = np.zeros((len(self.kalman_balls), 1))
+        # Keeps track of how many observations were applied to this average measurement
+        num_kf_measurements = np.zeros((len(self.kalman_balls), 1))
+
+        # List of camera_balls used
+        camera_balls_used_list = []
+
         for camera_ball in camera_balls_list:
             # Check all previous kalman filters
             # If close enough, add to average of that filter
             # If not close enough, create new filter
             # Try both a constant dist and a 3 sigma type thing
-            pass
+            for idx, kalman_ball in enumerate(self.kalman_balls):
+                # Had to do this instead of np.subtract for some weird reason
+                # Some matrix to array subtraction bug
+                dx = kalman_ball.pos()[0] - camera_ball.pos[0]
+                dy = kalman_ball.pos()[1] - camera_ball.pos[1]
+                dist = np.linalg.norm([dx, dy])
 
-        # Try merging some that are close together
+                # Valid measurement
+                # Add to our running average and observation count
+                if (dist < util.config.multi_hypothesis_radius_cutoff):
+                    x = pos_measurements[idx][0]
+                    y = camera_ball.pos[0]
+                    pos_measurements[idx][0] += camera_ball.pos[0]
+                    pos_measurements[idx][1] += camera_ball.pos[1]
+                    time_measurements[idx][0] += camera_ball.time_captured
+                    num_kf_measurements[idx][0] += 1
 
-        for kalman_ball in self.kalman_balls:
-            # Update all filters if they have ball measurement
-            # If they don't, just predict
-            pass
+                    camera_balls_used_list.append(camera_ball)
+
+        # Update all filters if they have ball measurement
+        # If they don't, just predict
+        for idx, kalman_ball in enumerate(self.kalman_balls):
+
+            # Get average pos
+            if (num_kf_measurements[idx] > 0):
+                x = pos_measurements[idx][0]
+                y = num_kf_measurements[idx]
+                x_avg = pos_measurements[idx][0] / num_kf_measurements[idx][0]
+                y_avg = pos_measurements[idx][1] / num_kf_measurements[idx][0]
+                time_avg = time_measurements[idx][0] / num_kf_measurements[idx][0]
+
+                pos_avg = [x_avg, y_avg]
+
+                kalman_ball.predict_and_update(time_avg, pos_avg)
+            else:
+                kalman_ball.predict()
+
+        # Any balls that didn't have a update, build a new kalman ball for it
+        # Get difference between lists
+        unused_balls_list = set(camera_balls_list).symmetric_difference(set(camera_balls_used_list))
+        unused_balls_list = list(unused_balls_list)
+
+        for unused_ball in unused_balls_list:
+            pos = unused_ball.pos
+            vel = [0, 0]
+
+            # If we have a world ball, use that vel
+            if (previous_world_ball is not None):
+                vel = previous_world_ball.vel
+
+            # Add kalman ball at that pos using world ball vel if possible
+            self.kalman_balls.append(
+                KalmanBall(unused_ball.time_captured, pos, vel))
 
     # Does a Average Kalman Filter Update
     def update_camera_balls_AKF(self, camera_balls_list, previous_world_ball):

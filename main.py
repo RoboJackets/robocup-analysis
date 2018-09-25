@@ -12,6 +12,7 @@ from camera.world import World
 
 import matplotlib.pyplot as plt
 import time
+import datetime
 
 import util.config
 
@@ -24,7 +25,16 @@ vis = FakeSSLVisionOutput()
 world = World()
 
 for i in range(500):
+    start = datetime.datetime.now()
+
     frames = vis.get_frames(i*util.config.dt)
     world.update_with_camera_frame(frames)
 
-    time.sleep(util.config.dt)
+    end = datetime.datetime.now()
+    delta = int((end - start).total_seconds()*1000) # ms
+
+    if (delta < util.config.dt):
+        time.sleep(delta - util.config.dt)
+
+    if (i % 100 == 0):
+        print(1/delta*1000)
