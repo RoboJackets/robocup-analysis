@@ -5,5 +5,4 @@ class CameraBall:
     def __init__(self, time_captured, confidence, x, y):
         self.time_captured = time_captured
         self.confidence = confidence
-        self.x = x
-        self.y = y
+        self.pos = [x, y]

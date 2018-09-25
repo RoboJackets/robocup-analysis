@@ -5,18 +5,18 @@ import numpy as np
 import math
 
 class KalmanFilter2D(KalmanFilter):
-    def __init__(self, x, y, x_vel, y_vel):
+    def __init__(self, pos, vel):
         KalmanFilter.__init__(self, 4, 2)
 
         # States are X pos, X vel, Y pos, Y vel, heading, angular velocity
-        # Assume 0 velocities
-        self.x_k1_k1 = np.matrix([[x],
-                                  [x_vel],
-                                  [y],
-                                  [y_vel]])
+        self.x_k1_k1 = np.matrix([[pos[0]],
+                                  [vel[0]],
+                                  [pos[1]],
+                                  [vel[1]]])
         self.x_k_k1 = self.x_k1_k1
         self.x_k_k = self.x_k1_k1
 
+        # Initial covariance is usually extremely high to converge to the true solution
         p = util.config.ball_init_covariance
         self.P_k1_k1 = np.matrix([[p, 0, 0, 0],
                                   [0, p, 0, 0],
@@ -28,7 +28,7 @@ class KalmanFilter2D(KalmanFilter):
         # State transition matrix (A)
         # Pos, velocity, orientation integrator. Assume constant velocity
         dt = util.config.dt
-        self.F_k = np.matrix([[1, dt, 0,  0], 
+        self.F_k = np.matrix([[1, dt, 0,  0],
                               [0,  1, 0,  0],
                               [0,  0, 1, dt],
                               [0,  0, 0,  1]])
@@ -46,14 +46,12 @@ class KalmanFilter2D(KalmanFilter):
                               [0, 0, 1, 0]])
 
         # Covariance of process noise (how wrong A is)
-        # There is a constant deceleration so velocity should have a higher process noise
-        # There aren't any major problems with the position process
         # Based on a guassian white noise w_k in x_dot = A*x + B*u + G*w
         # The noise can be propogated through the model resulting in a process noise
-        # of the form 
+        # of the form
         #
         #  [1/3 T^3     1/2 T^2] * sigma^2
-        #  [1/2 T^2           T] 
+        #  [1/2 T^2           T]
         # Where sigma is the standard deviation of the process noise
         # the change in velocity over one time step should be around sqrt(T * sigma^2)
         # Note: T is the sample period

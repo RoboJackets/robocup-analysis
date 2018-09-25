@@ -42,17 +42,17 @@ class KalmanFilter:
 
         self.x_k_k = self.x_k_k1
         self.P_k_k = self.P_k_k1
-            
+
     def predict_and_update(self):
         self.x_k1_k1 = self.x_k_k
         self.P_k1_k1 = self.P_k_k
 
         self.x_k_k1 = self.F_k * self.x_k1_k1 + self.B_k*self.u_k
-        
+
         self.P_k_k1 = self.F_k * self.P_k1_k1 * self.F_k.transpose() + self.Q_k
 
         self.y_k_k1 = self.z_k - self.H_k * self.x_k_k1
-        
+
         self.S_k = self.R_k + self.H_k * self.P_k_k1 * self.H_k.transpose()
 
         self.K_k = self.P_k_k1 * self.H_k.transpose() * self.S_k.getI()

@@ -4,22 +4,22 @@ import util.config
 import numpy as np
 
 class KalmanFilter3D(KalmanFilter):
-    def __init__(self, x, y, orientation):
+    def __init__(self, pos, vel, theta, omega):
         KalmanFilter.__init__(self, 6, 3)
 
         # States are X pos, X vel, Y pos, Y vel, heading, angular velocity
         # Assume 0 velocities
-        self.x_k1_k1 = np.matrix([[x],
-                                  [0],
-                                  [y],
-                                  [0],
-                                  [orientation],
-                                  [0]])
+        self.x_k1_k1 = np.matrix([[pos[0]],
+                                  [vel[0]],
+                                  [pos[1]],
+                                  [vel[1]],
+                                  [theta],
+                                  [omega]])
 
         # State transition matrix (A)
         # Pos, velocity, orientation integrator. Assume constant velocity
         dt = util.config.dt
-        self.F_k = np.matrix([[1, dt, 0,  0, 0,  0], 
+        self.F_k = np.matrix([[1, dt, 0,  0, 0,  0],
                               [0,  1, 0,  0, 0,  0],
                               [0,  0, 1, dt, 0,  0],
                               [0,  0, 0,  1, 0,  0],

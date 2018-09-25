@@ -24,7 +24,7 @@ vis = FakeSSLVisionOutput()
 world = World()
 
 for i in range(500):
-    frames = vis.get_frames(i*util.config.dt*2*3.14 + .1)
+    frames = vis.get_frames(i*util.config.dt)
     world.update_with_camera_frame(frames)
-    
+
     time.sleep(util.config.dt)

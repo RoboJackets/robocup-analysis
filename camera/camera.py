@@ -17,6 +17,9 @@ class Camera:
         self.kalman_robots_blue = [[] for x in range(0, util.config.max_num_robots_per_team)]
         self.kalman_robots_yellow = [[] for x in range(0, util.config.max_num_robots_per_team)]
 
+        # TODO: Add simple transformation matrices
+        #       to do scaling, skewing, rotation, translation, and shear
+
     # Matches the list of camera balls for this specific camera to the kalman balls
     def update_camera_balls(self, camera_balls_list, previous_world_ball):
         for kalman_ball in self.kalman_balls:
@@ -27,73 +30,57 @@ class Camera:
         if (len(camera_balls_list) == 0):
             for kalman_ball in self.kalman_balls:
                 kalman_ball.predict()
-            
+
             return
 
         # Match specific camera balls to specific kalman balls
         # Combine the camera balls before treating as an observation for the kalman balls
         # Merge using a weighted average based on their covariance
         if (util.config.use_multi_hypothesis):
-            if (len(self.kalman_balls) == 0):
-                camera_ball_pos = [] # TODO: Make 2d matrix of x,y
-                self.kalman_balls.append(KalmanBall(0, 0, 0, 0, 0))
-                camera_balls_list.pop(0)
-
-            for camera_ball in camera_balls_list:
-                # Check all previous kalman filters
-                # If close enough, add to average of that filter
-                # If not close enough, create new filter
-                pass
-
-            for kalman_ball in self.kalman_balls:
-                # Update all filters if they have ball measurement
-                # If they don't, just predict
-                pass
+            self.update_camera_balls_MHKF(camera_balls_list, previous_world_ball)
 
         # Just merge all the cam balls together and apply to the single kalman filter
         else:
-            # If we don't have any kalman balls
-            # average all the camera balls
-            # TODO: Get last frames velocity as initialization
-            if (len(self.kalman_balls) == 0):
-                x_avg = 0
-                y_avg = 0
+            self.update_camera_balls_AKF(camera_balls_list, previous_world_ball)
 
-                for camera_ball in camera_balls_list:
-                    x_avg += camera_ball.x
-                    y_avg += camera_ball.y
-                
-                x_avg /= len(camera_balls_list)
-                y_avg /= len(camera_balls_list)
+    # Does a Multi-Hypothesis Kalman Filter Update
+    def update_camera_balls_MHKF(self, camera_balls_list, previous_world_ball):
+        if (len(self.kalman_balls) == 0):
+            # Average all the balls in this cameras view to init stuff
+            self.kalman_balls.append(
+                self.avg_pos_kalman_filter(camera_balls_list, previous_world_ball))
 
-                x_vel = 0
-                y_vel = 0
+            return
 
-                if (previous_world_ball is not None):
-                    x_vel = previous_world_ball.x_vel
-                    y_vel = previous_world_ball.y_vel
-                
-                self.kalman_balls.append(KalmanBall(camera_balls_list[0].time, x_avg, y_avg, x_vel, y_vel))
+        for camera_ball in camera_balls_list:
+            # Check all previous kalman filters
+            # If close enough, add to average of that filter
+            # If not close enough, create new filter
+            # Try both a constant dist and a 3 sigma type thing
+            pass
 
-                return
-            
-            # There is already a kalman_ball
-            # Average the camera balls and use it as the observation
-            average_pos_x = 0
-            average_pos_y = 0
+        # Try merging some that are close together
 
-            for camera_ball in camera_balls_list:
-                average_pos_x += camera_ball.x
-                average_pos_y += camera_ball.y
+        for kalman_ball in self.kalman_balls:
+            # Update all filters if they have ball measurement
+            # If they don't, just predict
+            pass
 
-            average_pos_x /= len(camera_balls_list)
-            average_pos_y /= len(camera_balls_list)
+    # Does a Average Kalman Filter Update
+    def update_camera_balls_AKF(self, camera_balls_list, previous_world_ball):
+        # If we don't have any kalman balls
+        # average all the camera balls
+        if (len(self.kalman_balls) == 0):
+            self.kalman_balls.append(
+                self.avg_pos_kalman_filter(camera_balls_list, previous_world_ball))
 
-            if len(camera_balls_list) > 0:
-                self.kalman_balls[0].predict_and_update(camera_balls_list[0].time, average_pos_x, average_pos_y)
-            else:
-                self.kalman_balls[0].predict()
-        
+            return
+
+        # There is already a kalman_ball
+        # Average the camera balls and use it as the observation
+        pos_avg = self.avg_ball_pos(camera_balls_list)
+
+        self.kalman_balls[0].predict_and_update(camera_balls_list[0].time_captured, pos_avg)
 
     def update_camera_robots(self, camera_robots_list_blue, camera_robots_list_yellow,
                                    previous_world_robot_blue, previous_world_robot_yellow):
@@ -120,3 +107,30 @@ class Camera:
         for kalman_robot_list in self.kalman_robots_blue:
             for kalman_robot in kalman_robot_list:
                 kalman_robot.predict()
+
+
+    # Averages all the ball positions and returns a kalman filter for that object
+    # Used when there is no kalman filter to update
+    def avg_pos_kalman_filter(self, camera_balls_list, previous_world_ball):
+        pos_avg = self.avg_ball_pos(camera_balls_list)
+
+        vel = [0, 0]
+
+        # If we already have a world ball last frame, use that vel
+        # for initialization
+        if (previous_world_ball is not None):
+            vel = previous_world_ball.vel
+
+        return KalmanBall(camera_balls_list[0].time_captured, pos_avg, vel)
+
+    # Average position of the ball list
+    def avg_ball_pos(self, balls_list):
+        pos_avg = [0, 0]
+
+        # Do average
+        for ball in balls_list:
+            pos_avg = np.add(pos_avg, ball.pos)
+
+        pos_avg = np.multiply(pos_avg, 1/len(balls_list))
+
+        return pos_avg
