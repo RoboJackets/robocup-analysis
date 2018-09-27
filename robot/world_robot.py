@@ -7,7 +7,7 @@ import math
 class WorldRobot:
     def __init__(self, bot_id, kalman_robots):
         # Filter out all robots that aren't this specific robot id
-        kalman_robots = filter(lambda x: x.bot_id == bot_id, kalman_robots)
+        #kalman_robots = list(filter(lambda x: x.bot_id == bot_id, kalman_robots))
 
         pos_avg = [0, 0]
         vel_avg = [0, 0]
@@ -22,10 +22,8 @@ class WorldRobot:
         # This should never happen, but it's buggy right now
         if len(kalman_robots) == 0:
             print('WorldRobots::ERROR::NoKalmanRobots?')
-            self.pos = pos_avg
-            self.vel = vel_avg
-            self.theta = theta_avg
-            self.omega = omega_avg
+            self.pos = [pos_avg[0], pos_avg[1], theta_avg]
+            self.vel = [vel_avg[0], vel_avg[1], omega_avg]
 
             return
 
@@ -76,8 +74,8 @@ class WorldRobot:
 
             # Apply the weighting to all the estimates
             state = robot.filter.x_k_k
-            pos_avg   = np.add(pos_avg,   np.multiply(filter_pos_weight,   [state.item(0), state.item(2)]))
-            vel_avg   = np.add(vel_avg,   np.multiply(filter_vel_weight,   [state.item(1), state.item(3)]))
+            pos_avg   = np.add([pos_avg[0], pos_avg[1]],   np.multiply(filter_pos_weight,   [state.item(0), state.item(2)]))
+            vel_avg   = np.add([vel_avg[0], vel_avg[1]],   np.multiply(filter_vel_weight,   [state.item(1), state.item(3)]))
             theta_avg = np.add(theta_avg, np.multiply(filter_theta_weight, state.item(4)))
             omega_avg = np.add(omega_avg, np.multiply(filter_omega_weight, state.item(5)))
 
@@ -90,17 +88,15 @@ class WorldRobot:
         if (total_filter_pos_weight <= 0 or
             total_filter_vel_weight <= 0 or
             total_filter_theta_weight <= 0 or
-            total_filter_omega_weight):
+            total_filter_omega_weight <= 0):
 
-            print('WorldBall::ERROR::WeightsAreLTZero')
+            print('WorldRobot::ERROR::WeightsAreLTZero')
 
         # Scale back to the normal values
-        pos_avg = np.multiply(pos,avg, 1/total_filter_pos_weight)
+        pos_avg = np.multiply(pos_avg, 1/total_filter_pos_weight)
         vel_avg = np.multiply(vel_avg, 1/total_filter_vel_weight)
         theta_avg = np.multiply(theta_avg, 1/total_filter_theta_weight)
         omega_avg = np.multiply(omega_avg, 1/total_filter_omega_weight)
 
-        self.pos = pos_avg
-        self.vel = vel_avg
-        self.theta = theta_avg
-        self.omega = omega_avg
+        self.pos = [pos_avg[0], pos_avg[1], theta_avg]
+        self.vel = [vel_avg[0], vel_avg[1], omega_avg]

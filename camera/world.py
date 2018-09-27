@@ -12,8 +12,8 @@ class World:
 
         # Create list world robots / ball
         self.world_ball = None
-        self.world_robots_blue = [[] for x in range(0, util.config.max_num_robots_per_team)]
-        self.world_robots_yellow = [[] for x in range(0, util.config.max_num_robots_per_team)]
+        self.world_robots_blue = [None] * util.config.max_num_robots_per_team
+        self.world_robots_yellow = [None] * util.config.max_num_robots_per_team
 
         # Plotting stuff
         self.setup_plots()
@@ -85,24 +85,47 @@ class World:
                 # for robot in robot list
                 # check length and take top for each robot
                 # Combine together
+                for idx, blue_robots_list in enumerate(blue_robots):
+                    if len(blue_robots_list) > 0:
+                        robot_blue_list[idx].append(blue_robots_list[0])
+
+                for idx, yellow_robots_list in enumerate(yellow_robots):
+                    if len(yellow_robots_list) > 0:
+                        robot_yellow_list[idx].append(yellow_robots_list[0])
 
         # Do merger
-        self.world_ball = WorldBall(kalman_ball_list)
+
+        if len(kalman_ball_list) > 0:
+            self.world_ball = WorldBall(kalman_ball_list)
+
+        self.world_robots_blue = [None] * util.config.max_num_robots_per_team
+        self.world_robots_yellow = [None] * util.config.max_num_robots_per_team
+
+        for idx, robot_list in enumerate(robot_blue_list):
+            if len(robot_list) > 0:
+                self.world_robots_blue[idx] = WorldRobot(idx, robot_list)
+
+        for idx, robot_list in enumerate(robot_yellow_list):
+            if len(robot_list):
+                self.world_robots_yellow[idx] = WorldRobot(idx, robot_list)
 
     def setup_plots(self):
         self.figure, self.ax = plt.subplots()
-        self.camera_ball_line, self.world_ball_line = self.ax.plot([],[], 'ro', [],[], 'bo')
+        self.camera_ball_line, self.world_ball_line, self.robot_line = self.ax.plot([],[], 'ro', [],[], 'bo', [],[], 'go')
         self.ax.axis('scaled')
         self.ax.axis([-util.config.field_width / 2, util.config.field_width / 2,
                                                  0,     util.config.field_length])
         self.camera_ball_line.set_label('Camera ball')
         self.world_ball_line.set_label('World ball')
+        self.robot_line.set_label('Robot')
         self.ax.legend()
         self.figure.show()
 
     def plot_frames(self, frames):
         ball_pos_x = []
         ball_pos_y = []
+        bot_pos_x = []
+        bot_pos_y = []
 
         for frame in frames:
             if len(frame.camera_balls) > 0:
@@ -110,6 +133,9 @@ class World:
                     ball_pos_x.append(ball.pos[0])
                     ball_pos_y.append(ball.pos[1])
 
+            if len(frame.camera_robots_blue) > 0:
+                bot_pos_x.append(frame.camera_robots_blue[0].pos[0])
+                bot_pos_y.append(frame.camera_robots_blue[0].pos[1])
 
 
         self.camera_ball_line.set_xdata(ball_pos_x)
@@ -118,6 +144,9 @@ class World:
         if (self.world_ball is not None):
             self.world_ball_line.set_xdata(self.world_ball.pos[0])
             self.world_ball_line.set_ydata(self.world_ball.pos[1])
+
+        self.robot_line.set_xdata(bot_pos_x)
+        self.robot_line.set_ydata(bot_pos_y)
 
         self.figure.canvas.draw()
         self.figure.canvas.flush_events()

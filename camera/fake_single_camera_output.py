@@ -34,13 +34,13 @@ class FakeSingleCameraOutput:
         for robot_yellow in robots_yellow_position:
             if (self.item_in_view(robot_yellow)):
                 viewed_robots_yellow.append(
-                    CameraRobot(robot_confidence, robot_yellow[0], robot_yellow[1], robot_yellow[2], robot_yellow[3])
+                    CameraRobot(time, robot_confidence, robot_yellow[0], robot_yellow[1], robot_yellow[2], robot_yellow[3])
                 )
 
         for robot_blue in robots_blue_position:
             if (self.item_in_view(robot_blue)):
                 viewed_robots_blue.append(
-                    CameraRobot(robot_confidence, robot_blue[0], robot_blue[1], robot_blue[2], robot_blue[3])
+                    CameraRobot(time, robot_confidence, robot_blue[0], robot_blue[1], robot_blue[2], robot_blue[3])
                 )
 
         self.frame_number += 1
