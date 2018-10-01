@@ -145,6 +145,15 @@ class Camera:
     def update_camera_robots(self, camera_robots_list_blue, camera_robots_list_yellow,
                                    previous_world_robot_blue, previous_world_robot_yellow):
 
+        for bot_id in range(util.config.max_num_robots_per_team):
+            for kalman_robot in self.kalman_robots_blue[bot_id]:
+                if kalman_robot.is_unhealthy():
+                    self.kalman_robots_blue[bot_id].remove(kalman_robot)
+
+            for kalman_robot in self.kalman_robots_yellow[bot_id]:
+                if kalman_robot.is_unhealthy():
+                    self.kalman_robots_yellow[bot_id].remove(kalman_robot)
+
         # camera_robots_single_id_list is the list of observations for that specific robot id
         # previous_world_robot_single is the single robot that is the assumed robot
         for bot_id in range(util.config.max_num_robots_per_team):

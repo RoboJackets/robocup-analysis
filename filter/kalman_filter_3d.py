@@ -2,6 +2,7 @@
 from filter.kalman_filter import KalmanFilter
 import util.config
 import numpy as np
+import math
 
 class KalmanFilter3D(KalmanFilter):
     def __init__(self, pos, vel):
@@ -42,16 +43,28 @@ class KalmanFilter3D(KalmanFilter):
                               [0, 0, 0, 0, 1, 0]])
 
         # Covariance of process noise (how wrong A is)
-        # There is a constant deceleration so velocity should have a higher process noise
-        # There aren't any major problems with the position process
-        # May need to split the process noise between xy states and heading states
+        # Based on a guassian white noise w_k in x_dot = A*x + B*u + G*w
+        # The noise can be propogated through the model resulting in a process noise
+        # of the form
+        #
+        #  [1/3 T^3     1/2 T^2] * sigma^2
+        #  [1/2 T^2           T]
+        # Where sigma is the standard deviation of the process noise
+        # the change in velocity over one time step should be around sqrt(T * sigma^2)
+        # Note: T is the sample period
+        # Note: May need second process noise specifically for the orientation
         p = util.config.robot_process_noise
-        self.Q_k = np.matrix([[0, 0, 0, 0, 0, 0],
-                              [0, p, 0, 0, 0, 0],
-                              [0, 0, 0, 0, 0, 0],
-                              [0, 0, 0, p, 0, 0],
-                              [0, 0, 0, 0, 0, 0],
-                              [0, 0, 0, 0, 0, p]])
+        sigma = math.sqrt((3.0 * p) / dt) / dt
+        dt3 = 1.0 / 3.0 * dt * dt * dt * sigma * sigma
+        dt2 = 1.0 / 2.0 * dt * dt * sigma * sigma
+        dt1 = dt * sigma * sigma
+
+        self.Q_k = np.matrix([[dt3, dt2,   0,   0,   0,   0],
+                              [dt2, dt1,   0,   0,   0,   0],
+                              [0,     0, dt3, dt2,   0,   0],
+                              [0,     0, dt2, dt1,   0,   0],
+                              [0,     0,   0,   0, dt3, dt2],
+                              [0,     0,   0,   0, dt2, dt1]])
 
         # Covariance of observation noise (how wrong z_k is)
         # May need to split observation noise between the xy states and heading states

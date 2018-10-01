@@ -106,26 +106,31 @@ class World:
                 self.world_robots_blue[idx] = WorldRobot(idx, robot_list)
 
         for idx, robot_list in enumerate(robot_yellow_list):
-            if len(robot_list):
+            if len(robot_list) > 0:
                 self.world_robots_yellow[idx] = WorldRobot(idx, robot_list)
 
     def setup_plots(self):
         self.figure, self.ax = plt.subplots()
-        self.camera_ball_line, self.world_ball_line, self.robot_line = self.ax.plot([],[], 'ro', [],[], 'bo', [],[], 'go')
+        self.camera_ball_line, self.world_ball_line, \
+            self.camera_robot_line, self.world_robot_line = \
+                self.ax.plot([],[], 'ro', [],[], 'bo', [],[], 'co', [],[], 'mo')
         self.ax.axis('scaled')
         self.ax.axis([-util.config.field_width / 2, util.config.field_width / 2,
                                                  0,     util.config.field_length])
         self.camera_ball_line.set_label('Camera ball')
         self.world_ball_line.set_label('World ball')
-        self.robot_line.set_label('Robot')
+        self.camera_robot_line.set_label('Camera Robot')
+        self.world_robot_line.set_label('World Robot')
         self.ax.legend()
         self.figure.show()
 
     def plot_frames(self, frames):
         ball_pos_x = []
         ball_pos_y = []
-        bot_pos_x = []
-        bot_pos_y = []
+        camera_bot_pos_x = []
+        camera_bot_pos_y = []
+        world_bot_pos_x = []
+        world_bot_pos_y = []
 
         for frame in frames:
             if len(frame.camera_balls) > 0:
@@ -133,9 +138,14 @@ class World:
                     ball_pos_x.append(ball.pos[0])
                     ball_pos_y.append(ball.pos[1])
 
+            # Not actually correct for displaying all the camera robots
             if len(frame.camera_robots_blue) > 0:
-                bot_pos_x.append(frame.camera_robots_blue[0].pos[0])
-                bot_pos_y.append(frame.camera_robots_blue[0].pos[1])
+                camera_bot_pos_x.append(frame.camera_robots_blue[0].pos[0])
+                camera_bot_pos_y.append(frame.camera_robots_blue[0].pos[1])
+
+            if len(frame.camera_robots_yellow) > 0:
+                camera_bot_pos_x.append(frame.camera_robots_yellow[0].pos[0])
+                camera_bot_pos_y.append(frame.camera_robots_yellow[0].pos[1])
 
 
         self.camera_ball_line.set_xdata(ball_pos_x)
@@ -145,8 +155,21 @@ class World:
             self.world_ball_line.set_xdata(self.world_ball.pos[0])
             self.world_ball_line.set_ydata(self.world_ball.pos[1])
 
-        self.robot_line.set_xdata(bot_pos_x)
-        self.robot_line.set_ydata(bot_pos_y)
+        for world_robot in self.world_robots_blue:
+            if world_robot is not None:
+                world_bot_pos_x.append(world_robot.pos[0])
+                world_bot_pos_y.append(world_robot.pos[1])
+
+        for world_robot in self.world_robots_yellow:
+            if world_robot is not None:
+                world_bot_pos_x.append(world_robot.pos[0])
+                world_bot_pos_y.append(world_robot.pos[1])
+
+        self.camera_robot_line.set_xdata(camera_bot_pos_x)
+        self.camera_robot_line.set_ydata(camera_bot_pos_y)
+
+        self.world_robot_line.set_xdata(world_bot_pos_x)
+        self.world_robot_line.set_ydata(world_bot_pos_y)
 
         self.figure.canvas.draw()
         self.figure.canvas.flush_events()
