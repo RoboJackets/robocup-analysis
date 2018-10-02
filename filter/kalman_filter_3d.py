@@ -16,6 +16,19 @@ class KalmanFilter3D(KalmanFilter):
                                   [vel[1]],
                                   [pos[2]],
                                   [vel[2]]])
+        self.x_k_k1 = self.x_k1_k1
+        self.x_k_k = self.x_k1_k1
+
+        # Initial covariance is usually extremely high to converge to the true solution
+        p = util.config.ball_init_covariance
+        self.P_k1_k1 = np.matrix([[p, 0, 0, 0, 0, 0],
+                                  [0, p, 0, 0, 0, 0],
+                                  [0, 0, p, 0, 0, 0],
+                                  [0, 0, 0, p, 0, 0],
+                                  [0, 0, 0, 0, p, 0],
+                                  [0, 0, 0, 0, 0, p]])
+        self.P_k_k1 = self.P_k1_k1
+        self.P_k_k = self.P_k_k
 
         # State transition matrix (A)
         # Pos, velocity, orientation integrator. Assume constant velocity
