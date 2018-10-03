@@ -51,9 +51,15 @@ class FakeSSLVisionOutput:
         line_len = np.linalg.norm(line)
         bot_pos = ((util.config.sim_ball_speed * time) % line_len) * line / line_len + pt1
 
-        blue_robots = [[bot_pos[0], bot_pos[1], 0, 0]]
+        blue_robots = [[bot_pos[0], bot_pos[1], 0, 0],
+                       [bot_pos[0], bot_pos[1] + 1, 0, 1],
+                       [bot_pos[0], bot_pos[1] + 2, 0, 2],
+                       [bot_pos[0], bot_pos[1] + 3, 0, 3]]
 
-        yellow_robots = []
+        yellow_robots = [[bot_pos[0] - 1, bot_pos[1], 0, 0],
+                         [bot_pos[0] - 1, bot_pos[1] + 1, 0, 1],
+                         [bot_pos[0] - 1, bot_pos[1] + 2, 0, 2],
+                         [bot_pos[0] - 1, bot_pos[1] + 3, 0, 3]]
 
         frames = []
         for camera in self.cameras:

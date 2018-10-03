@@ -157,42 +157,63 @@ class Camera:
         # camera_robots_single_id_list is the list of observations for that specific robot id
         # previous_world_robot_single is the single robot that is the assumed robot
         for bot_id in range(util.config.max_num_robots_per_team):
-            camera_robots_single_id_list = list(filter(lambda x: x.bot_id == bot_id, camera_robots_list_blue))
-            previous_world_robot_single = previous_world_robot_blue[bot_id]
+            camera_robots_single_id_list_blue = list(filter(lambda x: x.bot_id == bot_id, camera_robots_list_blue))
+            camera_robots_single_id_list_yellow = list(filter(lambda x: x.bot_id == bot_id, camera_robots_list_yellow))
+            previous_world_robot_single_blue = previous_world_robot_blue[bot_id]
+            previous_world_robot_single_yellow = previous_world_robot_yellow[bot_id]
+
+            blue_already_predicted = False
+            yellow_already_predicted = False
 
             # Update all the kalman stuff not updated
-            if (len(camera_robots_single_id_list) == 0):
+            if (len(camera_robots_single_id_list_blue) == 0):
                 for kalman_robot in self.kalman_robots_blue[bot_id]:
                     kalman_robot.predict()
-                continue
+
+                blue_already_predicted = True
+
+            if (len(camera_robots_single_id_list_yellow) == 0):
+                for kalman_robot in self.kalman_robots_yellow[bot_id]:
+                    kalman_robot.predict()
+
+                yellow_already_predicted = True
 
             # Select which observation -> KF measurement we are using
             if (util.config.use_multi_hypothesis):
                 # Go through each and every robot, try to apply to list
-                self.kalman_robots_blue[bot_id] = \
-                    self.update_camera_robot_MHKF(
-                        bot_id,
-                        camera_robots_single_id_list,
-                        previous_world_robot_single,
-                        self.kalman_robots_blue[bot_id])
-            else:
-                self.kalman_robots_blue[bot_id] = \
-                    self.update_camera_robot_AKF(
-                        bot_id,
-                        camera_robots_single_id_list,
-                        previous_world_robot_single,
-                        self.kalman_robots_blue[bot_id])
 
-        # Will be a copy paste of above
-        # Done so we don't have to keep track of teams
-        # Additionally, it will directly correlate between OurRobot and Robot objects
-        for idx, yellow_camera_robot in enumerate(camera_robots_list_yellow):
-            # Select which observation -> KF measurement we are using
-            if (util.config.use_multi_hypothesis):
-                # Go through each and every robot, try to apply to list
-                pass
+                if not blue_already_predicted:
+                    self.kalman_robots_blue[bot_id] = \
+                        self.update_camera_robot_MHKF(
+                            bot_id,
+                            camera_robots_single_id_list_blue,
+                            previous_world_robot_single_blue,
+                            self.kalman_robots_blue[bot_id])
+
+                if not yellow_already_predicted:
+                    self.kalman_robots_yellow[bot_id] = \
+                        self.update_camera_robot_MHKF(
+                            bot_id,
+                            camera_robots_single_id_list_yellow,
+                            previous_world_robot_single_yellow,
+                            self.kalman_robots_yellow[bot_id])
             else:
-                pass
+
+                if not blue_already_predicted:
+                    self.kalman_robots_blue[bot_id] = \
+                        self.update_camera_robot_AKF(
+                            bot_id,
+                            camera_robots_single_id_list_blue,
+                            previous_world_robot_single_blue,
+                            self.kalman_robots_blue[bot_id])
+
+                if not yellow_already_predicted:
+                    self.kalman_robots_yellow[bot_id] = \
+                        self.update_camera_robot_AKF(
+                            bot_id,
+                            camera_robots_single_id_list_yellow,
+                            previous_world_robot_single_yellow,
+                            self.kalman_robots_yellow[bot_id])
 
     # Updates all the kalman filters for this specific robot id using the MHKF algorithm
     def update_camera_robot_MHKF(self,
@@ -327,7 +348,7 @@ class Camera:
             for kalman_robot in kalman_robot_list:
                 kalman_robot.predict()
 
-        for kalman_robot_list in self.kalman_robots_blue:
+        for kalman_robot_list in self.kalman_robots_yellow:
             for kalman_robot in kalman_robot_list:
                 kalman_robot.predict()
 

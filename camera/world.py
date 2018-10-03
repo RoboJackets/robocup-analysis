@@ -138,14 +138,15 @@ class World:
                     ball_pos_x.append(ball.pos[0])
                     ball_pos_y.append(ball.pos[1])
 
-            # Not actually correct for displaying all the camera robots
             if len(frame.camera_robots_blue) > 0:
-                camera_bot_pos_x.append(frame.camera_robots_blue[0].pos[0])
-                camera_bot_pos_y.append(frame.camera_robots_blue[0].pos[1])
+                for robot in frame.camera_robots_blue:
+                    camera_bot_pos_x.append(robot.pos[0])
+                    camera_bot_pos_y.append(robot.pos[1])
 
             if len(frame.camera_robots_yellow) > 0:
-                camera_bot_pos_x.append(frame.camera_robots_yellow[0].pos[0])
-                camera_bot_pos_y.append(frame.camera_robots_yellow[0].pos[1])
+                for robot in frame.camera_robots_yellow:
+                    camera_bot_pos_x.append(robot.pos[0])
+                    camera_bot_pos_y.append(robot.pos[1])
 
 
         self.camera_ball_line.set_xdata(ball_pos_x)

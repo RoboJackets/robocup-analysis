@@ -15,8 +15,8 @@ ball_robot_mouth_angle_dampen_factor  = 0.0
 ball_robot_mouth_vel_dampen_factor    = 0.0
 
 ball_init_covariance = 100
-ball_process_error = 0.01
-ball_observation_noise = 0.5
+ball_process_error = 0.1
+ball_observation_noise = 2.0
 
 max_num_robots_per_team = 20
 max_num_cameras = 10
@@ -40,5 +40,5 @@ camera_percent_overlap = 0
 ball_merger_power = 1.5 # Should be between 1 and 2, higher number results in more jitter
 robot_merger_power = 1.5 # Should be between 1 and 2, higher number results in more jitter
 
-camera_noise = 0.2
-sim_ball_speed = 3.0
+camera_noise = 0.01
+sim_ball_speed = 6.0
