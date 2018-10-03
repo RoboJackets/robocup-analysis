@@ -10,23 +10,22 @@ class KalmanRobot:
         self.health = util.config.health_init
         self.bot_id = bot_id
         self.unwrap_theta_ctr = 0
-        self.previous_state = self.pos()
+        self.previous_measurement = pos[2]
 
     def predict(self):
         self.health = max(self.health - util.config.health_dec, util.config.health_min)
         self.filter.predict()
-        self.check_theta_unwrap()
 
     def predict_and_update(self, time, pos):
         self.last_update_time = time
         self.health = min(self.health + util.config.health_inc, util.config.health_max)
 
         # Unwrap yaw so we don't have any discontinuities
+        self.check_theta_unwrap(time, pos)
         pos[2] = pos[2] + self.unwrap_theta_ctr*2*3.14
 
         self.filter.z_k = [[pos[0]], [pos[1]], [pos[2]]]
         self.filter.predict_and_update()
-        self.check_theta_unwrap()
 
     def pos(self):
         return [self.filter.x_k_k[0], self.filter.x_k_k[2], self.filter.x_k_k[4]]
@@ -39,13 +38,14 @@ class KalmanRobot:
 
         return valid_health and updated_recently
 
-    def check_theta_unwrap(self):
+    def check_theta_unwrap(self, time, pos):
+        # We check below and above 2 just to give a little leyway between frames
         # Wrap below pi
-        if (self.previous_state[2] < -3 and self.pos()[2] > 3):
+        if (self.previous_measurement < -2 and pos[2] > 2):
             self.unwrap_theta_ctr -= 1
 
         # Wrap above pi
-        if (self.previous_state[2] > 3 and self.pos()[2] < -3):
+        if (self.previous_measurement > 2 and pos[2] < -2):
             self.unwrap_theta_ctr += 1
 
-        self.previous_state = self.pos()
+        self.previous_measurement = pos[2]
