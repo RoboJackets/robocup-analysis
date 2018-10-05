@@ -7,12 +7,13 @@ robot_process_noise = 0.1
 robot_observation_noise = 2.0
 
 robot_radius = .1
+ball_radius = .05
 
 # How what percent of the ball velocity is left after collision to each
-ball_robot_circle_angle_dampen_factor = 0.0
-ball_robot_circle_vel_dampen_factor   = 0.0
+ball_robot_circle_angle_dampen_factor = 0.5
+ball_robot_circle_vel_dampen_factor   = 1.0
 ball_robot_mouth_angle_dampen_factor  = 0.0
-ball_robot_mouth_vel_dampen_factor    = 0.0
+ball_robot_mouth_vel_dampen_factor    = 1.0
 
 ball_init_covariance = 100
 ball_process_error = 0.1

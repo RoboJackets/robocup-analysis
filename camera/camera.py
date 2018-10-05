@@ -162,6 +162,7 @@ class Camera:
             previous_world_robot_single_blue = previous_world_robot_blue[bot_id]
             previous_world_robot_single_yellow = previous_world_robot_yellow[bot_id]
 
+            # Make sure not to update stuff twice
             blue_already_predicted = False
             yellow_already_predicted = False
 

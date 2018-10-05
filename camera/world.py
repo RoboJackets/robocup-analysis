@@ -1,6 +1,7 @@
 from camera.camera import Camera
 from ball.world_ball import WorldBall
 from robot.world_robot import WorldRobot
+import ball.process_ball_interactions
 import util.config
 import matplotlib.pyplot as plt
 import matplotlib
@@ -58,7 +59,8 @@ class World:
         self.update_world_objects()
 
     def calculate_ball_bounce(self):
-        pass
+        robot_list = self.world_robots_blue + self.world_robots_yellow
+        ball.process_ball_interactions.calculate_bounce(self.world_ball, robot_list)
 
     def update_world_objects(self):
         # Take best kalman filter set for each camera (ball and one for each robot)

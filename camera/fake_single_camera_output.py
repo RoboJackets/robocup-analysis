@@ -28,19 +28,19 @@ class FakeSingleCameraOutput:
         if (self.item_in_view(ball_position)):
             # TODO: Add in the multiple ball detections
             viewed_balls.append(
-                CameraBall(time, ball_confidence, *np.random.normal(ball_position, util.config.camera_noise))
+                CameraBall(time, ball_confidence, ball_position[0], ball_position[1])#*np.random.normal(ball_position, util.config.camera_noise))
             )
 
         for robot_yellow in robots_yellow_position:
             if (self.item_in_view(robot_yellow)):
-                rand_pos = np.random.normal(robot_yellow[0:3], util.config.camera_noise)
+                rand_pos = robot_yellow[0:3] #np.random.normal(robot_yellow[0:3], util.config.camera_noise)
                 viewed_robots_yellow.append(
                     CameraRobot(time, robot_confidence, rand_pos[0], rand_pos[1], rand_pos[2], robot_yellow[3])
                 )
 
         for robot_blue in robots_blue_position:
             if (self.item_in_view(robot_blue)):
-                rand_pos = np.random.normal(robot_blue[0:3], util.config.camera_noise)
+                rand_pos = robot_blue[0:3] #np.random.normal(robot_blue[0:3], util.config.camera_noise)
                 viewed_robots_blue.append(
                     CameraRobot(time, robot_confidence, rand_pos[0], rand_pos[1], rand_pos[2], robot_blue[3])
                 )
