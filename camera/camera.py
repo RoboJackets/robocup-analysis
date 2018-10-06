@@ -2,6 +2,7 @@ from ball.camera_ball import CameraBall
 from ball.kalman_ball import KalmanBall
 from robot.camera_robot import CameraRobot
 from robot.kalman_robot import KalmanRobot
+import ball.process_ball_interactions
 
 from numpy import linalg as LA
 import numpy as np
@@ -19,6 +20,14 @@ class Camera:
 
         # TODO: Add simple transformation matrices
         #       to do scaling, skewing, rotation, translation, and shear
+
+    # Processes bounces on the kalman ball given a list of robot positions
+    def process_ball_bounce(self, world_robot_list):
+        for kalman_ball in self.kalman_balls:
+            new_vel = ball.process_ball_interactions.calculate_bounce(kalman_ball, world_robot_list)
+
+            if new_vel is not None:
+                kalman_ball.set_vel(new_vel)
 
     # Matches the list of camera balls for this specific camera to the kalman balls
     def update_camera_balls(self, camera_balls_list, previous_world_ball):

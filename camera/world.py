@@ -1,7 +1,6 @@
 from camera.camera import Camera
 from ball.world_ball import WorldBall
 from robot.world_robot import WorldRobot
-import ball.process_ball_interactions
 import util.config
 import matplotlib.pyplot as plt
 import matplotlib
@@ -60,7 +59,9 @@ class World:
 
     def calculate_ball_bounce(self):
         robot_list = self.world_robots_blue + self.world_robots_yellow
-        ball.process_ball_interactions.calculate_bounce(self.world_ball, robot_list)
+        for camera in self.cameras:
+            if (camera is not None):
+                camera.process_ball_bounce(robot_list)
 
     def update_world_objects(self):
         # Take best kalman filter set for each camera (ball and one for each robot)
@@ -126,6 +127,18 @@ class World:
         self.ax.legend()
         self.figure.show()
 
+        self.figure2, self.ax2 = plt.subplots()
+        self.ball_vel_x_line, self.ball_vel_y_line = self.ax2.plot([],[], 'r', [],[], 'b')
+        self.ax2.axis('scaled')
+        self.ball_vel_x_line.set_label('Ball Vel X')
+        self.ball_vel_y_line.set_label('Ball Vel Y')
+        self.ax2.legend()
+        self.figure2.show()
+
+        self.world_ball_vel_x = [0]
+        self.world_ball_vel_y = [0]
+        self.time = [0]
+
     def plot_frames(self, frames):
         ball_pos_x = []
         ball_pos_y = []
@@ -157,6 +170,9 @@ class World:
         if (self.world_ball is not None):
             self.world_ball_line.set_xdata(self.world_ball.pos[0])
             self.world_ball_line.set_ydata(self.world_ball.pos[1])
+            self.world_ball_vel_x.append(self.world_ball.vel[0])
+            self.world_ball_vel_y.append(self.world_ball.vel[1])
+            self.time.append(self.time[len(self.time)-1] + 1)
 
         for world_robot in self.world_robots_blue:
             if world_robot is not None:
@@ -176,3 +192,14 @@ class World:
 
         self.figure.canvas.draw()
         self.figure.canvas.flush_events()
+
+        self.ball_vel_x_line.set_xdata(self.time)
+        self.ball_vel_x_line.set_ydata(self.world_ball_vel_x)
+        self.ball_vel_y_line.set_xdata(self.time)
+        self.ball_vel_y_line.set_ydata(self.world_ball_vel_y)
+
+        self.ax2.axis([max(len(self.time)-50, 0), max(len(self.time), 50),
+                       min(self.world_ball_vel_y), max(self.world_ball_vel_y)])
+
+        self.figure2.canvas.draw()
+        self.figure2.canvas.flush_events()

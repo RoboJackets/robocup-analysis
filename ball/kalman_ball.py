@@ -40,7 +40,14 @@ class KalmanBall:
         return valid_health and updated_recently
 
     def pos(self):
-        return [self.filter.x_k_k[0], self.filter.x_k_k[2]]
+        return [self.filter.x_k_k.item(0), self.filter.x_k_k.item(2)]
+
+    def vel(self):
+        return [self.filter.x_k_k.item(1), self.filter.x_k_k.item(3)]
+
+    def set_vel(self, new_vel):
+        self.filter.x_k_k[1] = new_vel[0]
+        self.filter.x_k_k[3] = new_vel[1]
 
     def setup_plots(self):
         self.figure, self.ax = plt.subplots()

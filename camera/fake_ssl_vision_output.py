@@ -39,34 +39,22 @@ class FakeSSLVisionOutput:
 
     # Returns list of frames given the current time for all cameras
     def get_frames(self, time):
-        pt1 = np.array([-2.5, 2.5])
-        pt2 = np.array([2.5, 5.5])
+        pt1 = np.array([1, 0.1])
+        pt2 = np.array([1, 2])
         line = pt2 - pt1
         line_len = np.linalg.norm(line)
         ball_pos = ((util.config.sim_ball_speed * time) % line_len) * line / line_len + pt1
 
-        pt1 = np.array([-3, 3])
-        pt2 = np.array([3, 3])
-        line = pt2 - pt1
-        line_len = np.linalg.norm(line)
-        bot_pos = ((util.config.sim_ball_speed * time) % line_len) * line / line_len + pt1
-        orien = 10*math.sin(0.5*time)
+        if ((util.config.sim_ball_speed * time) % line_len*2 < line_len):
+            ball_pos = -((util.config.sim_ball_speed * time) % line_len) * line / line_len + pt2
 
-        while orien > math.pi:
-            orien -= 2*math.pi
 
-        while orien < -math.pi:
-            orien += 2*math.pi
+        # X, Y, Theta, Bot_ID
+        blue_robots = [[1, 2 + util.config.robot_radius + util.config.ball_radius, 0, 0]]
+        #              [1, 0.1 - util.config.robot_radius, 0, 0]
 
-        blue_robots = [[bot_pos[0], bot_pos[1], orien, 0],
-                       [bot_pos[0], bot_pos[1] + 1, 0, 1],
-                       [bot_pos[0], bot_pos[1] + 2, 0, 2],
-                       [bot_pos[0], bot_pos[1] + 3, 0, 3]]
 
-        yellow_robots = [[bot_pos[0] - 1, bot_pos[1], 0, 0],
-                         [bot_pos[0] - 1, bot_pos[1] + 1, 0, 1],
-                         [bot_pos[0] - 1, bot_pos[1] + 2, 0, 2],
-                         [bot_pos[0] - 1, bot_pos[1] + 3, 0, 3]]
+        yellow_robots = []
 
         frames = []
         for camera in self.cameras:

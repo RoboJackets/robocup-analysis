@@ -58,7 +58,7 @@ def calculate_bounce(estimated_ball, estimated_robots):
 
             # We want to make sure that the ball is never inside the robot when doing this math, so we go back in time
             # This doesn't affect the results since we are just doing vectors
-            ball_pos_safe_point = np.subtract(estimated_ball.pos, np.multiply(estimated_ball.vel, 1/np.linalg.norm(estimated_ball.vel)))
+            ball_pos_safe_point = np.subtract(estimated_ball.pos(), np.multiply(estimated_ball.vel(), 1/np.linalg.norm(estimated_ball.vel())))
 
             # Find the closest point
             # AKA: the first point the ball will hit off the robot
@@ -137,7 +137,7 @@ def calculate_bounce(estimated_ball, estimated_robots):
             reflection_transformed_unit = np.dot(angle_scale_transform, intersect_point_reflection_unit)
 
             # Angle CBD
-            half_total_reflection_angle = math.acos(intersect_point_reflection_unit.dot(robot_intersect_point_unit))
+            half_total_reflection_angle = math.acos(min(intersect_point_reflection_unit.dot(robot_intersect_point_unit), 1))
 
             # Find the direction to rotate towards the x axis based on the sign of the X value of the B->F vector
             additional_rotate_angle = -sign(reflection_transformed_unit[0]) * half_total_reflection_angle
@@ -163,7 +163,7 @@ def calculate_bounce(estimated_ball, estimated_robots):
             angle_scale_matrix = [[math.cos(t), -math.sin(t)],
                                   [math.sin(t),  math.cos(t)]]
 
-            # Multiply everythign together
+            # Multiply everything together
             full_transform = np.dot(inv_angle_scale_transform, angle_scale_matrix)
             full_transform = np.dot(full_transform, speed_scale_matrix)
             full_transform = np.dot(full_transform, angle_scale_transform)
@@ -171,8 +171,7 @@ def calculate_bounce(estimated_ball, estimated_robots):
             # Get final velocity direction and scale by multiplying the intersect point->reflection vector by the dampen transform matrices
             # and multiplying it by the intial velocity of the ball
             final_ball_vel = full_transform.dot(intersect_point_reflection_unit)
-            # TODO: Normalize vector before passing in
-            final_ball_vel = np.multiply(final_ball_vel, np.linalg.norm(estimated_ball.vel))
+            final_ball_vel = np.multiply(final_ball_vel, np.linalg.norm(estimated_ball.vel()))
 
             return final_ball_vel
 
@@ -181,7 +180,7 @@ def calculate_bounce(estimated_ball, estimated_robots):
 
 # Ball within the robot radius (Misses mouth stuff, but whatevs)
 def ball_in_robot(estimated_ball, estimated_robot):
-    next_ball_pos = np.add(estimated_ball.pos, np.multiply(estimated_ball.vel, util.config.dt))
+    next_ball_pos = np.add(estimated_ball.pos(), np.multiply(estimated_ball.vel(), util.config.dt))
     return dist_between_pts(next_ball_pos, estimated_robot.pos[0:2]) < util.config.robot_radius + util.config.ball_radius
 
 # Simple dist between (x,y) points
@@ -199,10 +198,10 @@ def possible_ball_intersection_pts(estimated_ball, estimated_robot):
     # x/y1 is the current ball in the robot centered coordinate frame
     # x/y2 is the next probable ball position in the robot centered coordinate frame
     # We just want a line in the direction of the ball motion
-    x1 = estimated_ball.pos[0] - estimated_robot.pos[0]
-    y1 = estimated_ball.pos[1] - estimated_robot.pos[1]
-    x2 = estimated_ball.pos[0] + estimated_ball.vel[0] - estimated_robot.pos[0]
-    y2 = estimated_ball.pos[1] + estimated_ball.vel[1] - estimated_robot.pos[1]
+    x1 = estimated_ball.pos()[0] - estimated_robot.pos[0]
+    y1 = estimated_ball.pos()[1] - estimated_robot.pos[1]
+    x2 = estimated_ball.pos()[0] + estimated_ball.vel()[0] - estimated_robot.pos[0]
+    y2 = estimated_ball.pos()[1] + estimated_ball.vel()[1] - estimated_robot.pos[1]
 
     dx = x2 - x1
     dy = y2 - y1
