@@ -3,12 +3,12 @@ dt = 1/sample_rate
 camera_rate = 60
 use_fake_camera = False
 
-robot_radius = .90
-ball_radius = .04267
+robot_radius = .07 # Not really correct, but the mouth causes problems since it's not implemented
+ball_radius = .02134
 
 # How what percent of the ball velocity is left after collision to each
-ball_robot_circle_angle_dampen_factor = 0.0
-ball_robot_circle_vel_dampen_factor   = 0.0
+ball_robot_circle_angle_dampen_factor = 0.0 # How much to change the angle. Higher means less like ideal
+ball_robot_circle_vel_dampen_factor   = 0.7 # What percent of vel is left after collision
 ball_robot_mouth_angle_dampen_factor  = 0.0
 ball_robot_mouth_vel_dampen_factor    = 1.0
 
