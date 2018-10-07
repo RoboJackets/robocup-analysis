@@ -216,7 +216,6 @@ class Camera:
                 if not blue_already_predicted:
                     self.kalman_robots_blue[bot_id] = \
                         self.update_camera_robot_AKF(
-                            calc_time,
                             bot_id,
                             camera_robots_single_id_list_blue,
                             previous_world_robot_single_blue,
@@ -225,7 +224,6 @@ class Camera:
                 if not yellow_already_predicted:
                     self.kalman_robots_yellow[bot_id] = \
                         self.update_camera_robot_AKF(
-                            calc_time,
                             bot_id,
                             camera_robots_single_id_list_yellow,
                             previous_world_robot_single_yellow,
