@@ -23,13 +23,16 @@ class Camera:
 
     # Processes bounces on the kalman ball given a list of robot positions
     def process_ball_bounce(self, world_robot_list):
+        pass
+        balls_to_add = []
         for kalman_ball in self.kalman_balls:
             new_vel = ball.process_ball_interactions.calculate_bounce(kalman_ball, world_robot_list)
 
             # TODO: Should explore whether we should reset the convariance
-            if new_vel is not None:
-                pass
-                #kalman_ball.set_vel(new_vel)
+#            if new_vel is not None and np.linalg.norm(new_vel, 2) > 0.1:
+#                balls_to_add.append(KalmanBall(kalman_ball.last_update_time, kalman_ball.pos(), new_vel))
+
+        self.kalman_Balls = self.kalman_balls + balls_to_add
 
     # Matches the list of camera balls for this specific camera to the kalman balls
     def update_camera_balls(self, calc_time, camera_balls_list, previous_world_ball):

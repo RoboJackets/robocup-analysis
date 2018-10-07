@@ -132,7 +132,6 @@ class World:
 
         self.figure2, self.ax2 = plt.subplots()
         self.ball_vel_x_line, self.ball_vel_y_line = self.ax2.plot([],[], 'r', [],[], 'b')
-        self.ax2.axis('scaled')
         self.ball_vel_x_line.set_label('Ball Vel X')
         self.ball_vel_y_line.set_label('Ball Vel Y')
         self.ax2.legend()
@@ -140,7 +139,6 @@ class World:
 
         self.figure3, self.ax3 = plt.subplots()
         self.ball_pos_cov_line, self.ball_vel_cov_line = self.ax3.plot([],[], 'r', [],[], 'b')
-        self.ax3.axis('scaled')
         self.ball_pos_cov_line.set_label('Ball Pos Cov')
         self.ball_vel_cov_line.set_label('Ball Vel Cov')
         self.ax3.legend()
@@ -191,6 +189,14 @@ class World:
             self.world_ball_vel_cov.append(self.world_ball.vel_cov)
             self.time.append(self.time[len(self.time)-1] + 1)
 
+        if len(self.time) > 50:
+            l = len(self.time) - 50
+            self.world_ball_vel_x = self.world_ball_vel_x[l:]
+            self.world_ball_vel_y = self.world_ball_vel_y[l:]
+            self.world_ball_pos_cov = self.world_ball_pos_cov[l:]
+            self.world_ball_vel_cov = self.world_ball_vel_cov[l:]
+            self.time = self.time[l:]
+
         for world_robot in self.world_robots_blue:
             if world_robot is not None:
                 world_robot_blue_pos_x.append(world_robot.pos[0])
@@ -219,10 +225,8 @@ class World:
         self.ball_vel_y_line.set_xdata(self.time)
         self.ball_vel_y_line.set_ydata(self.world_ball_vel_y)
 
-        min_val = min(min(self.world_ball_vel_x), min(self.world_ball_vel_y))
-        max_val = max(max(self.world_ball_vel_x), max(self.world_ball_vel_y))
-        self.ax2.axis([max(len(self.time)-50, 0), max(len(self.time), 50),
-                       min_val, max_val])
+        self.ax2.axis([min(self.time), min(self.time) + 50,
+                       -6.5, 6.5])
 
         self.figure2.canvas.draw()
         self.figure2.canvas.flush_events()
@@ -232,10 +236,9 @@ class World:
         self.ball_vel_cov_line.set_xdata(self.time)
         self.ball_vel_cov_line.set_ydata(self.world_ball_vel_cov)
 
-        min_val = min(min(self.world_ball_pos_cov), min(self.world_ball_vel_cov))
         max_val = max(max(self.world_ball_pos_cov), max(self.world_ball_vel_cov))
-        self.ax3.axis([max(len(self.time)-50, 0), max(len(self.time), 50),
-                       min_val, max_val])
+        self.ax3.axis([min(self.time), min(self.time) + 50,
+                       0, max(max_val, 10)])
 
         self.figure3.canvas.draw()
         self.figure3.canvas.flush_events()
