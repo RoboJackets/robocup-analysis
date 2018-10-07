@@ -18,7 +18,7 @@ class World:
         # Plotting stuff
         self.setup_plots()
 
-    def update_with_camera_frame(self, frame_list):
+    def update_with_camera_frame(self, calc_time, frame_list):
         self.plot_frames(frame_list)
 
         self.calculate_ball_bounce()
@@ -33,8 +33,9 @@ class World:
             if self.cameras[camera_id] is None:
                 self.cameras[camera_id] = Camera(camera_id)
 
-            self.cameras[camera_id].update_camera_balls(frame.camera_balls, self.world_ball)
-            self.cameras[camera_id].update_camera_robots(frame.camera_robots_blue,
+            self.cameras[camera_id].update_camera_balls(calc_time, frame.camera_balls, self.world_ball)
+            self.cameras[camera_id].update_camera_robots(calc_time,
+                                                         frame.camera_robots_blue,
                                                          frame.camera_robots_yellow,
                                                          self.world_robots_blue,
                                                          self.world_robots_yellow)
@@ -44,16 +45,16 @@ class World:
         for i in range(0, util.config.max_num_cameras):
             if (self.cameras[i] is not None and
                 i not in updated_camera_ids):
-                self.cameras[i].update_camera_without_data()
+                self.cameras[i].update_camera_without_data(calc_time)
 
         self.update_world_objects()
 
-    def update_without_camera_frame(self):
+    def update_without_camera_frame(self, calc_time):
         self.calculate_ball_bounce()
 
         for camera in self.cameras:
             if camera is not None:
-                camera.update_without_camera_frame()
+                camera.update_without_camera_frame(calc_time)
 
         self.update_world_objects()
 
@@ -115,15 +116,17 @@ class World:
     def setup_plots(self):
         self.figure, self.ax = plt.subplots()
         self.camera_ball_line, self.world_ball_line, \
-            self.camera_robot_line, self.world_robot_line = \
-                self.ax.plot([],[], 'ro', [],[], 'bo', [],[], 'co', [],[], 'mo')
+            self.camera_robot_line, self.world_robot_blue_line, \
+            self.world_robot_yellow_line = \
+                self.ax.plot([],[], 'ro', [],[], 'go', [],[], 'co', [],[], 'bo', [],[], 'yo')
         self.ax.axis('scaled')
-        self.ax.axis([-util.config.field_width / 2, util.config.field_width / 2,
-                                                 0,     util.config.field_length])
+        self.ax.axis([ -util.config.field_width / 2,  util.config.field_width / 2,
+                      -util.config.field_length / 2, util.config.field_length / 2])
         self.camera_ball_line.set_label('Camera ball')
         self.world_ball_line.set_label('World ball')
         self.camera_robot_line.set_label('Camera Robot')
-        self.world_robot_line.set_label('World Robot')
+        self.world_robot_blue_line.set_label('World Blue Robot')
+        self.world_robot_yellow_line.set_label('World Yellow Robot')
         self.ax.legend()
         self.figure.show()
 
@@ -135,8 +138,18 @@ class World:
         self.ax2.legend()
         self.figure2.show()
 
+        self.figure3, self.ax3 = plt.subplots()
+        self.ball_pos_cov_line, self.ball_vel_cov_line = self.ax3.plot([],[], 'r', [],[], 'b')
+        self.ax3.axis('scaled')
+        self.ball_pos_cov_line.set_label('Ball Pos Cov')
+        self.ball_vel_cov_line.set_label('Ball Vel Cov')
+        self.ax3.legend()
+        self.figure3.show()
+
         self.world_ball_vel_x = [0]
         self.world_ball_vel_y = [0]
+        self.world_ball_pos_cov = [0]
+        self.world_ball_vel_cov = [0]
         self.time = [0]
 
     def plot_frames(self, frames):
@@ -144,8 +157,10 @@ class World:
         ball_pos_y = []
         camera_bot_pos_x = []
         camera_bot_pos_y = []
-        world_bot_pos_x = []
-        world_bot_pos_y = []
+        world_robot_blue_pos_x = []
+        world_robot_blue_pos_y = []
+        world_robot_yellow_pos_x = []
+        world_robot_yellow_pos_y = []
 
         for frame in frames:
             if len(frame.camera_balls) > 0:
@@ -172,24 +187,30 @@ class World:
             self.world_ball_line.set_ydata(self.world_ball.pos[1])
             self.world_ball_vel_x.append(self.world_ball.vel[0])
             self.world_ball_vel_y.append(self.world_ball.vel[1])
+            self.world_ball_pos_cov.append(self.world_ball.pos_cov)
+            self.world_ball_vel_cov.append(self.world_ball.vel_cov)
             self.time.append(self.time[len(self.time)-1] + 1)
 
         for world_robot in self.world_robots_blue:
             if world_robot is not None:
-                world_bot_pos_x.append(world_robot.pos[0])
-                world_bot_pos_y.append(world_robot.pos[1])
+                world_robot_blue_pos_x.append(world_robot.pos[0])
+                world_robot_blue_pos_y.append(world_robot.pos[1])
 
         for world_robot in self.world_robots_yellow:
             if world_robot is not None:
-                world_bot_pos_x.append(world_robot.pos[0])
-                world_bot_pos_y.append(world_robot.pos[1])
+                world_robot_yellow_pos_x.append(world_robot.pos[0])
+                world_robot_yellow_pos_y.append(world_robot.pos[1])
 
         self.camera_robot_line.set_xdata(camera_bot_pos_x)
         self.camera_robot_line.set_ydata(camera_bot_pos_y)
 
-        self.world_robot_line.set_xdata(world_bot_pos_x)
-        self.world_robot_line.set_ydata(world_bot_pos_y)
+        self.world_robot_blue_line.set_xdata(world_robot_blue_pos_x)
+        self.world_robot_blue_line.set_ydata(world_robot_blue_pos_y)
 
+        self.world_robot_yellow_line.set_xdata(world_robot_yellow_pos_x)
+        self.world_robot_yellow_line.set_ydata(world_robot_yellow_pos_y)
+
+        self.ax.set_title(str(self.time[len(self.time)-1]*util.config.dt))
         self.figure.canvas.draw()
         self.figure.canvas.flush_events()
 
@@ -198,8 +219,23 @@ class World:
         self.ball_vel_y_line.set_xdata(self.time)
         self.ball_vel_y_line.set_ydata(self.world_ball_vel_y)
 
+        min_val = min(min(self.world_ball_vel_x), min(self.world_ball_vel_y))
+        max_val = max(max(self.world_ball_vel_x), max(self.world_ball_vel_y))
         self.ax2.axis([max(len(self.time)-50, 0), max(len(self.time), 50),
-                       min(self.world_ball_vel_y), max(self.world_ball_vel_y)])
+                       min_val, max_val])
 
         self.figure2.canvas.draw()
         self.figure2.canvas.flush_events()
+
+        self.ball_pos_cov_line.set_xdata(self.time)
+        self.ball_pos_cov_line.set_ydata(self.world_ball_pos_cov)
+        self.ball_vel_cov_line.set_xdata(self.time)
+        self.ball_vel_cov_line.set_ydata(self.world_ball_vel_cov)
+
+        min_val = min(min(self.world_ball_pos_cov), min(self.world_ball_vel_cov))
+        max_val = max(max(self.world_ball_pos_cov), max(self.world_ball_vel_cov))
+        self.ax3.axis([max(len(self.time)-50, 0), max(len(self.time), 50),
+                       min_val, max_val])
+
+        self.figure3.canvas.draw()
+        self.figure3.canvas.flush_events()

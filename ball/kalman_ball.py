@@ -10,13 +10,15 @@ import math
 class KalmanBall:
     def __init__(self, time, pos, vel):
         self.last_update_time = time
+        self.last_predict_time = time
         self.filter = KalmanFilter2D(pos, vel)
         self.health = util.config.health_init
 
         # Plotting stuff
         #self.setup_plots()
 
-    def predict(self):
+    def predict(self, time):
+        self.last_predict_time = time
         self.health = max(self.health - util.config.health_dec, util.config.health_min)
         self.filter.predict()
 
@@ -24,6 +26,7 @@ class KalmanBall:
 
     def predict_and_update(self, time, pos):
         self.last_update_time = time
+        self.last_predict_time = time
         self.health = min(self.health + util.config.health_inc, util.config.health_max)
 
         self.filter.z_k = [[pos[0]], [pos[1]]]
@@ -32,12 +35,10 @@ class KalmanBall:
         #self.plot_speed()
 
     def is_unhealthy(self):
-        # Checks how many frames it's has dropped recently
-        valid_health = self.health <= util.config.health_bad
-        # Checks time since last update (May not trigger a bad health though)
-        updated_recently = True
+        # Checks time since last update
+        updated_recently = abs(self.last_update_time - self.last_predict_time) < util.config.ball_max_time_outside_vision
 
-        return valid_health and updated_recently
+        return not updated_recently
 
     def pos(self):
         return [self.filter.x_k_k.item(0), self.filter.x_k_k.item(2)]

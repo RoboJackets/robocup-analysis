@@ -209,6 +209,8 @@ def possible_ball_intersection_pts(estimated_ball, estimated_robot):
     D = x1*y2 - x2*y1 # Determinant
     r = util.config.robot_radius + util.config.ball_radius
 
+    if abs(dr) < 1e-5:
+        return []
 
     # Don't forget to move the coordinate system back into the normal world
     x1 = D*dy + sign(dy)*dx * math.sqrt(r*r*dr*dr - D*D)
@@ -246,15 +248,3 @@ def sign(val):
         return 1
     else:
         return -1
-
-def get_normal_of_intersection_point(intersect_point, estimated_robot):
-    # Check the mouth or circle
-    # If mouth, just do forward vector
-    # If side, do center to intersect point
-    pass
-
-def calc_reflection(normal, estimated_ball):
-    # Get angle between ball vel and normal
-    # Soften angle based on config (percentage)
-    # Soften vel based on config (percentage)
-    pass

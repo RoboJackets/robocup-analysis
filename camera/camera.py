@@ -26,11 +26,13 @@ class Camera:
         for kalman_ball in self.kalman_balls:
             new_vel = ball.process_ball_interactions.calculate_bounce(kalman_ball, world_robot_list)
 
+            # TODO: Should explore whether we should reset the convariance
             if new_vel is not None:
-                kalman_ball.set_vel(new_vel)
+                pass
+                #kalman_ball.set_vel(new_vel)
 
     # Matches the list of camera balls for this specific camera to the kalman balls
-    def update_camera_balls(self, camera_balls_list, previous_world_ball):
+    def update_camera_balls(self, calc_time, camera_balls_list, previous_world_ball):
         for kalman_ball in self.kalman_balls:
             if kalman_ball.is_unhealthy():
                 self.kalman_balls.remove(kalman_ball)
@@ -38,7 +40,7 @@ class Camera:
         # If we don't have any ball measurements, just predict everything
         if (len(camera_balls_list) == 0):
             for kalman_ball in self.kalman_balls:
-                kalman_ball.predict()
+                kalman_ball.predict(calc_time)
 
             return
 
@@ -46,14 +48,14 @@ class Camera:
         # Combine the camera balls before treating as an observation for the kalman balls
         # Merge using a weighted average based on their covariance
         if (util.config.use_multi_hypothesis):
-            self.update_camera_balls_MHKF(camera_balls_list, previous_world_ball)
+            self.update_camera_balls_MHKF(calc_time, camera_balls_list, previous_world_ball)
 
         # Just merge all the cam balls together and apply to the single kalman filter
         else:
-            self.update_camera_balls_AKF(camera_balls_list, previous_world_ball)
+            self.update_camera_balls_AKF(calc_time, camera_balls_list, previous_world_ball)
 
     # Does a Multi-Hypothesis Kalman Filter Update
-    def update_camera_balls_MHKF(self, camera_balls_list, previous_world_ball):
+    def update_camera_balls_MHKF(self, calc_time, camera_balls_list, previous_world_ball):
         if (len(self.kalman_balls) == 0):
             # Average all the balls in this cameras view to init stuff
             self.kalman_balls.append(
@@ -115,7 +117,7 @@ class Camera:
 
                 kalman_ball.predict_and_update(time_avg, pos_avg)
             else:
-                kalman_ball.predict()
+                kalman_ball.predict(calc_time)
 
         # Any balls that didn't have a update, build a new kalman ball for it
         # Get difference between lists
@@ -135,7 +137,7 @@ class Camera:
                 KalmanBall(unused_ball.time_captured, pos, vel))
 
     # Does a Average Kalman Filter Update
-    def update_camera_balls_AKF(self, camera_balls_list, previous_world_ball):
+    def update_camera_balls_AKF(self, calc_time, camera_balls_list, previous_world_ball):
         # If we don't have any kalman balls
         # average all the camera balls
         if (len(self.kalman_balls) == 0):
@@ -151,7 +153,7 @@ class Camera:
 
         self.kalman_balls[0].predict_and_update(camera_balls_list[0].time_captured, pos_avg)
 
-    def update_camera_robots(self, camera_robots_list_blue, camera_robots_list_yellow,
+    def update_camera_robots(self, calc_time, camera_robots_list_blue, camera_robots_list_yellow,
                                    previous_world_robot_blue, previous_world_robot_yellow):
 
         for bot_id in range(util.config.max_num_robots_per_team):
@@ -178,13 +180,13 @@ class Camera:
             # Update all the kalman stuff not updated
             if (len(camera_robots_single_id_list_blue) == 0):
                 for kalman_robot in self.kalman_robots_blue[bot_id]:
-                    kalman_robot.predict()
+                    kalman_robot.predict(calc_time)
 
                 blue_already_predicted = True
 
             if (len(camera_robots_single_id_list_yellow) == 0):
                 for kalman_robot in self.kalman_robots_yellow[bot_id]:
-                    kalman_robot.predict()
+                    kalman_robot.predict(calc_time)
 
                 yellow_already_predicted = True
 
@@ -195,6 +197,7 @@ class Camera:
                 if not blue_already_predicted:
                     self.kalman_robots_blue[bot_id] = \
                         self.update_camera_robot_MHKF(
+                            calc_time,
                             bot_id,
                             camera_robots_single_id_list_blue,
                             previous_world_robot_single_blue,
@@ -203,6 +206,7 @@ class Camera:
                 if not yellow_already_predicted:
                     self.kalman_robots_yellow[bot_id] = \
                         self.update_camera_robot_MHKF(
+                            calc_time,
                             bot_id,
                             camera_robots_single_id_list_yellow,
                             previous_world_robot_single_yellow,
@@ -212,6 +216,7 @@ class Camera:
                 if not blue_already_predicted:
                     self.kalman_robots_blue[bot_id] = \
                         self.update_camera_robot_AKF(
+                            calc_time,
                             bot_id,
                             camera_robots_single_id_list_blue,
                             previous_world_robot_single_blue,
@@ -220,6 +225,7 @@ class Camera:
                 if not yellow_already_predicted:
                     self.kalman_robots_yellow[bot_id] = \
                         self.update_camera_robot_AKF(
+                            calc_time,
                             bot_id,
                             camera_robots_single_id_list_yellow,
                             previous_world_robot_single_yellow,
@@ -227,6 +233,7 @@ class Camera:
 
     # Updates all the kalman filters for this specific robot id using the MHKF algorithm
     def update_camera_robot_MHKF(self,
+                calc_time,
                 bot_id,
                 camera_robots_single_id_list,
                 previous_world_robot_single,
@@ -303,7 +310,7 @@ class Camera:
 
                 kalman_robot.predict_and_update(time_avg, pos_avg)
             else:
-                kalman_robot.predict()
+                kalman_robot.predict(calc_time)
 
         # Any balls that didn't have a update, build a new kalman ball for it
         # Get difference between lists
@@ -349,18 +356,18 @@ class Camera:
 
         return kalman_robots_single_id_list
 
-    def update_camera_without_data(self):
+    def update_camera_without_data(self, calc_time):
         # Update all the kalman filters since we have no data this frame
         for kalman_ball in self.kalman_balls:
-            kalman_ball.predict()
+            kalman_ball.predict(calc_time)
 
         for kalman_robot_list in self.kalman_robots_blue:
             for kalman_robot in kalman_robot_list:
-                kalman_robot.predict()
+                kalman_robot.predict(calc_time)
 
         for kalman_robot_list in self.kalman_robots_yellow:
             for kalman_robot in kalman_robot_list:
-                kalman_robot.predict()
+                kalman_robot.predict(calc_time)
 
     # Averages all the ball positions and returns a kalman filter for that object
     # Used when there is no kalman filter to update

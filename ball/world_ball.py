@@ -75,3 +75,5 @@ class WorldBall:
 
         self.pos = pos_avg
         self.vel = vel_avg
+        self.pos_cov = total_filter_pos_weight / len(kalman_balls)
+        self.vel_cov = total_filter_vel_weight / len(kalman_balls)
