@@ -6,8 +6,10 @@ import math
 
 class WorldBall:
     def __init__(self, kalman_balls):
-        pos_avg = [0, 0]
-        vel_avg = [0, 0]
+        pos_avg              = [0, 0]
+        vel_avg              = [0, 0]
+        pos_measurement_avg  = [0, 0]
+        time_measurement_avg = 0
         total_filter_pos_weight = 0
         total_filter_vel_weight = 0
 
@@ -59,8 +61,10 @@ class WorldBall:
 
             # Apply the weighting to all the estimates
             state = ball.filter.x_k_k
-            pos_avg = np.add(pos_avg, np.multiply(filter_pos_weight, [state.item(0), state.item(2)]))
-            vel_avg = np.add(vel_avg, np.multiply(filter_vel_weight, [state.item(1), state.item(3)]))
+            pos_avg             = np.add(pos_avg,             np.multiply(filter_pos_weight, [state.item(0), state.item(2)]))
+            vel_avg             = np.add(vel_avg,             np.multiply(filter_vel_weight, [state.item(1), state.item(3)]))
+            pos_measurement_avg = np.add(pos_measurement_avg, np.multiply(filter_pos_weight, ball.past_measurement[1]))
+            time_measurement_avg = time_measurement_avg + ball.past_measurement[0]
 
             total_filter_pos_weight += filter_pos_weight
             total_filter_vel_weight += filter_vel_weight
@@ -70,10 +74,13 @@ class WorldBall:
             print('WorldBall::ERROR::WeightsAreLTZero')
 
         # Scale back to the normal values
-        pos_avg = np.multiply(pos_avg, 1/total_filter_pos_weight)
-        vel_avg = np.multiply(vel_avg, 1/total_filter_vel_weight)
+        pos_avg              = np.multiply(pos_avg,             1/total_filter_pos_weight)
+        vel_avg              = np.multiply(vel_avg,             1/total_filter_vel_weight)
+        pos_measurement_avg  = np.multiply(pos_measurement_avg, 1/total_filter_pos_weight)
+        time_measurement_avg = time_measurement_avg / len(kalman_balls)
 
         self.pos = pos_avg
         self.vel = vel_avg
         self.pos_cov = total_filter_pos_weight / len(kalman_balls)
         self.vel_cov = total_filter_vel_weight / len(kalman_balls)
+        self.past_measurement = [time_measurement_avg, pos_measurement_avg]

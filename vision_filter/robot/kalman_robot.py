@@ -5,13 +5,21 @@ import util.config
 
 class KalmanRobot:
     def __init__(self, time, pos, vel, bot_id):
+        # Last time we had real data
         self.last_update_time = time
+        # Last time time we predicted with/without data
         self.last_predict_time = time
+
         self.filter = KalmanFilter3D(pos, vel)
         self.health = util.config.health_init
         self.bot_id = bot_id
+
+        # Unwrap theta stuff
         self.unwrap_theta_ctr = 0
         self.previous_measurement = pos[2]
+
+        # History of all balls used to update
+        self.camera_ball_history_list = []
 
     def predict(self, time):
         self.last_predict_time = time
@@ -19,6 +27,7 @@ class KalmanRobot:
         self.filter.predict()
 
     def predict_and_update(self, time, pos):
+        # Update health and access times
         self.last_update_time = time
         self.last_predict_time = time
         self.health = min(self.health + util.config.health_inc, util.config.health_max)
@@ -27,6 +36,7 @@ class KalmanRobot:
         self.check_theta_unwrap(time, pos)
         pos[2] = pos[2] + self.unwrap_theta_ctr*2*3.14
 
+        # Apply filter
         self.filter.z_k = [[pos[0]], [pos[1]], [pos[2]]]
         self.filter.predict_and_update()
 

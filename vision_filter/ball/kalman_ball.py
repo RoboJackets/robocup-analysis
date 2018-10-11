@@ -14,6 +14,9 @@ class KalmanBall:
         self.filter = KalmanFilter2D(pos, vel)
         self.health = util.config.health_init
 
+        # Previous raw measurement
+        self.past_measurement = (time, pos)
+
         # Plotting stuff
         #self.setup_plots()
 
@@ -31,6 +34,8 @@ class KalmanBall:
 
         self.filter.z_k = [[pos[0]], [pos[1]]]
         self.filter.predict_and_update()
+
+        self.past_measurement = (time, pos)
 
         #self.plot_speed()
 

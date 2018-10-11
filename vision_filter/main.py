@@ -46,6 +46,7 @@ while index < iteration_length:
 
     current_time += util.config.dt # Time is in seconds
 
+    # Get the frames from vision
     if util.config.use_fake_camera:
         # Fake camera data based just on the current time
         frames = vis.get_frames(current_time)
@@ -62,8 +63,10 @@ while index < iteration_length:
             else:
                 break
 
+    # Update all our filters
     world.update_with_camera_frame(current_time, frames)
 
+    # Wait to try and hit the loop times
     end = datetime.datetime.now()
     delta = int((end - start).total_seconds()*1000) # ms
 

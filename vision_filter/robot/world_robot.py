@@ -8,6 +8,7 @@ class WorldRobot:
     def __init__(self, bot_id, kalman_robots):
         # Filter out all robots that aren't this specific robot id
         #kalman_robots = list(filter(lambda x: x.bot_id == bot_id, kalman_robots))
+        self.bot_id = bot_id
 
         pos_avg = [0, 0]
         vel_avg = [0, 0]

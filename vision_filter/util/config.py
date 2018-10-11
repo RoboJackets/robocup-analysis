@@ -44,7 +44,7 @@ ball_max_time_outside_vision = .2
 robot_max_time_outside_vision = 2.0
 
 # Kick detection settings
-ball_history_length = 10
+slow_kick_detector_history_length = 5
 
 # Various field information
 field_width = 12.0
