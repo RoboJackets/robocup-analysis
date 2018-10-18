@@ -24,7 +24,8 @@ if util.config.use_fake_camera:
     vis = FakeSSLVisionOutput()
     iteration_length = 100
 else: # 5 - 10 # 20~ # 51
-    log_frames = rc_ssl_logtools.log_frames("logs/2018-06-21_14-09_ZJUNlict-vs-CMμs.log.gz", 51, 60)
+    #log_frames = rc_ssl_logtools.log_frames("logs/2018-06-21_14-09_ZJUNlict-vs-CMμs.log.gz", 51, 60)
+    log_frames = rc_ssl_logtools.log_frames("logs/2018-06-18_11-48_RoboIME-vs-ULtron.log.gz", 51, 60)
     iteration_length = len(log_frames)
 
 for i in range(0,20):
