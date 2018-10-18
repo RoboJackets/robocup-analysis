@@ -11,7 +11,7 @@ def convert_frame(ssl_frame):
     robot_blue_list = []
     robot_yellow_list = []
 
-    for frame_ball in ssl_frame.detection.balls._values:
+    for frame_ball in ssl_frame.detection.balls:
         confidence = frame_ball.confidence
         x = frame_ball.x / 1000
         y = frame_ball.y / 1000
@@ -19,7 +19,7 @@ def convert_frame(ssl_frame):
         camera_ball = ball.camera_ball.CameraBall(t_capture, confidence, x, y)
         ball_list.append(camera_ball)
 
-    for frame_robot in ssl_frame.detection.robots_blue._values:
+    for frame_robot in ssl_frame.detection.robots_blue:
         confidence = frame_robot.confidence
         x = frame_robot.x / 1000
         y = frame_robot.y / 1000
@@ -29,7 +29,7 @@ def convert_frame(ssl_frame):
         camera_robot = robot.camera_robot.CameraRobot(t_capture, confidence, x, y, orientation, robot_id)
         robot_blue_list.append(camera_robot)
 
-    for frame_robot in ssl_frame.detection.robots_yellow._values:
+    for frame_robot in ssl_frame.detection.robots_yellow:
         confidence = frame_robot.confidence
         x = frame_robot.x / 1000
         y = frame_robot.y / 1000
