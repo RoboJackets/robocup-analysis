@@ -114,8 +114,9 @@ class Camera:
                 time_avg = time_measurements[idx][0] / num_kf_measurements[idx][0]
 
                 pos_avg = [x_avg, y_avg]
+                avg_ball = ball.camera_ball.CameraBall(time_avg, 100, x_avg, y_avg)
 
-                kalman_ball.predict_and_update(time_avg, pos_avg)
+                kalman_ball.predict_and_update(calc_time, avg_ball)
             else:
                 kalman_ball.predict(calc_time)
 
@@ -125,16 +126,10 @@ class Camera:
         unused_balls_list = list(unused_balls_list)
 
         for unused_ball in unused_balls_list:
-            pos = unused_ball.pos
-            vel = [0, 0]
-
-            # If we have a world ball, use that vel
-            if (previous_world_ball is not None):
-                vel = previous_world_ball.vel
 
             # Add kalman ball at that pos using world ball vel if possible
             self.kalman_balls.append(
-                KalmanBall(unused_ball.time_captured, pos, vel))
+                KalmanBall(unused_ball.time_captured, unused_ball, previous_world_ball))
 
     # Does a Average Kalman Filter Update
     def update_camera_balls_AKF(self, calc_time, camera_balls_list, previous_world_ball):
@@ -142,16 +137,17 @@ class Camera:
         # average all the camera balls
         if (len(self.kalman_balls) == 0):
             self.kalman_balls.append(
-                self.avg_ball_pos_kalman_filter(
-                    camera_balls_list, previous_world_ball))
+                ball.kalman_ball.KalmanBall(calc_time,
+                                            self.avg_ball_pos(camera_balls_list),
+                                            previous_world_ball)
 
             return
 
         # There is already a kalman_ball
         # Average the camera balls and use it as the observation
-        pos_avg = self.avg_ball_pos(camera_balls_list)
+        ball_avg = self.avg_ball_pos(camera_balls_list)
 
-        self.kalman_balls[0].predict_and_update(camera_balls_list[0].time_captured, pos_avg)
+        self.kalman_balls[0].predict_and_update(calc_time, ball_avg)
 
     def update_camera_robots(self, calc_time, camera_robots_list_blue, camera_robots_list_yellow,
                                    previous_world_robot_blue, previous_world_robot_yellow):
@@ -367,31 +363,22 @@ class Camera:
             for kalman_robot in kalman_robot_list:
                 kalman_robot.predict(calc_time)
 
-    # Averages all the ball positions and returns a kalman filter for that object
-    # Used when there is no kalman filter to update
-    def avg_ball_pos_kalman_filter(self, camera_balls_list, previous_world_ball):
-        pos_avg = self.avg_ball_pos(camera_balls_list)
-
-        vel = [0, 0]
-
-        # If we already have a world ball last frame, use that vel
-        # for initialization
-        if (previous_world_ball is not None):
-            vel = previous_world_ball.vel
-
-        return KalmanBall(camera_balls_list[0].time_captured, pos_avg, vel)
-
-    # Average position of the ball list
+    # Returns average ball of the list
     def avg_ball_pos(self, balls_list):
         pos_avg = [0, 0]
+        time_avg = 0
 
         # Do average
         for ball in balls_list:
             pos_avg = np.add(pos_avg, ball.pos)
+            time_avg = time_avg + ball.time_captured
 
         pos_avg = np.multiply(pos_avg, 1/len(balls_list))
+        time_avg /= len(balls_list)
 
-        return pos_avg
+        ball_avg = ball.camera_ball.CameraBall(time_avg, pos_avg[0], pos_avg[1])
+
+        return ball_avg
 
     # Averages all the robot positions and returns a kalman filter for that object
     # Used when there is no kalman filter to update

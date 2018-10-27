@@ -118,7 +118,10 @@ class World:
         self.camera_ball_line, self.world_ball_line, \
             self.camera_robot_line, self.world_robot_blue_line, \
             self.world_robot_yellow_line = \
-                self.ax.plot([],[], 'ro', [],[], 'go', [],[], 'co', [],[], 'bo', [],[], 'yo')
+                self.ax.plot([],[], 'r', [],[], 'orange', [],[], 'c', [],[], 'b', [],[], 'y', marker='o', linestyle='')
+
+
+        self.field_line, asdf = self.ax.plot([], [], 'g', [], [], 'c', color='grey', linestyle='-')
         self.ax.axis('scaled')
         self.ax.axis([ -util.config.field_width / 2,  util.config.field_width / 2,
                       -util.config.field_length / 2, util.config.field_length / 2])
@@ -129,6 +132,9 @@ class World:
         self.world_robot_yellow_line.set_label('World Yellow Robot')
         self.ax.legend()
         self.figure.show()
+
+        self.field_line.set_xdata([  -6, -4.8, -4.8,  -6,  -6,   0,    0,    6,    6,  4.8, 4.8, 6])
+        self.field_line.set_ydata([-1.2, -1.2,  1.2, 1.2, 4.5, 4.5, -4.5, -4.5, -1.2, -1.2, 1.2, 1.2])
 
         self.figure2, self.ax2 = plt.subplots()
         self.ball_vel_x_line, self.ball_vel_y_line = self.ax2.plot([],[], 'r', [],[], 'b')
@@ -216,7 +222,7 @@ class World:
         self.world_robot_yellow_line.set_xdata(world_robot_yellow_pos_x)
         self.world_robot_yellow_line.set_ydata(world_robot_yellow_pos_y)
 
-        self.ax.set_title(str(self.time[len(self.time)-1]*util.config.dt))
+        #self.ax.set_title(str(self.time[len(self.time)-1]*util.config.dt))
         self.figure.canvas.draw()
         self.figure.canvas.flush_events()
 

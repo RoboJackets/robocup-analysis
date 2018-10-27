@@ -6,8 +6,8 @@ import math
 
 class WorldRobot:
     def __init__(self, bot_id, kalman_robots):
-        # Filter out all robots that aren't this specific robot id
-        #kalman_robots = list(filter(lambda x: x.bot_id == bot_id, kalman_robots))
+        # List of all the kalman_robots we used to make this
+        self.kalman_robots = kalman_robots
         self.bot_id = bot_id
 
         pos_avg = [0, 0]
@@ -85,7 +85,7 @@ class WorldRobot:
             total_filter_theta_weight += filter_theta_weight
             total_filter_omega_weight += filter_omega_weight
 
-        # These should be greater than zero always since it's basically a 1 over a vector magnitude
+        # These should be greater than zero always since it's basically 1(/vector magnitude)
         if (total_filter_pos_weight <= 0 or
             total_filter_vel_weight <= 0 or
             total_filter_theta_weight <= 0 or

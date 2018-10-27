@@ -18,7 +18,7 @@ class KalmanRobot:
         self.unwrap_theta_ctr = 0
         self.previous_measurement = pos[2]
 
-        # History of all balls used to update
+        # History of balls used to update
         self.camera_ball_history_list = []
 
     def predict(self, time):

@@ -8,14 +8,20 @@ import matplotlib.pyplot as plt
 import math
 
 class KalmanBall:
-    def __init__(self, time, pos, vel):
+    def __init__(self, time, camera_ball, previous_world_ball):
+        init_pos = camera_ball.pos
+        init_vel = [0, 0]
+        if previous_world_ball is not None:
+            init_vel = previous_world_ball.vel
+
         self.last_update_time = time
         self.last_predict_time = time
-        self.filter = KalmanFilter2D(pos, vel)
+        self.filter = KalmanFilter2D(init_pos, init_vel)
         self.health = util.config.health_init
 
-        # Previous raw measurement
-        self.past_measurement = (time, pos)
+        # Previous raw measurements
+        # Loop time the measurement occurred and the ball we used
+        self.previous_measurement = [(time, camera_ball)]
 
         # Plotting stuff
         #self.setup_plots()
@@ -27,15 +33,19 @@ class KalmanBall:
 
         #self.plot_speed()
 
-    def predict_and_update(self, time, pos):
+    def predict_and_update(self, time, camera_ball):
         self.last_update_time = time
         self.last_predict_time = time
         self.health = min(self.health + util.config.health_inc, util.config.health_max)
 
-        self.filter.z_k = [[pos[0]], [pos[1]]]
+        self.filter.z_k = [[camera_ball.pos[0]], [camera_ball.pos[1]]]
         self.filter.predict_and_update()
 
-        self.past_measurement = (time, pos)
+        # Keep track of last X measurements
+        self.previous_measurement.append((time, camera_ball))
+
+        if len(self.previous_measurement) > util.config.slow_kick_detector_history_length:
+            self.previous_measurement.pop(0)
 
         #self.plot_speed()
 
@@ -64,8 +74,8 @@ class KalmanBall:
         self.ax.legend()
         self.figure.show()
 
-        self.speed_x_list    = [0]
-        self.speed_y_list    = [0]
+        self.speed_x_list = [0]
+        self.speed_y_list = [0]
         self.time = [0]
 
     def plot_speed(self):
