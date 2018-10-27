@@ -1,0 +1,1507 @@
+ SSI_model_sfun
+
+ Timestamp is 5aa8607f (Tue Mar 13 19:36:31 2018)
+
+ Preferred load address is 0000000180000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00010ce2H .text$mn                CODE
+ 0001:00010cf0 0000007bH .text$x                 CODE
+ 0002:00000000 00000498H .idata$5                DATA
+ 0002:00000498 00000008H .CRT$XCA                DATA
+ 0002:000004a0 00000008H .CRT$XCZ                DATA
+ 0002:000004a8 00000008H .CRT$XIA                DATA
+ 0002:000004b0 00000008H .CRT$XIAA               DATA
+ 0002:000004b8 00000008H .CRT$XIC                DATA
+ 0002:000004c0 00000008H .CRT$XIZ                DATA
+ 0002:000004d0 00000190H .rdata                  DATA
+ 0002:00000660 00000008H .rtc$IAA                DATA
+ 0002:00000668 00000008H .rtc$IZZ                DATA
+ 0002:00000670 00000008H .rtc$TAA                DATA
+ 0002:00000678 00000008H .rtc$TZZ                DATA
+ 0002:00000680 0000079cH .xdata                  DATA
+ 0002:00000e20 00000054H .edata                  DATA
+ 0002:00000e74 0000008cH .idata$2                DATA
+ 0002:00000f00 00000014H .idata$3                DATA
+ 0002:00000f18 00000498H .idata$4                DATA
+ 0002:000013b0 00000d5cH .idata$6                DATA
+ 0003:00000000 00002bd8H .data                   DATA
+ 0003:00002be0 000015f8H .bss                    DATA
+ 0004:00000000 00000918H .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base               Lib:Object
+
+ 0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
+ 0000:00000000       __guard_fids_count         0000000000000000     <absolute>
+ 0000:00000000       __guard_flags              0000000000000000     <absolute>
+ 0000:00000000       __guard_fids_table         0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
+ 0000:00000000       __ImageBase                0000000180000000     <linker-defined>
+ 0001:00000000       SSI_model_initializer      0000000180001000 f   SSI_model_sfun.obj
+ 0001:00000010       SSI_model_terminator       0000000180001010 f   SSI_model_sfun.obj
+ 0001:00000020       load_SSI_model_optimization_info 0000000180001020 f   SSI_model_sfun.obj
+ 0001:000000d0       unload_SSI_model_optimization_info 00000001800010d0 f   SSI_model_sfun.obj
+ 0001:00000100       sf_SSI_model_method_dispatcher 0000000180001100 f   SSI_model_sfun.obj
+ 0001:00000150       sf_SSI_model_process_check_sum_call 0000000180001150 f   SSI_model_sfun.obj
+ 0001:00000640       sf_SSI_model_autoinheritance_info 0000000180001640 f   SSI_model_sfun.obj
+ 0001:00000820       sf_SSI_model_get_eml_resolved_functions_info 0000000180001820 f   SSI_model_sfun.obj
+ 0001:000009a0       sf_SSI_model_third_party_uses_info 00000001800019a0 f   SSI_model_sfun.obj
+ 0001:00000b70       sf_SSI_model_jit_fallback_info 0000000180001b70 f   SSI_model_sfun.obj
+ 0001:00000d40       sf_SSI_model_updateBuildInfo_args_info 0000000180001d40 f   SSI_model_sfun.obj
+ 0001:00000f10       SSI_model_debug_initialize 0000000180001f10 f   SSI_model_sfun.obj
+ 0001:00000f90       SSI_model_register_exported_symbols 0000000180001f90 f   SSI_model_sfun.obj
+ 0001:00000fa0       sf_c1_SSI_model_get_eml_resolved_functions_info 0000000180001fa0 f   c1_SSI_model.obj
+ 0001:00001020       sf_c1_SSI_model_get_check_sum 0000000180002020 f   c1_SSI_model.obj
+ 0001:000010f0       c1_SSI_model_method_dispatcher 00000001800020f0 f   c1_SSI_model.obj
+ 0001:00005480       sf_c1_SSI_model_get_post_codegen_info 0000000180006480 f   c1_SSI_model.obj
+ 0001:00005550       sf_c1_SSI_model_get_autoinheritance_info 0000000180006550 f   c1_SSI_model.obj
+ 0001:00005dc0       sf_c1_SSI_model_third_party_uses_info 0000000180006dc0 f   c1_SSI_model.obj
+ 0001:00005df0       sf_c1_SSI_model_jit_fallback_info 0000000180006df0 f   c1_SSI_model.obj
+ 0001:00005f80       sf_c1_SSI_model_updateBuildInfo_args_info 0000000180006f80 f   c1_SSI_model.obj
+ 0001:00006ca0       mexFunction                0000000180007ca0 f   SSI_model_sfun_registry.obj
+ 0001:00009280       _ssSetInputPortDirectFeedThroughFcn 000000018000a280 f   SSI_model_sfun_registry.obj
+ 0001:000093f0       _ssGetInputPortSignalPtrsFcn 000000018000a3f0 f   SSI_model_sfun_registry.obj
+ 0001:00009780       _ssGetInputPortSignalFcn   000000018000a780 f   SSI_model_sfun_registry.obj
+ 0001:00009b10       _ssSetInputPortReusableFcn 000000018000ab10 f   SSI_model_sfun_registry.obj
+ 0001:00009c10       _ssSetOutputPortReusableFcn 000000018000ac10 f   SSI_model_sfun_registry.obj
+ 0001:00009d10       _ssSetSymbolicDimsSupport  000000018000ad10 f   SSI_model_sfun_registry.obj
+ 0001:00009d80       _ssRegisterSymbolicDimsExpr 000000018000ad80 f   SSI_model_sfun_registry.obj
+ 0001:00009e00       _ssRegisterSymbolicDims    000000018000ae00 f   SSI_model_sfun_registry.obj
+ 0001:00009ea0       _ssRegisterSymbolicDimsString 000000018000aea0 f   SSI_model_sfun_registry.obj
+ 0001:00009f20       _ssRegisterSymbolicDimsIntValue 000000018000af20 f   SSI_model_sfun_registry.obj
+ 0001:00009f90       _ssRegisterSymbolicDimsPlus 000000018000af90 f   SSI_model_sfun_registry.obj
+ 0001:0000a010       _ssRegisterSymbolicDimsMinus 000000018000b010 f   SSI_model_sfun_registry.obj
+ 0001:0000a090       _ssRegisterSymbolicDimsMultiply 000000018000b090 f   SSI_model_sfun_registry.obj
+ 0001:0000a110       _ssRegisterSymbolicDimsDivide 000000018000b110 f   SSI_model_sfun_registry.obj
+ 0001:0000a190       _ssGetNumSymbolicDims      000000018000b190 f   SSI_model_sfun_registry.obj
+ 0001:0000a200       _ssGetSymbolicDim          000000018000b200 f   SSI_model_sfun_registry.obj
+ 0001:0000a280       _ssSetInputPortSymbolicDimsId 000000018000b280 f   SSI_model_sfun_registry.obj
+ 0001:0000a2f0       _ssGetCompInputPortSymbolicDimsId 000000018000b2f0 f   SSI_model_sfun_registry.obj
+ 0001:0000a360       _ssSetCompInputPortSymbolicDimsId 000000018000b360 f   SSI_model_sfun_registry.obj
+ 0001:0000a3d0       _ssSetOutputPortSymbolicDimsId 000000018000b3d0 f   SSI_model_sfun_registry.obj
+ 0001:0000a440       _ssGetCompOutputPortSymbolicDimsId 000000018000b440 f   SSI_model_sfun_registry.obj
+ 0001:0000a4b0       _ssSetCompOutputPortSymbolicDimsId 000000018000b4b0 f   SSI_model_sfun_registry.obj
+ 0001:0000a520       _ssSetCompDWorkSymbolicDimsId 000000018000b520 f   SSI_model_sfun_registry.obj
+ 0001:0000a590       ssGetIsZeroCrossControlDisabled 000000018000b590 f   SSI_model_sfun_registry.obj
+ 0001:0000a600       ssSetIsInputPortUsedForContZcSignal 000000018000b600 f   SSI_model_sfun_registry.obj
+ 0001:0000a670       ssSetZcSignalIsZcElementDisc 000000018000b670 f   SSI_model_sfun_registry.obj
+ 0001:0000a720       ssSetZcSignalName          000000018000b720 f   SSI_model_sfun_registry.obj
+ 0001:0000a790       ssSetZcSignalWidth         000000018000b790 f   SSI_model_sfun_registry.obj
+ 0001:0000a800       ssSetZcSignalZcEventType   000000018000b800 f   SSI_model_sfun_registry.obj
+ 0001:0000a870       ssSetZcSignalType          000000018000b870 f   SSI_model_sfun_registry.obj
+ 0001:0000a8e0       ssSetZcSignalZcTol         000000018000b8e0 f   SSI_model_sfun_registry.obj
+ 0001:0000a950       ssSetZcSignalNeedsEventNotification 000000018000b950 f   SSI_model_sfun_registry.obj
+ 0001:0000a9c0       ssCreateAndAddZcSignalInfo 000000018000b9c0 f   SSI_model_sfun_registry.obj
+ 0001:0000aa30       ssCloneAndAddZcSignalInfo  000000018000ba30 f   SSI_model_sfun_registry.obj
+ 0001:0000aaa0       ssGetNumZcSignals          000000018000baa0 f   SSI_model_sfun_registry.obj
+ 0001:0000ab10       ssGetZcSignalVector        000000018000bb10 f   SSI_model_sfun_registry.obj
+ 0001:0000ab80       ssGetZcSignalName          000000018000bb80 f   SSI_model_sfun_registry.obj
+ 0001:0000abf0       ssGetZcSignalWidth         000000018000bbf0 f   SSI_model_sfun_registry.obj
+ 0001:0000ac60       ssGetZcSignalZcEventType   000000018000bc60 f   SSI_model_sfun_registry.obj
+ 0001:0000acd0       ssGetZcSignalZcEvents      000000018000bcd0 f   SSI_model_sfun_registry.obj
+ 0001:0000ad40       ssGetZcSignalType          000000018000bd40 f   SSI_model_sfun_registry.obj
+ 0001:0000adb0       ssGetZcSignalZcTol         000000018000bdb0 f   SSI_model_sfun_registry.obj
+ 0001:0000ae30       ssGetZcSignalNeedsEventNotification 000000018000be30 f   SSI_model_sfun_registry.obj
+ 0001:0000aea0       ssGetZcSignalIsZcElementDisc 000000018000bea0 f   SSI_model_sfun_registry.obj
+ 0001:0000af40       ssGetIsInputPortElementContinuous 000000018000bf40 f   SSI_model_sfun_registry.obj
+ 0001:0000afe0       _ssSetIWorkValueFcn        000000018000bfe0 f   SSI_model_sfun_registry.obj
+ 0001:0000b060       _ssGetIWorkValueFcn        000000018000c060 f   SSI_model_sfun_registry.obj
+ 0001:0000b0d0       _ssSetRWorkValueFcn        000000018000c0d0 f   SSI_model_sfun_registry.obj
+ 0001:0000b150       _ssGetRWorkValueFcn        000000018000c150 f   SSI_model_sfun_registry.obj
+ 0001:0000b1c0       _ssSetPWorkValueFcn        000000018000c1c0 f   SSI_model_sfun_registry.obj
+ 0001:0000b240       _ssGetPWorkValueFcn        000000018000c240 f   SSI_model_sfun_registry.obj
+ 0001:0000b2b0       ssGetDTypeIdFromMxArray    000000018000c2b0 f   SSI_model_sfun_registry.obj
+ 0001:0000b3d0       ssWriteRTWStr              000000018000c3d0 f   SSI_model_sfun_registry.obj
+ 0001:0000b430       ssWriteRTWNameValuePair    000000018000c430 f   SSI_model_sfun_registry.obj
+ 0001:0000b930       ssWriteRTWParamSettings    000000018000c930 f   SSI_model_sfun_registry.obj
+ 0001:0000c020       ssWriteRTWParameters       000000018000d020 f   SSI_model_sfun_registry.obj
+ 0001:0000c5f0       ssWriteRTWWorkVect         000000018000d5f0 f   SSI_model_sfun_registry.obj
+ 0001:0000cb50       ssWriteRTWMxVectParam      000000018000db50 f   SSI_model_sfun_registry.obj
+ 0001:0000cbd0       ssWriteRTWMx2dMatParam     000000018000dbd0 f   SSI_model_sfun_registry.obj
+ 0001:0000cc60       _ssSetInputPortMatrixDimensions 000000018000dc60 f   SSI_model_sfun_registry.obj
+ 0001:0000cd80       _ssSetOutputPortMatrixDimensions 000000018000dd80 f   SSI_model_sfun_registry.obj
+ 0001:0000cea0       _ssSetInputPortVectorDimension 000000018000dea0 f   SSI_model_sfun_registry.obj
+ 0001:0000cf50       _ssSetOutputPortVectorDimension 000000018000df50 f   SSI_model_sfun_registry.obj
+ 0001:0000d000       ssIsRunTimeParamTunable    000000018000e000 f   SSI_model_sfun_registry.obj
+ 0001:0000d070       ssGetSFuncBlockHandle      000000018000e070 f   SSI_model_sfun_registry.obj
+ 0001:0000d0e0       _ssGetCurrentInputPortWidth 000000018000e0e0 f   SSI_model_sfun_registry.obj
+ 0001:0000d200       _ssGetCurrentOutputPortWidth 000000018000e200 f   SSI_model_sfun_registry.obj
+ 0001:0000d320       _ssGetCallSystemNumFcnCallDestinations 000000018000e320 f   SSI_model_sfun_registry.obj
+ 0001:0000d390       ssGetParameterTuningCompliance 000000018000e390 f   SSI_model_sfun_registry.obj
+ 0001:0000d400       ssWarning                  000000018000e400 f   SSI_model_sfun_registry.obj
+ 0001:0000d4f0       _ssGetAbsTol               000000018000e4f0 f   SSI_model_sfun_registry.obj
+ 0001:0000d560       _ssSetStateAbsTol          000000018000e560 f   SSI_model_sfun_registry.obj
+ 0001:0000d640       sf_process_check_sum_call  000000018000e640 f   SSI_model_sfun_registry.obj
+ 0001:0000d690       sf_process_autoinheritance_call 000000018000e690 f   SSI_model_sfun_registry.obj
+ 0001:0000d8c0       sf_process_get_third_party_uses_info_call 000000018000e8c0 f   SSI_model_sfun_registry.obj
+ 0001:0000daf0       sf_process_get_jit_fallback_info_call 000000018000eaf0 f   SSI_model_sfun_registry.obj
+ 0001:0000dd20       sf_process_get_updateBuildInfo_args_info_call 000000018000ed20 f   SSI_model_sfun_registry.obj
+ 0001:0000df50       sf_process_get_eml_resolved_functions_info_call 000000018000ef50 f   SSI_model_sfun_registry.obj
+ 0001:0000e150       sf_mex_unlock_call         000000018000f150 f   SSI_model_sfun_registry.obj
+ 0001:0000e3f0       sf_machine_global_initializer_called 000000018000f3f0 f   SSI_model_sfun_registry.obj
+ 0001:0000e420       sf_machine_global_method_dispatcher 000000018000f420 f   SSI_model_sfun_registry.obj
+ 0001:0000e480       sf_machine_global_terminator 000000018000f480 f   SSI_model_sfun_registry.obj
+ 0001:0000e4d0       sf_register_machine_exported_symbols 000000018000f4d0 f   SSI_model_sfun_registry.obj
+ 0001:0000e4f0       callCustomFcn              000000018000f4f0 f   SSI_model_sfun_registry.obj
+ 0001:0000e500       sf_machine_global_initializer 000000018000f500 f   SSI_model_sfun_registry.obj
+ 0001:0000e580       mdlGetSimState             000000018000f580 f   SSI_model_sfun_registry.obj
+ 0001:0000e5c0       mdlSetSimState             000000018000f5c0 f   SSI_model_sfun_registry.obj
+ 0001:0000ee30       ProcessMexSfunctionEveryCall 000000018000fe30 f   SSI_model_sfun_registry.obj
+ 0001:0000fe9c       sf_load_rtw_optimization_info 0000000180010e9c f   sf_runtime:sf_runtime.dll
+ 0001:0000fea2       sf_debug_initialize_machine 0000000180010ea2 f   sf_runtime:sf_runtime.dll
+ 0001:0000fea8       sf_debug_set_machine_event_thresholds 0000000180010ea8 f   sf_runtime:sf_runtime.dll
+ 0001:0000feae       sf_debug_set_machine_data_thresholds 0000000180010eae f   sf_runtime:sf_runtime.dll
+ 0001:0000feb4       sf_init_ChartRunTimeInfo   0000000180010eb4 f   sf_runtime:sf_runtime.dll
+ 0001:0000feba       sf_free_ChartRunTimeInfo   0000000180010eba f   sf_runtime:sf_runtime.dll
+ 0001:0000fec0       sfrtGetEmlrtCtx            0000000180010ec0 f   sf_runtime:sf_runtime.dll
+ 0001:0000fec6       sf_get_chart_instance_ptr  0000000180010ec6 f   sf_runtime:sf_runtime.dll
+ 0001:0000fecc       sf_rtw_info_uint_prop      0000000180010ecc f   sf_runtime:sf_runtime.dll
+ 0001:0000fed2       sf_update_buildInfo        0000000180010ed2 f   sf_runtime:sf_runtime.dll
+ 0001:0000fed8       sf_is_chart_inlinable      0000000180010ed8 f   sf_runtime:sf_runtime.dll
+ 0001:0000fede       sf_mark_chart_reusable_outputs 0000000180010ede f   sf_runtime:sf_runtime.dll
+ 0001:0000fee4       sf_mark_chart_expressionable_inputs 0000000180010ee4 f   sf_runtime:sf_runtime.dll
+ 0001:0000feea       sim_mode_is_rtw_gen        0000000180010eea f   sf_runtime:sf_runtime.dll
+ 0001:0000fef0       sim_mode_is_external       0000000180010ef0 f   sf_runtime:sf_runtime.dll
+ 0001:0000fef6       sim_mode_is_modelref_sim   0000000180010ef6 f   sf_runtime:sf_runtime.dll
+ 0001:0000fefc       sf_mex_listen_for_ctrl_c_with_debugger 0000000180010efc f   sf_runtime:sf_runtime.dll
+ 0001:0000ff02       sf_clear_rtw_identifier    0000000180010f02 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff08       sf_set_rtw_dwork_info      0000000180010f08 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff0e       sf_get_time                0000000180010f0e f   sf_runtime:sf_runtime.dll
+ 0001:0000ff14       sf_is_first_init_cond      0000000180010f14 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff1a       sf_set_chart_accesses_machine_info 0000000180010f1a f   sf_runtime:sf_runtime.dll
+ 0001:0000ff20       sf_register_codegen_names_for_scoped_functions_defined_by_chart 0000000180010f20 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff26       sf_mex_call_debug          0000000180010f26 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff2c       sf_mex_error_message       0000000180010f2c f   sf_runtime:sf_runtime.dll
+ 0001:0000ff32       sf_mex_create              0000000180010f32 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff38       sf_mex_createcellmatrix    0000000180010f38 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff3e       sf_mex_setcell             0000000180010f3e f   sf_runtime:sf_runtime.dll
+ 0001:0000ff44       sf_mex_getcell             0000000180010f44 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff4a       sf_mex_assign              0000000180010f4a f   sf_runtime:sf_runtime.dll
+ 0001:0000ff50       sf_mex_dup                 0000000180010f50 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff56       sf_mex_destroy             0000000180010f56 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff5c       sf_mex_import              0000000180010f5c f   sf_runtime:sf_runtime.dll
+ 0001:0000ff62       sf_mex_decode_encoded_mx_struct_array 0000000180010f62 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff68       ssGetInputPortSignal_wrapper 0000000180010f68 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff6e       ssGetOutputPortSignal_wrapper 0000000180010f6e f   sf_runtime:sf_runtime.dll
+ 0001:0000ff74       sf_eml_array_bounds_check  0000000180010f74 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff7a       sf_integer_check           0000000180010f7a f   sf_runtime:sf_runtime.dll
+ 0001:0000ff80       sf_debug_initialize_chart  0000000180010f80 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff86       sf_debug_call              0000000180010f86 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff8c       eml_debug_line_call        0000000180010f8c f   sf_runtime:sf_runtime.dll
+ 0001:0000ff92       cv_eml_eval                0000000180010f92 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff98       cv_eval_relational         0000000180010f98 f   sf_runtime:sf_runtime.dll
+ 0001:0000ff9e       cv_eml_init_script         0000000180010f9e f   sf_runtime:sf_runtime.dll
+ 0001:0000ffa4       cv_eml_init_fcn            0000000180010fa4 f   sf_runtime:sf_runtime.dll
+ 0001:0000ffaa       cv_eml_init_if             0000000180010faa f   sf_runtime:sf_runtime.dll
+ 0001:0000ffb0       cv_eml_init_for            0000000180010fb0 f   sf_runtime:sf_runtime.dll
+ 0001:0000ffb6       cv_eml_init_relational     0000000180010fb6 f   sf_runtime:sf_runtime.dll
+ 0001:0000ffbc       sf_debug_reset_current_state_configuration 0000000180010fbc f   sf_runtime:sf_runtime.dll
+ 0001:0000ffc2       sf_debug_check_for_state_inconsistency 0000000180010fc2 f   sf_runtime:sf_runtime.dll
+ 0001:0000ffc8       sf_debug_set_chart_data_props 0000000180010fc8 f   sf_runtime:sf_runtime.dll
+ 0001:0000ffce       sf_debug_set_chart_data_compiled_props 0000000180010fce f   sf_runtime:sf_runtime.dll
+ 0001:0000ffd4       sf_debug_symbol_scope_push 0000000180010fd4 f   sf_runtime:sf_runtime.dll
+ 0001:0000ffda       sf_debug_symbol_scope_push_eml 0000000180010fda f   sf_runtime:sf_runtime.dll
+ 0001:0000ffe0       sf_debug_symbol_scope_pop  0000000180010fe0 f   sf_runtime:sf_runtime.dll
+ 0001:0000ffe6       sf_debug_symbol_scope_add_eml 0000000180010fe6 f   sf_runtime:sf_runtime.dll
+ 0001:0000ffec       sf_debug_symbol_scope_add_eml_importable 0000000180010fec f   sf_runtime:sf_runtime.dll
+ 0001:0000fff2       sf_debug_set_instance_data_value_ptr 0000000180010ff2 f   sf_runtime:sf_runtime.dll
+ 0001:0000fff8       sf_debug_set_chart_disable_implicit_casting 0000000180010ff8 f   sf_runtime:sf_runtime.dll
+ 0001:0000fffe       sf_debug_set_chart_event_thresholds 0000000180010ffe f   sf_runtime:sf_runtime.dll
+ 0001:00010004       sf_debug_set_chart_state_info 0000000180011004 f   sf_runtime:sf_runtime.dll
+ 0001:0001000a       sf_debug_set_chart_decomposition 000000018001100a f   sf_runtime:sf_runtime.dll
+ 0001:00010010       sf_debug_set_chart_substate_count 0000000180011010 f   sf_runtime:sf_runtime.dll
+ 0001:00010016       sf_debug_data_range_wrapper 0000000180011016 f   sf_runtime:sf_runtime.dll
+ 0001:0001001c       sf_debug_cv_init_trans     000000018001101c f   sf_runtime:sf_runtime.dll
+ 0001:00010022       sf_debug_cv_init_chart     0000000180011022 f   sf_runtime:sf_runtime.dll
+ 0001:00010028       sf_debug_cv_init_state     0000000180011028 f   sf_runtime:sf_runtime.dll
+ 0001:0001002e       sf_get_ChartInfoStruct_CodeGen 000000018001102e f   sf_runtime:sf_runtime.dll
+ 0001:00010034       sf_get_hasSeparateUpdateOutputs 0000000180011034 f   sf_runtime:sf_runtime.dll
+ 0001:0001003a       callMdlMethodAndReportError 000000018001103a f   sf_runtime:sf_runtime.dll
+ 0001:00010040       call_sf_machine_global_method_dispatcher 0000000180011040 f   sf_runtime:sf_runtime.dll
+ 0001:00010046       getRuntimeInstanceInfoAsVoid 0000000180011046 f   sf_runtime:sf_runtime.dll
+ 0001:0001004c       sf_mex_error_direct_call   000000018001104c f   sf_runtime:sf_runtime.dll
+ 0001:00010052       sf_clear_error_manager_info 0000000180011052 f   sf_runtime:sf_runtime.dll
+ 0001:00010058       sf_debug_create_debug_instance_struct 0000000180011058 f   sf_runtime:sf_runtime.dll
+ 0001:0001005e       sf_debug_terminate         000000018001105e f   sf_runtime:sf_runtime.dll
+ 0001:00010064       sf_debug_api               0000000180011064 f   sf_runtime:sf_runtime.dll
+ 0001:0001006a       mxIsChar                   000000018001106a f   libmx:libmx.dll
+ 0001:00010070       mxGetPr                    0000000180011070 f   libmx:libmx.dll
+ 0001:00010076       mxGetScalar                0000000180011076 f   libmx:libmx.dll
+ 0001:0001007c       mxDestroyArray             000000018001107c f   libmx:libmx.dll
+ 0001:00010082       mxCreateDoubleMatrix_730   0000000180011082 f   libmx:libmx.dll
+ 0001:00010088       mxGetString_730            0000000180011088 f   libmx:libmx.dll
+ 0001:0001008e       mxDuplicateArray           000000018001108e f   libmx:libmx.dll
+ 0001:00010094       mxSetField_730             0000000180011094 f   libmx:libmx.dll
+ 0001:0001009a       mxCreateDoubleScalar       000000018001109a f   libmx:libmx.dll
+ 0001:000100a0       mxCreateString             00000001800110a0 f   libmx:libmx.dll
+ 0001:000100a6       mxCreateCellMatrix_730     00000001800110a6 f   libmx:libmx.dll
+ 0001:000100ac       mxCreateCellArray_730      00000001800110ac f   libmx:libmx.dll
+ 0001:000100b2       mxCreateStructMatrix_730   00000001800110b2 f   libmx:libmx.dll
+ 0001:000100b8       mxCreateStructArray_730    00000001800110b8 f   libmx:libmx.dll
+ 0001:000100be       mxCalloc                   00000001800110be f   libmx:libmx.dll
+ 0001:000100c4       mxGetM                     00000001800110c4 f   libmx:libmx.dll
+ 0001:000100ca       mxGetClassID               00000001800110ca f   libmx:libmx.dll
+ 0001:000100d0       mxIsNumeric                00000001800110d0 f   libmx:libmx.dll
+ 0001:000100d6       mxIsComplex                00000001800110d6 f   libmx:libmx.dll
+ 0001:000100dc       mxGetN                     00000001800110dc f   libmx:libmx.dll
+ 0001:000100e2       mexMakeArrayPersistent     00000001800110e2 f   libmex:libmex.dll
+ 0001:000100e8       mexErrMsgTxt               00000001800110e8 f   libmex:libmex.dll
+ 0001:000100ee       mexWarnMsgTxt              00000001800110ee f   libmex:libmex.dll
+ 0001:000100f4       mexCallMATLABWithObject    00000001800110f4 f   libmex:libmex.dll
+ 0001:000100fa       mexLock                    00000001800110fa f   libmex:libmex.dll
+ 0001:00010100       mexUnlock                  0000000180011100 f   libmex:libmex.dll
+ 0001:00010106       mexIsLocked                0000000180011106 f   libmex:libmex.dll
+ 0001:0001010c       utMalloc                   000000018001110c f   libut:libut.dll
+ 0001:00010112       utFree                     0000000180011112 f   libut:libut.dll
+ 0001:00010118       muDoubleScalarAbs          0000000180011118 f   libmwmathutil:libmwmathutil.dll
+ 0001:00010120       __raise_securityfailure    0000000180011120 f   MSVCRT:gs_report.obj
+ 0001:0001016c       __report_gsfailure         000000018001116c f   MSVCRT:gs_report.obj
+ 0001:00010240       __report_rangecheckfailure 0000000180011240 f   MSVCRT:gs_report.obj
+ 0001:00010254       __report_securityfailure   0000000180011254 f   MSVCRT:gs_report.obj
+ 0001:000102f0       __report_securityfailureEx 00000001800112f0 f   MSVCRT:gs_report.obj
+ 0001:000103fe       strcmp                     00000001800113fe f   MSVCRT:MSVCR120.dll
+ 0001:00010404       __GSHandlerCheck           0000000180011404 f   MSVCRT:gshandler.obj
+ 0001:00010424       __GSHandlerCheckCommon     0000000180011424 f   MSVCRT:gshandler.obj
+ 0001:000104a0       __security_check_cookie    00000001800114a0 f   MSVCRT:amdsecgs.obj
+ 0001:000104c0       memset                     00000001800114c0 f   MSVCRT:MSVCR120.dll
+ 0001:000104c6       free                       00000001800114c6 f   MSVCRT:MSVCR120.dll
+ 0001:000104cc       malloc                     00000001800114cc f   MSVCRT:MSVCR120.dll
+ 0001:000104d2       sprintf                    00000001800114d2 f   MSVCRT:MSVCR120.dll
+ 0001:000104d8       memcpy                     00000001800114d8 f   MSVCRT:MSVCR120.dll
+ 0001:000104de       strlen                     00000001800114de f   MSVCRT:MSVCR120.dll
+ 0001:00010544       NtCurrentTeb               0000000180011544 f i MSVCRT:crtdll.obj
+ 0001:00010550       _CRT_INIT                  0000000180011550 f   MSVCRT:crtdll.obj
+ 0001:0001079c       _DllMainCRTStartup         000000018001179c f   MSVCRT:crtdll.obj
+ 0001:00010912       __crt_debugger_hook        0000000180011912 f   MSVCRT:MSVCR120.dll
+ 0001:00010918       __crtUnhandledException    0000000180011918 f   MSVCRT:MSVCR120.dll
+ 0001:0001091e       __crtTerminateProcess      000000018001191e f   MSVCRT:MSVCR120.dll
+ 0001:00010924       __crtCaptureCurrentContext 0000000180011924 f   MSVCRT:MSVCR120.dll
+ 0001:0001092a       __crtCapturePreviousContext 000000018001192a f   MSVCRT:MSVCR120.dll
+ 0001:00010930       __CppXcptFilter            0000000180011930 f   MSVCRT:MSVCR120.dll
+ 0001:00010936       _amsg_exit                 0000000180011936 f   MSVCRT:MSVCR120.dll
+ 0001:00010940       _FindPESection             0000000180011940 f   MSVCRT:pesect.obj
+ 0001:00010990       _IsNonwritableInCurrentImage 0000000180011990 f   MSVCRT:pesect.obj
+ 0001:000109e0       _ValidateImageBase         00000001800119e0 f   MSVCRT:pesect.obj
+ 0001:00010a10       __atonexitinit             0000000180011a10 f   MSVCRT:atonexit.obj
+ 0001:00010a60       _onexit                    0000000180011a60 f   MSVCRT:atonexit.obj
+ 0001:00010b10       atexit                     0000000180011b10 f   MSVCRT:atonexit.obj
+ 0001:00010b28       __security_init_cookie     0000000180011b28 f   MSVCRT:gs_support.obj
+ 0001:00010bd4       DllMain                    0000000180011bd4 f   MSVCRT:dllmain.obj
+ 0001:00010bf8       _malloc_crt                0000000180011bf8 f   MSVCRT:MSVCR120.dll
+ 0001:00010c00       _RTC_Initialize            0000000180011c00 f   MSVCRT:initsect.obj
+ 0001:00010c38       _RTC_Terminate             0000000180011c38 f   MSVCRT:initsect.obj
+ 0001:00010c70       _initterm                  0000000180011c70 f   MSVCRT:MSVCR120.dll
+ 0001:00010c76       _initterm_e                0000000180011c76 f   MSVCRT:MSVCR120.dll
+ 0001:00010c7c       __clean_type_info_names    0000000180011c7c f   MSVCRT:tncleanup.obj
+ 0001:00010c88       __C_specific_handler       0000000180011c88 f   MSVCRT:MSVCR120.dll
+ 0001:00010c8e       _lock                      0000000180011c8e f   MSVCRT:MSVCR120.dll
+ 0001:00010c94       _unlock                    0000000180011c94 f   MSVCRT:MSVCR120.dll
+ 0001:00010c9a       _calloc_crt                0000000180011c9a f   MSVCRT:MSVCR120.dll
+ 0001:00010ca0       __dllonexit                0000000180011ca0 f   MSVCRT:MSVCR120.dll
+ 0001:00010ca6       __clean_type_info_names_internal 0000000180011ca6 f   MSVCRT:MSVCR120.dll
+ 0001:00010cac       IsDebuggerPresent          0000000180011cac f   kernel32:KERNEL32.dll
+ 0001:00010cb2       IsProcessorFeaturePresent  0000000180011cb2 f   kernel32:KERNEL32.dll
+ 0001:00010cb8       EncodePointer              0000000180011cb8 f   kernel32:KERNEL32.dll
+ 0001:00010cbe       DecodePointer              0000000180011cbe f   kernel32:KERNEL32.dll
+ 0001:00010cc4       QueryPerformanceCounter    0000000180011cc4 f   kernel32:KERNEL32.dll
+ 0001:00010cca       GetCurrentProcessId        0000000180011cca f   kernel32:KERNEL32.dll
+ 0001:00010cd0       GetCurrentThreadId         0000000180011cd0 f   kernel32:KERNEL32.dll
+ 0001:00010cd6       GetSystemTimeAsFileTime    0000000180011cd6 f   kernel32:KERNEL32.dll
+ 0001:00010cdc       DisableThreadLibraryCalls  0000000180011cdc f   kernel32:KERNEL32.dll
+ 0002:00000000       __imp_GetSystemTimeAsFileTime 0000000180012000     kernel32:KERNEL32.dll
+ 0002:00000008       __imp_GetCurrentThreadId   0000000180012008     kernel32:KERNEL32.dll
+ 0002:00000010       __imp_GetCurrentProcessId  0000000180012010     kernel32:KERNEL32.dll
+ 0002:00000018       __imp_QueryPerformanceCounter 0000000180012018     kernel32:KERNEL32.dll
+ 0002:00000020       __imp_DecodePointer        0000000180012020     kernel32:KERNEL32.dll
+ 0002:00000028       __imp_EncodePointer        0000000180012028     kernel32:KERNEL32.dll
+ 0002:00000030       __imp_IsProcessorFeaturePresent 0000000180012030     kernel32:KERNEL32.dll
+ 0002:00000038       __imp_IsDebuggerPresent    0000000180012038     kernel32:KERNEL32.dll
+ 0002:00000040       __imp_DisableThreadLibraryCalls 0000000180012040     kernel32:KERNEL32.dll
+ 0002:00000048       \177KERNEL32_NULL_THUNK_DATA 0000000180012048     kernel32:KERNEL32.dll
+ 0002:00000050       __imp___clean_type_info_names_internal 0000000180012050     MSVCRT:MSVCR120.dll
+ 0002:00000058       __imp__onexit              0000000180012058     MSVCRT:MSVCR120.dll
+ 0002:00000060       __imp___dllonexit          0000000180012060     MSVCRT:MSVCR120.dll
+ 0002:00000068       __imp__calloc_crt          0000000180012068     MSVCRT:MSVCR120.dll
+ 0002:00000070       __imp__unlock              0000000180012070     MSVCRT:MSVCR120.dll
+ 0002:00000078       __imp__lock                0000000180012078     MSVCRT:MSVCR120.dll
+ 0002:00000080       __imp___C_specific_handler 0000000180012080     MSVCRT:MSVCR120.dll
+ 0002:00000088       __imp__initterm_e          0000000180012088     MSVCRT:MSVCR120.dll
+ 0002:00000090       __imp__initterm            0000000180012090     MSVCRT:MSVCR120.dll
+ 0002:00000098       __imp__malloc_crt          0000000180012098     MSVCRT:MSVCR120.dll
+ 0002:000000a0       __imp__amsg_exit           00000001800120a0     MSVCRT:MSVCR120.dll
+ 0002:000000a8       __imp___CppXcptFilter      00000001800120a8     MSVCRT:MSVCR120.dll
+ 0002:000000b0       __imp___crtCapturePreviousContext 00000001800120b0     MSVCRT:MSVCR120.dll
+ 0002:000000b8       __imp___crtCaptureCurrentContext 00000001800120b8     MSVCRT:MSVCR120.dll
+ 0002:000000c0       __imp___crtTerminateProcess 00000001800120c0     MSVCRT:MSVCR120.dll
+ 0002:000000c8       __imp___crtUnhandledException 00000001800120c8     MSVCRT:MSVCR120.dll
+ 0002:000000d0       __imp___crt_debugger_hook  00000001800120d0     MSVCRT:MSVCR120.dll
+ 0002:000000d8       __imp_strlen               00000001800120d8     MSVCRT:MSVCR120.dll
+ 0002:000000e0       __imp_memcpy               00000001800120e0     MSVCRT:MSVCR120.dll
+ 0002:000000e8       __imp_sprintf              00000001800120e8     MSVCRT:MSVCR120.dll
+ 0002:000000f0       __imp_malloc               00000001800120f0     MSVCRT:MSVCR120.dll
+ 0002:000000f8       __imp_free                 00000001800120f8     MSVCRT:MSVCR120.dll
+ 0002:00000100       __imp_memset               0000000180012100     MSVCRT:MSVCR120.dll
+ 0002:00000108       __imp_strcmp               0000000180012108     MSVCRT:MSVCR120.dll
+ 0002:00000110       \177MSVCR120_NULL_THUNK_DATA 0000000180012110     MSVCRT:MSVCR120.dll
+ 0002:00000118       __imp_mexLock              0000000180012118     libmex:libmex.dll
+ 0002:00000120       __imp_mexErrMsgTxt         0000000180012120     libmex:libmex.dll
+ 0002:00000128       __imp_mexIsLocked          0000000180012128     libmex:libmex.dll
+ 0002:00000130       __imp_mexUnlock            0000000180012130     libmex:libmex.dll
+ 0002:00000138       __imp_mexMakeArrayPersistent 0000000180012138     libmex:libmex.dll
+ 0002:00000140       __imp_mexCallMATLABWithObject 0000000180012140     libmex:libmex.dll
+ 0002:00000148       __imp_mexWarnMsgTxt        0000000180012148     libmex:libmex.dll
+ 0002:00000150       \177libmex_NULL_THUNK_DATA 0000000180012150     libmex:libmex.dll
+ 0002:00000158       __imp_muDoubleScalarAbs    0000000180012158     libmwmathutil:libmwmathutil.dll
+ 0002:00000160       \177libmwmathutil_NULL_THUNK_DATA 0000000180012160     libmwmathutil:libmwmathutil.dll
+ 0002:00000168       __imp_mxGetN               0000000180012168     libmx:libmx.dll
+ 0002:00000170       __imp_mxIsComplex          0000000180012170     libmx:libmx.dll
+ 0002:00000178       __imp_mxIsNumeric          0000000180012178     libmx:libmx.dll
+ 0002:00000180       __imp_mxGetClassID         0000000180012180     libmx:libmx.dll
+ 0002:00000188       __imp_mxGetM               0000000180012188     libmx:libmx.dll
+ 0002:00000190       __imp_mxCalloc             0000000180012190     libmx:libmx.dll
+ 0002:00000198       __imp_mxCreateStructArray_730 0000000180012198     libmx:libmx.dll
+ 0002:000001a0       __imp_mxCreateStructMatrix_730 00000001800121a0     libmx:libmx.dll
+ 0002:000001a8       __imp_mxCreateCellArray_730 00000001800121a8     libmx:libmx.dll
+ 0002:000001b0       __imp_mxCreateCellMatrix_730 00000001800121b0     libmx:libmx.dll
+ 0002:000001b8       __imp_mxCreateString       00000001800121b8     libmx:libmx.dll
+ 0002:000001c0       __imp_mxCreateDoubleScalar 00000001800121c0     libmx:libmx.dll
+ 0002:000001c8       __imp_mxSetField_730       00000001800121c8     libmx:libmx.dll
+ 0002:000001d0       __imp_mxDuplicateArray     00000001800121d0     libmx:libmx.dll
+ 0002:000001d8       __imp_mxGetString_730      00000001800121d8     libmx:libmx.dll
+ 0002:000001e0       __imp_mxCreateDoubleMatrix_730 00000001800121e0     libmx:libmx.dll
+ 0002:000001e8       __imp_mxDestroyArray       00000001800121e8     libmx:libmx.dll
+ 0002:000001f0       __imp_mxGetScalar          00000001800121f0     libmx:libmx.dll
+ 0002:000001f8       __imp_mxGetPr              00000001800121f8     libmx:libmx.dll
+ 0002:00000200       __imp_mxIsChar             0000000180012200     libmx:libmx.dll
+ 0002:00000208       \177libmx_NULL_THUNK_DATA  0000000180012208     libmx:libmx.dll
+ 0002:00000210       __imp_utMalloc             0000000180012210     libut:libut.dll
+ 0002:00000218       __imp_utFree               0000000180012218     libut:libut.dll
+ 0002:00000220       \177libut_NULL_THUNK_DATA  0000000180012220     libut:libut.dll
+ 0002:00000228       __imp_callMdlMethodAndReportError 0000000180012228     sf_runtime:sf_runtime.dll
+ 0002:00000230       __imp_call_sf_machine_global_method_dispatcher 0000000180012230     sf_runtime:sf_runtime.dll
+ 0002:00000238       __imp_getRuntimeInstanceInfoAsVoid 0000000180012238     sf_runtime:sf_runtime.dll
+ 0002:00000240       __imp_sf_mex_error_direct_call 0000000180012240     sf_runtime:sf_runtime.dll
+ 0002:00000248       __imp_sf_debug_cv_init_chart 0000000180012248     sf_runtime:sf_runtime.dll
+ 0002:00000250       __imp_sf_debug_create_debug_instance_struct 0000000180012250     sf_runtime:sf_runtime.dll
+ 0002:00000258       __imp_sf_debug_terminate   0000000180012258     sf_runtime:sf_runtime.dll
+ 0002:00000260       __imp_sf_debug_api         0000000180012260     sf_runtime:sf_runtime.dll
+ 0002:00000268       __imp_sf_is_chart_inlinable 0000000180012268     sf_runtime:sf_runtime.dll
+ 0002:00000270       __imp_sf_debug_cv_init_trans 0000000180012270     sf_runtime:sf_runtime.dll
+ 0002:00000278       __imp_sf_debug_data_range_wrapper 0000000180012278     sf_runtime:sf_runtime.dll
+ 0002:00000280       __imp_sf_debug_set_chart_substate_count 0000000180012280     sf_runtime:sf_runtime.dll
+ 0002:00000288       __imp_sf_debug_set_chart_decomposition 0000000180012288     sf_runtime:sf_runtime.dll
+ 0002:00000290       __imp_sf_debug_set_chart_state_info 0000000180012290     sf_runtime:sf_runtime.dll
+ 0002:00000298       __imp_sf_debug_set_chart_event_thresholds 0000000180012298     sf_runtime:sf_runtime.dll
+ 0002:000002a0       __imp_sf_debug_set_chart_disable_implicit_casting 00000001800122a0     sf_runtime:sf_runtime.dll
+ 0002:000002a8       __imp_sf_debug_set_instance_data_value_ptr 00000001800122a8     sf_runtime:sf_runtime.dll
+ 0002:000002b0       __imp_sf_get_hasSeparateUpdateOutputs 00000001800122b0     sf_runtime:sf_runtime.dll
+ 0002:000002b8       __imp_sf_debug_symbol_scope_add_eml 00000001800122b8     sf_runtime:sf_runtime.dll
+ 0002:000002c0       __imp_sf_debug_symbol_scope_pop 00000001800122c0     sf_runtime:sf_runtime.dll
+ 0002:000002c8       __imp_sf_debug_symbol_scope_push_eml 00000001800122c8     sf_runtime:sf_runtime.dll
+ 0002:000002d0       __imp_sf_debug_symbol_scope_push 00000001800122d0     sf_runtime:sf_runtime.dll
+ 0002:000002d8       __imp_sf_debug_set_chart_data_compiled_props 00000001800122d8     sf_runtime:sf_runtime.dll
+ 0002:000002e0       __imp_sf_debug_set_chart_data_props 00000001800122e0     sf_runtime:sf_runtime.dll
+ 0002:000002e8       __imp_sf_debug_check_for_state_inconsistency 00000001800122e8     sf_runtime:sf_runtime.dll
+ 0002:000002f0       __imp_sf_debug_reset_current_state_configuration 00000001800122f0     sf_runtime:sf_runtime.dll
+ 0002:000002f8       __imp_cv_eml_init_relational 00000001800122f8     sf_runtime:sf_runtime.dll
+ 0002:00000300       __imp_cv_eml_init_for      0000000180012300     sf_runtime:sf_runtime.dll
+ 0002:00000308       __imp_cv_eml_init_if       0000000180012308     sf_runtime:sf_runtime.dll
+ 0002:00000310       __imp_cv_eml_init_fcn      0000000180012310     sf_runtime:sf_runtime.dll
+ 0002:00000318       __imp_cv_eml_init_script   0000000180012318     sf_runtime:sf_runtime.dll
+ 0002:00000320       __imp_cv_eval_relational   0000000180012320     sf_runtime:sf_runtime.dll
+ 0002:00000328       __imp_cv_eml_eval          0000000180012328     sf_runtime:sf_runtime.dll
+ 0002:00000330       __imp_eml_debug_line_call  0000000180012330     sf_runtime:sf_runtime.dll
+ 0002:00000338       __imp_sf_debug_call        0000000180012338     sf_runtime:sf_runtime.dll
+ 0002:00000340       __imp_sf_debug_initialize_chart 0000000180012340     sf_runtime:sf_runtime.dll
+ 0002:00000348       __imp_sf_integer_check     0000000180012348     sf_runtime:sf_runtime.dll
+ 0002:00000350       __imp_sf_get_ChartInfoStruct_CodeGen 0000000180012350     sf_runtime:sf_runtime.dll
+ 0002:00000358       __imp_sf_debug_symbol_scope_add_eml_importable 0000000180012358     sf_runtime:sf_runtime.dll
+ 0002:00000360       __imp_sf_debug_cv_init_state 0000000180012360     sf_runtime:sf_runtime.dll
+ 0002:00000368       __imp_sf_eml_array_bounds_check 0000000180012368     sf_runtime:sf_runtime.dll
+ 0002:00000370       __imp_ssGetOutputPortSignal_wrapper 0000000180012370     sf_runtime:sf_runtime.dll
+ 0002:00000378       __imp_ssGetInputPortSignal_wrapper 0000000180012378     sf_runtime:sf_runtime.dll
+ 0002:00000380       __imp_sf_mex_decode_encoded_mx_struct_array 0000000180012380     sf_runtime:sf_runtime.dll
+ 0002:00000388       __imp_sf_mex_import        0000000180012388     sf_runtime:sf_runtime.dll
+ 0002:00000390       __imp_sf_mex_destroy       0000000180012390     sf_runtime:sf_runtime.dll
+ 0002:00000398       __imp_sf_mex_dup           0000000180012398     sf_runtime:sf_runtime.dll
+ 0002:000003a0       __imp_sf_mex_assign        00000001800123a0     sf_runtime:sf_runtime.dll
+ 0002:000003a8       __imp_sf_mex_getcell       00000001800123a8     sf_runtime:sf_runtime.dll
+ 0002:000003b0       __imp_sf_mex_setcell       00000001800123b0     sf_runtime:sf_runtime.dll
+ 0002:000003b8       __imp_sf_mex_createcellmatrix 00000001800123b8     sf_runtime:sf_runtime.dll
+ 0002:000003c0       __imp_sf_mex_create        00000001800123c0     sf_runtime:sf_runtime.dll
+ 0002:000003c8       __imp_sf_mex_error_message 00000001800123c8     sf_runtime:sf_runtime.dll
+ 0002:000003d0       __imp_sf_mex_call_debug    00000001800123d0     sf_runtime:sf_runtime.dll
+ 0002:000003d8       __imp_sf_register_codegen_names_for_scoped_functions_defined_by_chart 00000001800123d8     sf_runtime:sf_runtime.dll
+ 0002:000003e0       __imp_sf_set_chart_accesses_machine_info 00000001800123e0     sf_runtime:sf_runtime.dll
+ 0002:000003e8       __imp_sf_is_first_init_cond 00000001800123e8     sf_runtime:sf_runtime.dll
+ 0002:000003f0       __imp_sf_get_time          00000001800123f0     sf_runtime:sf_runtime.dll
+ 0002:000003f8       __imp_sf_set_rtw_dwork_info 00000001800123f8     sf_runtime:sf_runtime.dll
+ 0002:00000400       __imp_sf_clear_rtw_identifier 0000000180012400     sf_runtime:sf_runtime.dll
+ 0002:00000408       __imp_sf_mex_listen_for_ctrl_c_with_debugger 0000000180012408     sf_runtime:sf_runtime.dll
+ 0002:00000410       __imp_sim_mode_is_modelref_sim 0000000180012410     sf_runtime:sf_runtime.dll
+ 0002:00000418       __imp_sim_mode_is_external 0000000180012418     sf_runtime:sf_runtime.dll
+ 0002:00000420       __imp_sim_mode_is_rtw_gen  0000000180012420     sf_runtime:sf_runtime.dll
+ 0002:00000428       __imp_sf_mark_chart_expressionable_inputs 0000000180012428     sf_runtime:sf_runtime.dll
+ 0002:00000430       __imp_sf_mark_chart_reusable_outputs 0000000180012430     sf_runtime:sf_runtime.dll
+ 0002:00000438       __imp_sf_update_buildInfo  0000000180012438     sf_runtime:sf_runtime.dll
+ 0002:00000440       __imp_sf_rtw_info_uint_prop 0000000180012440     sf_runtime:sf_runtime.dll
+ 0002:00000448       __imp_sf_get_chart_instance_ptr 0000000180012448     sf_runtime:sf_runtime.dll
+ 0002:00000450       __imp_sfrtGetEmlrtCtx      0000000180012450     sf_runtime:sf_runtime.dll
+ 0002:00000458       __imp_sf_free_ChartRunTimeInfo 0000000180012458     sf_runtime:sf_runtime.dll
+ 0002:00000460       __imp_sf_init_ChartRunTimeInfo 0000000180012460     sf_runtime:sf_runtime.dll
+ 0002:00000468       __imp_sf_debug_set_machine_data_thresholds 0000000180012468     sf_runtime:sf_runtime.dll
+ 0002:00000470       __imp_sf_debug_set_machine_event_thresholds 0000000180012470     sf_runtime:sf_runtime.dll
+ 0002:00000478       __imp_sf_debug_initialize_machine 0000000180012478     sf_runtime:sf_runtime.dll
+ 0002:00000480       __imp_sf_clear_error_manager_info 0000000180012480     sf_runtime:sf_runtime.dll
+ 0002:00000488       __imp_sf_load_rtw_optimization_info 0000000180012488     sf_runtime:sf_runtime.dll
+ 0002:00000490       \177sf_runtime_NULL_THUNK_DATA 0000000180012490     sf_runtime:sf_runtime.dll
+ 0002:00000498       __xc_a                     0000000180012498     MSVCRT:cinitexe.obj
+ 0002:000004a0       __xc_z                     00000001800124a0     MSVCRT:cinitexe.obj
+ 0002:000004a8       __xi_a                     00000001800124a8     MSVCRT:cinitexe.obj
+ 0002:000004c0       __xi_z                     00000001800124c0     MSVCRT:cinitexe.obj
+ 0002:000004d0       __real@417832dbe0000000    00000001800124d0     SSI_model_sfun.obj
+ 0002:000004d8       __real@419351e760000000    00000001800124d8     SSI_model_sfun.obj
+ 0002:000004e0       __real@419724689c000000    00000001800124e0     SSI_model_sfun.obj
+ 0002:000004e8       __real@41ba77b390000000    00000001800124e8     SSI_model_sfun.obj
+ 0002:000004f0       __real@41c0475497000000    00000001800124f0     SSI_model_sfun.obj
+ 0002:000004f8       __real@41cb14a5cc000000    00000001800124f8     SSI_model_sfun.obj
+ 0002:00000500       __real@41d44735de800000    0000000180012500     SSI_model_sfun.obj
+ 0002:00000508       __real@41e56e05ef600000    0000000180012508     SSI_model_sfun.obj
+ 0002:00000510       __real@41e81efd0c000000    0000000180012510     SSI_model_sfun.obj
+ 0002:00000518       __real@41e8946fb1e00000    0000000180012518     SSI_model_sfun.obj
+ 0002:00000520       __real@41e91c8bfac00000    0000000180012520     SSI_model_sfun.obj
+ 0002:00000528       __real@41ed7a2504600000    0000000180012528     SSI_model_sfun.obj
+ 0002:00000530       __real@3f847ae147ae147b    0000000180012530     c1_SSI_model.obj
+ 0002:00000538       __real@3fe0000000000000    0000000180012538     c1_SSI_model.obj
+ 0002:00000540       __real@3ff0000000000000    0000000180012540     c1_SSI_model.obj
+ 0002:00000548       __real@4000000000000000    0000000180012548     c1_SSI_model.obj
+ 0002:00000550       __real@4008000000000000    0000000180012550     c1_SSI_model.obj
+ 0002:00000558       __real@4010000000000000    0000000180012558     c1_SSI_model.obj
+ 0002:00000560       __real@4024000000000000    0000000180012560     c1_SSI_model.obj
+ 0002:00000568       __real@41a7ef8740000000    0000000180012568     c1_SSI_model.obj
+ 0002:00000570       __real@41d245f9bd400000    0000000180012570     c1_SSI_model.obj
+ 0002:00000578       __real@41d949d7a9000000    0000000180012578     c1_SSI_model.obj
+ 0002:00000580       __real@41ea3ccaa8600000    0000000180012580     c1_SSI_model.obj
+ 0002:00000588       DYNAMIC_DIMENSION_DEF      0000000180012588     SSI_model_sfun_registry.obj
+ 0002:000005a0       __real@0000000000000000    00000001800125a0     SSI_model_sfun_registry.obj
+ 0002:000005a8       __real@41602cbca0000000    00000001800125a8     SSI_model_sfun_registry.obj
+ 0002:000005b0       __real@bff0000000000000    00000001800125b0     SSI_model_sfun_registry.obj
+ 0002:000005c8       _pDefaultRawDllMain        00000001800125c8     MSVCRT:crtdll.obj
+ 0002:000005c8       _pRawDllMain               00000001800125c8     MSVCRT:crtdll.obj
+ 0002:000005d0       ?ProcessDetach@NativeDll@<CrtImplementationDetails>@@0IB 00000001800125d0     MSVCRT:initsect.obj
+ 0002:000005d4       ?ProcessAttach@NativeDll@<CrtImplementationDetails>@@0IB 00000001800125d4     MSVCRT:initsect.obj
+ 0002:000005d8       ?ThreadAttach@NativeDll@<CrtImplementationDetails>@@0IB 00000001800125d8     MSVCRT:initsect.obj
+ 0002:000005dc       ?ThreadDetach@NativeDll@<CrtImplementationDetails>@@0IB 00000001800125dc     MSVCRT:initsect.obj
+ 0002:000005e0       ?ProcessVerifier@NativeDll@<CrtImplementationDetails>@@0IB 00000001800125e0     MSVCRT:initsect.obj
+ 0002:000005e4       ?value@?$integral_constant@_N$0A@@std@@2_NB 00000001800125e4     MSVCRT:tncleanup.obj
+ 0002:000005e5       ?value@?$integral_constant@_N$00@std@@2_NB 00000001800125e5     MSVCRT:tncleanup.obj
+ 0002:000005f0       _load_config_used          00000001800125f0     MSVCRT:loadcfg.obj
+ 0002:00000660       __rtc_iaa                  0000000180012660     MSVCRT:initsect.obj
+ 0002:00000668       __rtc_izz                  0000000180012668     MSVCRT:initsect.obj
+ 0002:00000670       __rtc_taa                  0000000180012670     MSVCRT:initsect.obj
+ 0002:00000678       __rtc_tzz                  0000000180012678     MSVCRT:initsect.obj
+ 0002:00000e74       __IMPORT_DESCRIPTOR_sf_runtime 0000000180012e74     sf_runtime:sf_runtime.dll
+ 0002:00000e88       __IMPORT_DESCRIPTOR_libmx  0000000180012e88     libmx:libmx.dll
+ 0002:00000e9c       __IMPORT_DESCRIPTOR_libmex 0000000180012e9c     libmex:libmex.dll
+ 0002:00000eb0       __IMPORT_DESCRIPTOR_libut  0000000180012eb0     libut:libut.dll
+ 0002:00000ec4       __IMPORT_DESCRIPTOR_libmwmathutil 0000000180012ec4     libmwmathutil:libmwmathutil.dll
+ 0002:00000ed8       __IMPORT_DESCRIPTOR_MSVCR120 0000000180012ed8     MSVCRT:MSVCR120.dll
+ 0002:00000eec       __IMPORT_DESCRIPTOR_KERNEL32 0000000180012eec     kernel32:KERNEL32.dll
+ 0002:00000f00       __NULL_IMPORT_DESCRIPTOR   0000000180012f00     sf_runtime:sf_runtime.dll
+ 0003:00001620       DYNAMIC_DIMENSION          0000000180016620     SSI_model_sfun_registry.obj
+ 0003:00002bc0       __security_cookie          0000000180017bc0     MSVCRT:gs_cookie.obj
+ 0003:00002bc8       __security_cookie_complement 0000000180017bc8     MSVCRT:gs_cookie.obj
+ 0003:00002bd0       _fltused                   0000000180017bd0     MSVCRT:dllsupp.obj
+ 0003:00002bd4       __native_dllmain_reason    0000000180017bd4     MSVCRT:natstart.obj
+ 0003:00002c08       sfGlobalDebugInstanceStruct 0000000180017c08     SSI_model_sfun_registry.obj
+ 0003:00004198       ?__type_info_root_node@@3U__type_info_node@@A 0000000180019198     MSVCRT:tncleanup.obj
+ 0003:000041a8       _SSI_modelMachineNumber_   00000001800191a8     <common>
+ 0003:000041b0       __native_startup_lock      00000001800191b0     <common>
+ 0003:000041b8       __native_startup_state     00000001800191b8     <common>
+ 0003:000041c0       __onexitend                00000001800191c0     <common>
+ 0003:000041c8       __onexitbegin              00000001800191c8     <common>
+ 0003:000041d0       __dyn_tls_init_callback    00000001800191d0     <common>
+
+ entry point at        0001:0001079c
+
+ Static symbols
+
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:00000000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:00000000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:00000000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:00000000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:00000000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:00000000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:00000000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:00000000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     MSVCRT:MSVCR120.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmwmathutil:libmwmathutil.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     libut:libut.dll
+ 0000:00000000       .debug$S                   0000000180000000     libut:libut.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmex:libmex.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmex:libmex.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmex:libmex.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmex:libmex.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmex:libmex.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmex:libmex.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmex:libmex.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     libmx:libmx.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0000:00000000       .debug$S                   0000000180000000     sf_runtime:sf_runtime.dll
+ 0001:00001160       chart_debug_initialization 0000000180002160 f   c1_SSI_model.obj
+ 0001:00001f50       chart_debug_initialize_data_addresses 0000000180002f50 f   c1_SSI_model.obj
+ 0001:00002130       initialize_c1_SSI_model    0000000180003130 f   c1_SSI_model.obj
+ 0001:000021a0       initialize_params_c1_SSI_model 00000001800031a0 f   c1_SSI_model.obj
+ 0001:000021b0       enable_c1_SSI_model        00000001800031b0 f   c1_SSI_model.obj
+ 0001:000021e0       disable_c1_SSI_model       00000001800031e0 f   c1_SSI_model.obj
+ 0001:00002210       c1_update_debugger_state_c1_SSI_model 0000000180003210 f   c1_SSI_model.obj
+ 0001:00002220       get_sim_state_c1_SSI_model 0000000180003220 f   c1_SSI_model.obj
+ 0001:00002390       set_sim_state_c1_SSI_model 0000000180003390 f   c1_SSI_model.obj
+ 0001:000024b0       finalize_c1_SSI_model      00000001800034b0 f   c1_SSI_model.obj
+ 0001:000024c0       sf_gateway_c1_SSI_model    00000001800034c0 f   c1_SSI_model.obj
+ 0001:00004bb0       mdl_start_c1_SSI_model     0000000180005bb0 f   c1_SSI_model.obj
+ 0001:00004bc0       initSimStructsc1_SSI_model 0000000180005bc0 f   c1_SSI_model.obj
+ 0001:00004bd0       init_script_number_translation 0000000180005bd0 f   c1_SSI_model.obj
+ 0001:00004bf0       c1_sf_marshallOut          0000000180005bf0 f   c1_SSI_model.obj
+ 0001:00004d00       c1_emlrt_marshallIn        0000000180005d00 f   c1_SSI_model.obj
+ 0001:00004d70       c1_b_emlrt_marshallIn      0000000180005d70 f   c1_SSI_model.obj
+ 0001:00004e60       c1_sf_marshallIn           0000000180005e60 f   c1_SSI_model.obj
+ 0001:00004f60       c1_b_sf_marshallOut        0000000180005f60 f   c1_SSI_model.obj
+ 0001:00005010       c1_c_emlrt_marshallIn      0000000180006010 f   c1_SSI_model.obj
+ 0001:000050a0       c1_b_sf_marshallIn         00000001800060a0 f   c1_SSI_model.obj
+ 0001:00005150       c1_mpower                  0000000180006150 f   c1_SSI_model.obj
+ 0001:000051d0       c1_error                   00000001800061d0 f   c1_SSI_model.obj
+ 0001:000052b0       c1_e_emlrt_marshallIn      00000001800062b0 f   c1_SSI_model.obj
+ 0001:00005320       c1_f_emlrt_marshallIn      0000000180006320 f   c1_SSI_model.obj
+ 0001:000053b0       init_dsm_address_info      00000001800063b0 f   c1_SSI_model.obj
+ 0001:000053c0       init_simulink_io_address   00000001800063c0 f   c1_SSI_model.obj
+ 0001:00005fb0       sf_get_sim_state_info_c1_SSI_model 0000000180006fb0 f   c1_SSI_model.obj
+ 0001:00006080       sf_get_instance_specialization 0000000180007080 f   c1_SSI_model.obj
+ 0001:00006090       sf_opaque_initialize_c1_SSI_model 0000000180007090 f   c1_SSI_model.obj
+ 0001:000060d0       sf_opaque_enable_c1_SSI_model 00000001800070d0 f   c1_SSI_model.obj
+ 0001:000060f0       sf_opaque_disable_c1_SSI_model 00000001800070f0 f   c1_SSI_model.obj
+ 0001:00006110       sf_opaque_gateway_c1_SSI_model 0000000180007110 f   c1_SSI_model.obj
+ 0001:00006130       sf_opaque_get_sim_state_c1_SSI_model 0000000180007130 f   c1_SSI_model.obj
+ 0001:00006160       sf_opaque_set_sim_state_c1_SSI_model 0000000180007160 f   c1_SSI_model.obj
+ 0001:00006190       sf_opaque_terminate_c1_SSI_model 0000000180007190 f   c1_SSI_model.obj
+ 0001:00006230       mdlProcessParameters_c1_SSI_model 0000000180007230 f   c1_SSI_model.obj
+ 0001:000062f0       mdlSetWorkWidths_c1_SSI_model 00000001800072f0 f   c1_SSI_model.obj
+ 0001:00006a10       mdlRTW_c1_SSI_model        0000000180007a10 f   c1_SSI_model.obj
+ 0001:00006a50       mdlStart_c1_SSI_model      0000000180007a50 f   c1_SSI_model.obj
+ 0001:000091a8       $LN180                     000000018000a1a8     SSI_model_sfun_registry.obj
+ 0001:0000b374       $LN17                      000000018000c374     SSI_model_sfun_registry.obj
+ 0001:0000b8fc       $LN26                      000000018000c8fc     SSI_model_sfun_registry.obj
+ 0001:0000bfe4       $LN23                      000000018000cfe4     SSI_model_sfun_registry.obj
+ 0001:0000c5c0       $LN26                      000000018000d5c0     SSI_model_sfun_registry.obj
+ 0001:0000e240       sf_debug_api_wrapper       000000018000f240 f   SSI_model_sfun_registry.obj
+ 0001:0000e290       ProcessMexSfunctionCmdLineCall 000000018000f290 f   SSI_model_sfun_registry.obj
+ 0001:0000e600       mdlSetWorkWidths           000000018000f600 f   SSI_model_sfun_registry.obj
+ 0001:0000e650       mdlProcessParameters       000000018000f650 f   SSI_model_sfun_registry.obj
+ 0001:0000e680       mdl_start_processing       000000018000f680 f   SSI_model_sfun_registry.obj
+ 0001:0000e6e0       mdl_terminate_processing   000000018000f6e0 f   SSI_model_sfun_registry.obj
+ 0001:0000e7a0       mdlStart                   000000018000f7a0 f   SSI_model_sfun_registry.obj
+ 0001:0000e7d0       mdlTerminate               000000018000f7d0 f   SSI_model_sfun_registry.obj
+ 0001:0000e800       mdlInitializeSizes         000000018000f800 f   SSI_model_sfun_registry.obj
+ 0001:0000e830       mdlInitializeSampleTimes   000000018000f830 f   SSI_model_sfun_registry.obj
+ 0001:0000e860       mdl_outputs_continuous_legacy 000000018000f860 f   SSI_model_sfun_registry.obj
+ 0001:0000e960       mdl_outputs_processing     000000018000f960 f   SSI_model_sfun_registry.obj
+ 0001:0000ea80       mdl_zeroCrossings_processing 000000018000fa80 f   SSI_model_sfun_registry.obj
+ 0001:0000eac0       mdlZeroCrossings           000000018000fac0 f   SSI_model_sfun_registry.obj
+ 0001:0000eaf0       mdl_derivatives_processing 000000018000faf0 f   SSI_model_sfun_registry.obj
+ 0001:0000eb40       mdlDerivatives             000000018000fb40 f   SSI_model_sfun_registry.obj
+ 0001:0000eb70       mdl_initialize_conditions_processing 000000018000fb70 f   SSI_model_sfun_registry.obj
+ 0001:0000ebc0       mdlInitializeConditions    000000018000fbc0 f   SSI_model_sfun_registry.obj
+ 0001:0000ebf0       mdl_ext_mode_exec_processing 000000018000fbf0 f   SSI_model_sfun_registry.obj
+ 0001:0000ec30       mdlExtModeExec             000000018000fc30 f   SSI_model_sfun_registry.obj
+ 0001:0000ec60       mdlRTW                     000000018000fc60 f   SSI_model_sfun_registry.obj
+ 0001:0000eca0       mdl_enable_processing      000000018000fca0 f   SSI_model_sfun_registry.obj
+ 0001:0000ece0       mdlEnable                  000000018000fce0 f   SSI_model_sfun_registry.obj
+ 0001:0000ed10       mdl_disable_processing     000000018000fd10 f   SSI_model_sfun_registry.obj
+ 0001:0000ed50       mdlDisable                 000000018000fd50 f   SSI_model_sfun_registry.obj
+ 0001:0000ed80       mdlOutputs                 000000018000fd80 f   SSI_model_sfun_registry.obj
+ 0001:0000edb0       mdl_update_processing      000000018000fdb0 f   SSI_model_sfun_registry.obj
+ 0001:0000ee00       mdlUpdate                  000000018000fe00 f   SSI_model_sfun_registry.obj
+ 0001:0000efe0       mdlGetTimeOfNextVarHit     000000018000ffe0 f   SSI_model_sfun_registry.obj
+ 0001:0000f030       _RegNumInputPortsCB        0000000180010030 f   SSI_model_sfun_registry.obj
+ 0001:0000f0b0       _RegNumOutputPortsCB       00000001800100b0 f   SSI_model_sfun_registry.obj
+ 0001:0000f130       _CreateSimStruct           0000000180010130 f   SSI_model_sfun_registry.obj
+ 0001:0000f330       _ProcessMexSfunctionCmdLineCall 0000000180010330 f   SSI_model_sfun_registry.obj
+ 0001:0000fd80       ReportIndexOutOfBoundsError 0000000180010d80 f   SSI_model_sfun_registry.obj
+ 0001:00010490       $$000000                   0000000180011490     MSVCRT:amdsecgs.obj
+ 0001:000104e4       pre_c_init                 00000001800114e4 f   MSVCRT:crtdll.obj
+ 0001:000107dc       __DllMainCRTStartup        00000001800117dc f   MSVCRT:crtdll.obj
+ 0001:00010cf0       __DllMainCRTStartup$filt$0 0000000180011cf0 f   MSVCRT:crtdll.obj
+ 0001:00010d15       __DllMainCRTStartup$fin$1  0000000180011d15 f   MSVCRT:crtdll.obj
+ 0001:00010d30       _IsNonwritableInCurrentImage$filt$0 0000000180011d30 f   MSVCRT:pesect.obj
+ 0001:00010d50       _onexit$fin$0              0000000180011d50 f   MSVCRT:atonexit.obj
+ 0002:000004b0       pcinit                     00000001800124b0     MSVCRT:crtdll.obj
+ 0002:000004b8       pinit                      00000001800124b8     MSVCRT:atonexit.obj
+ 0002:000005b8       GS_ExceptionPointers       00000001800125b8     MSVCRT:gs_report.obj
+ 0002:00000680       $unwind$load_SSI_model_optimization_info 0000000180012680     SSI_model_sfun.obj
+ 0002:00000688       $unwind$unload_SSI_model_optimization_info 0000000180012688     SSI_model_sfun.obj
+ 0002:00000690       $unwind$sf_SSI_model_method_dispatcher 0000000180012690     SSI_model_sfun.obj
+ 0002:00000698       $unwind$sf_SSI_model_process_check_sum_call 0000000180012698     SSI_model_sfun.obj
+ 0002:000006a8       $unwind$sf_SSI_model_autoinheritance_info 00000001800126a8     SSI_model_sfun.obj
+ 0002:000006b8       $unwind$sf_SSI_model_get_eml_resolved_functions_info 00000001800126b8     SSI_model_sfun.obj
+ 0002:000006c8       $unwind$sf_SSI_model_third_party_uses_info 00000001800126c8     SSI_model_sfun.obj
+ 0002:000006d8       $unwind$sf_SSI_model_jit_fallback_info 00000001800126d8     SSI_model_sfun.obj
+ 0002:000006e8       $unwind$sf_SSI_model_updateBuildInfo_args_info 00000001800126e8     SSI_model_sfun.obj
+ 0002:000006f8       $unwind$SSI_model_debug_initialize 00000001800126f8     SSI_model_sfun.obj
+ 0002:00000700       $unwind$sf_c1_SSI_model_get_eml_resolved_functions_info 0000000180012700     c1_SSI_model.obj
+ 0002:00000708       $unwind$sf_c1_SSI_model_get_check_sum 0000000180012708     c1_SSI_model.obj
+ 0002:00000710       $unwind$c1_SSI_model_method_dispatcher 0000000180012710     c1_SSI_model.obj
+ 0002:00000718       $unwind$chart_debug_initialization 0000000180012718     c1_SSI_model.obj
+ 0002:00000720       $unwind$chart_debug_initialize_data_addresses 0000000180012720     c1_SSI_model.obj
+ 0002:00000728       $unwind$initialize_c1_SSI_model 0000000180012728     c1_SSI_model.obj
+ 0002:00000730       $unwind$enable_c1_SSI_model 0000000180012730     c1_SSI_model.obj
+ 0002:00000738       $unwind$disable_c1_SSI_model 0000000180012738     c1_SSI_model.obj
+ 0002:00000740       $unwind$get_sim_state_c1_SSI_model 0000000180012740     c1_SSI_model.obj
+ 0002:00000748       $unwind$set_sim_state_c1_SSI_model 0000000180012748     c1_SSI_model.obj
+ 0002:00000758       $unwind$sf_gateway_c1_SSI_model 0000000180012758     c1_SSI_model.obj
+ 0002:00000768       $unwind$c1_sf_marshallOut  0000000180012768     c1_SSI_model.obj
+ 0002:00000778       $unwind$c1_emlrt_marshallIn 0000000180012778     c1_SSI_model.obj
+ 0002:00000780       $unwind$c1_b_emlrt_marshallIn 0000000180012780     c1_SSI_model.obj
+ 0002:00000790       $unwind$c1_sf_marshallIn   0000000180012790     c1_SSI_model.obj
+ 0002:000007a0       $unwind$c1_b_sf_marshallOut 00000001800127a0     c1_SSI_model.obj
+ 0002:000007a8       $unwind$c1_c_emlrt_marshallIn 00000001800127a8     c1_SSI_model.obj
+ 0002:000007b0       $unwind$c1_b_sf_marshallIn 00000001800127b0     c1_SSI_model.obj
+ 0002:000007b8       $unwind$c1_mpower          00000001800127b8     c1_SSI_model.obj
+ 0002:000007c0       $unwind$c1_error           00000001800127c0     c1_SSI_model.obj
+ 0002:000007c8       $unwind$c1_e_emlrt_marshallIn 00000001800127c8     c1_SSI_model.obj
+ 0002:000007d0       $unwind$c1_f_emlrt_marshallIn 00000001800127d0     c1_SSI_model.obj
+ 0002:000007d8       $unwind$init_simulink_io_address 00000001800127d8     c1_SSI_model.obj
+ 0002:000007e0       $unwind$sf_c1_SSI_model_get_post_codegen_info 00000001800127e0     c1_SSI_model.obj
+ 0002:000007e8       $unwind$sf_c1_SSI_model_get_autoinheritance_info 00000001800127e8     c1_SSI_model.obj
+ 0002:000007f8       $unwind$sf_c1_SSI_model_third_party_uses_info 00000001800127f8     c1_SSI_model.obj
+ 0002:00000800       $unwind$sf_c1_SSI_model_jit_fallback_info 0000000180012800     c1_SSI_model.obj
+ 0002:00000810       $unwind$sf_c1_SSI_model_updateBuildInfo_args_info 0000000180012810     c1_SSI_model.obj
+ 0002:00000818       $unwind$sf_get_sim_state_info_c1_SSI_model 0000000180012818     c1_SSI_model.obj
+ 0002:00000820       $unwind$sf_opaque_initialize_c1_SSI_model 0000000180012820     c1_SSI_model.obj
+ 0002:00000828       $unwind$sf_opaque_enable_c1_SSI_model 0000000180012828     c1_SSI_model.obj
+ 0002:00000830       $unwind$sf_opaque_disable_c1_SSI_model 0000000180012830     c1_SSI_model.obj
+ 0002:00000838       $unwind$sf_opaque_gateway_c1_SSI_model 0000000180012838     c1_SSI_model.obj
+ 0002:00000840       $unwind$sf_opaque_get_sim_state_c1_SSI_model 0000000180012840     c1_SSI_model.obj
+ 0002:00000848       $unwind$sf_opaque_set_sim_state_c1_SSI_model 0000000180012848     c1_SSI_model.obj
+ 0002:00000850       $unwind$sf_opaque_terminate_c1_SSI_model 0000000180012850     c1_SSI_model.obj
+ 0002:00000858       $unwind$mdlProcessParameters_c1_SSI_model 0000000180012858     c1_SSI_model.obj
+ 0002:00000860       $unwind$mdlSetWorkWidths_c1_SSI_model 0000000180012860     c1_SSI_model.obj
+ 0002:00000868       $unwind$mdlRTW_c1_SSI_model 0000000180012868     c1_SSI_model.obj
+ 0002:00000870       $unwind$mdlStart_c1_SSI_model 0000000180012870     c1_SSI_model.obj
+ 0002:00000878       $unwind$mexFunction        0000000180012878     SSI_model_sfun_registry.obj
+ 0002:00000888       $unwind$_ssSetInputPortDirectFeedThroughFcn 0000000180012888     SSI_model_sfun_registry.obj
+ 0002:00000898       $unwind$_ssGetInputPortSignalPtrsFcn 0000000180012898     SSI_model_sfun_registry.obj
+ 0002:000008a8       $unwind$_ssGetInputPortSignalFcn 00000001800128a8     SSI_model_sfun_registry.obj
+ 0002:000008b8       $unwind$_ssSetInputPortReusableFcn 00000001800128b8     SSI_model_sfun_registry.obj
+ 0002:000008c0       $unwind$_ssSetOutputPortReusableFcn 00000001800128c0     SSI_model_sfun_registry.obj
+ 0002:000008c8       $unwind$_ssSetSymbolicDimsSupport 00000001800128c8     SSI_model_sfun_registry.obj
+ 0002:000008d0       $unwind$_ssRegisterSymbolicDimsExpr 00000001800128d0     SSI_model_sfun_registry.obj
+ 0002:000008d8       $unwind$_ssRegisterSymbolicDims 00000001800128d8     SSI_model_sfun_registry.obj
+ 0002:000008e0       $unwind$_ssRegisterSymbolicDimsString 00000001800128e0     SSI_model_sfun_registry.obj
+ 0002:000008e8       $unwind$_ssRegisterSymbolicDimsIntValue 00000001800128e8     SSI_model_sfun_registry.obj
+ 0002:000008f0       $unwind$_ssRegisterSymbolicDimsPlus 00000001800128f0     SSI_model_sfun_registry.obj
+ 0002:000008f8       $unwind$_ssRegisterSymbolicDimsMinus 00000001800128f8     SSI_model_sfun_registry.obj
+ 0002:00000900       $unwind$_ssRegisterSymbolicDimsMultiply 0000000180012900     SSI_model_sfun_registry.obj
+ 0002:00000908       $unwind$_ssRegisterSymbolicDimsDivide 0000000180012908     SSI_model_sfun_registry.obj
+ 0002:00000910       $unwind$_ssGetNumSymbolicDims 0000000180012910     SSI_model_sfun_registry.obj
+ 0002:00000918       $unwind$_ssGetSymbolicDim  0000000180012918     SSI_model_sfun_registry.obj
+ 0002:00000920       $unwind$_ssSetInputPortSymbolicDimsId 0000000180012920     SSI_model_sfun_registry.obj
+ 0002:00000928       $unwind$_ssGetCompInputPortSymbolicDimsId 0000000180012928     SSI_model_sfun_registry.obj
+ 0002:00000930       $unwind$_ssSetCompInputPortSymbolicDimsId 0000000180012930     SSI_model_sfun_registry.obj
+ 0002:00000938       $unwind$_ssSetOutputPortSymbolicDimsId 0000000180012938     SSI_model_sfun_registry.obj
+ 0002:00000940       $unwind$_ssGetCompOutputPortSymbolicDimsId 0000000180012940     SSI_model_sfun_registry.obj
+ 0002:00000948       $unwind$_ssSetCompOutputPortSymbolicDimsId 0000000180012948     SSI_model_sfun_registry.obj
+ 0002:00000950       $unwind$_ssSetCompDWorkSymbolicDimsId 0000000180012950     SSI_model_sfun_registry.obj
+ 0002:00000958       $unwind$ssGetIsZeroCrossControlDisabled 0000000180012958     SSI_model_sfun_registry.obj
+ 0002:00000960       $unwind$ssSetIsInputPortUsedForContZcSignal 0000000180012960     SSI_model_sfun_registry.obj
+ 0002:00000968       $unwind$ssSetZcSignalIsZcElementDisc 0000000180012968     SSI_model_sfun_registry.obj
+ 0002:00000978       $unwind$ssSetZcSignalName  0000000180012978     SSI_model_sfun_registry.obj
+ 0002:00000980       $unwind$ssSetZcSignalWidth 0000000180012980     SSI_model_sfun_registry.obj
+ 0002:00000988       $unwind$ssSetZcSignalZcEventType 0000000180012988     SSI_model_sfun_registry.obj
+ 0002:00000990       $unwind$ssSetZcSignalType  0000000180012990     SSI_model_sfun_registry.obj
+ 0002:00000998       $unwind$ssSetZcSignalZcTol 0000000180012998     SSI_model_sfun_registry.obj
+ 0002:000009a0       $unwind$ssSetZcSignalNeedsEventNotification 00000001800129a0     SSI_model_sfun_registry.obj
+ 0002:000009a8       $unwind$ssCreateAndAddZcSignalInfo 00000001800129a8     SSI_model_sfun_registry.obj
+ 0002:000009b0       $unwind$ssCloneAndAddZcSignalInfo 00000001800129b0     SSI_model_sfun_registry.obj
+ 0002:000009b8       $unwind$ssGetNumZcSignals  00000001800129b8     SSI_model_sfun_registry.obj
+ 0002:000009c0       $unwind$ssGetZcSignalVector 00000001800129c0     SSI_model_sfun_registry.obj
+ 0002:000009c8       $unwind$ssGetZcSignalName  00000001800129c8     SSI_model_sfun_registry.obj
+ 0002:000009d0       $unwind$ssGetZcSignalWidth 00000001800129d0     SSI_model_sfun_registry.obj
+ 0002:000009d8       $unwind$ssGetZcSignalZcEventType 00000001800129d8     SSI_model_sfun_registry.obj
+ 0002:000009e0       $unwind$ssGetZcSignalZcEvents 00000001800129e0     SSI_model_sfun_registry.obj
+ 0002:000009e8       $unwind$ssGetZcSignalType  00000001800129e8     SSI_model_sfun_registry.obj
+ 0002:000009f0       $unwind$ssGetZcSignalZcTol 00000001800129f0     SSI_model_sfun_registry.obj
+ 0002:000009f8       $unwind$ssGetZcSignalNeedsEventNotification 00000001800129f8     SSI_model_sfun_registry.obj
+ 0002:00000a00       $unwind$ssGetZcSignalIsZcElementDisc 0000000180012a00     SSI_model_sfun_registry.obj
+ 0002:00000a10       $unwind$ssGetIsInputPortElementContinuous 0000000180012a10     SSI_model_sfun_registry.obj
+ 0002:00000a20       $unwind$_ssSetIWorkValueFcn 0000000180012a20     SSI_model_sfun_registry.obj
+ 0002:00000a28       $unwind$_ssGetIWorkValueFcn 0000000180012a28     SSI_model_sfun_registry.obj
+ 0002:00000a30       $unwind$_ssSetRWorkValueFcn 0000000180012a30     SSI_model_sfun_registry.obj
+ 0002:00000a38       $unwind$_ssGetRWorkValueFcn 0000000180012a38     SSI_model_sfun_registry.obj
+ 0002:00000a40       $unwind$_ssSetPWorkValueFcn 0000000180012a40     SSI_model_sfun_registry.obj
+ 0002:00000a48       $unwind$_ssGetPWorkValueFcn 0000000180012a48     SSI_model_sfun_registry.obj
+ 0002:00000a50       $unwind$ssGetDTypeIdFromMxArray 0000000180012a50     SSI_model_sfun_registry.obj
+ 0002:00000a58       $unwind$ssWriteRTWStr      0000000180012a58     SSI_model_sfun_registry.obj
+ 0002:00000a60       $unwind$ssWriteRTWNameValuePair 0000000180012a60     SSI_model_sfun_registry.obj
+ 0002:00000a68       $unwind$ssWriteRTWParamSettings 0000000180012a68     SSI_model_sfun_registry.obj
+ 0002:00000a70       $unwind$ssWriteRTWParameters 0000000180012a70     SSI_model_sfun_registry.obj
+ 0002:00000a78       $unwind$ssWriteRTWWorkVect 0000000180012a78     SSI_model_sfun_registry.obj
+ 0002:00000a8c       $unwind$ssWriteRTWMxVectParam 0000000180012a8c     SSI_model_sfun_registry.obj
+ 0002:00000a94       $unwind$ssWriteRTWMx2dMatParam 0000000180012a94     SSI_model_sfun_registry.obj
+ 0002:00000a9c       $unwind$_ssSetInputPortMatrixDimensions 0000000180012a9c     SSI_model_sfun_registry.obj
+ 0002:00000aa8       $unwind$_ssSetOutputPortMatrixDimensions 0000000180012aa8     SSI_model_sfun_registry.obj
+ 0002:00000ab4       $unwind$_ssSetInputPortVectorDimension 0000000180012ab4     SSI_model_sfun_registry.obj
+ 0002:00000ac0       $unwind$_ssSetOutputPortVectorDimension 0000000180012ac0     SSI_model_sfun_registry.obj
+ 0002:00000acc       $unwind$ssIsRunTimeParamTunable 0000000180012acc     SSI_model_sfun_registry.obj
+ 0002:00000ad4       $unwind$ssGetSFuncBlockHandle 0000000180012ad4     SSI_model_sfun_registry.obj
+ 0002:00000adc       $unwind$_ssGetCurrentInputPortWidth 0000000180012adc     SSI_model_sfun_registry.obj
+ 0002:00000ae4       $unwind$_ssGetCurrentOutputPortWidth 0000000180012ae4     SSI_model_sfun_registry.obj
+ 0002:00000aec       $unwind$_ssGetCallSystemNumFcnCallDestinations 0000000180012aec     SSI_model_sfun_registry.obj
+ 0002:00000af4       $unwind$ssGetParameterTuningCompliance 0000000180012af4     SSI_model_sfun_registry.obj
+ 0002:00000afc       $unwind$ssWarning          0000000180012afc     SSI_model_sfun_registry.obj
+ 0002:00000b10       $unwind$_ssGetAbsTol       0000000180012b10     SSI_model_sfun_registry.obj
+ 0002:00000b18       $unwind$sf_process_check_sum_call 0000000180012b18     SSI_model_sfun_registry.obj
+ 0002:00000b20       $unwind$sf_process_autoinheritance_call 0000000180012b20     SSI_model_sfun_registry.obj
+ 0002:00000b30       $unwind$sf_process_get_third_party_uses_info_call 0000000180012b30     SSI_model_sfun_registry.obj
+ 0002:00000b40       $unwind$sf_process_get_jit_fallback_info_call 0000000180012b40     SSI_model_sfun_registry.obj
+ 0002:00000b50       $unwind$sf_process_get_updateBuildInfo_args_info_call 0000000180012b50     SSI_model_sfun_registry.obj
+ 0002:00000b60       $unwind$sf_process_get_eml_resolved_functions_info_call 0000000180012b60     SSI_model_sfun_registry.obj
+ 0002:00000b70       $unwind$sf_mex_unlock_call 0000000180012b70     SSI_model_sfun_registry.obj
+ 0002:00000b80       $unwind$sf_debug_api_wrapper 0000000180012b80     SSI_model_sfun_registry.obj
+ 0002:00000b88       $unwind$ProcessMexSfunctionCmdLineCall 0000000180012b88     SSI_model_sfun_registry.obj
+ 0002:00000b90       $unwind$sf_machine_global_initializer_called 0000000180012b90     SSI_model_sfun_registry.obj
+ 0002:00000b98       $unwind$sf_machine_global_method_dispatcher 0000000180012b98     SSI_model_sfun_registry.obj
+ 0002:00000ba0       $unwind$sf_machine_global_terminator 0000000180012ba0     SSI_model_sfun_registry.obj
+ 0002:00000ba8       $unwind$sf_register_machine_exported_symbols 0000000180012ba8     SSI_model_sfun_registry.obj
+ 0002:00000bb0       $unwind$sf_machine_global_initializer 0000000180012bb0     SSI_model_sfun_registry.obj
+ 0002:00000bb8       $unwind$mdlGetSimState     0000000180012bb8     SSI_model_sfun_registry.obj
+ 0002:00000bc0       $unwind$mdlSetSimState     0000000180012bc0     SSI_model_sfun_registry.obj
+ 0002:00000bc8       $unwind$mdlSetWorkWidths   0000000180012bc8     SSI_model_sfun_registry.obj
+ 0002:00000bd0       $unwind$mdlProcessParameters 0000000180012bd0     SSI_model_sfun_registry.obj
+ 0002:00000bd8       $unwind$mdl_start_processing 0000000180012bd8     SSI_model_sfun_registry.obj
+ 0002:00000be0       $unwind$mdl_terminate_processing 0000000180012be0     SSI_model_sfun_registry.obj
+ 0002:00000be8       $unwind$mdlStart           0000000180012be8     SSI_model_sfun_registry.obj
+ 0002:00000bf0       $unwind$mdlTerminate       0000000180012bf0     SSI_model_sfun_registry.obj
+ 0002:00000bf8       $unwind$mdlInitializeSizes 0000000180012bf8     SSI_model_sfun_registry.obj
+ 0002:00000c00       $unwind$mdlInitializeSampleTimes 0000000180012c00     SSI_model_sfun_registry.obj
+ 0002:00000c08       $unwind$mdl_outputs_continuous_legacy 0000000180012c08     SSI_model_sfun_registry.obj
+ 0002:00000c10       $unwind$mdl_outputs_processing 0000000180012c10     SSI_model_sfun_registry.obj
+ 0002:00000c18       $unwind$mdl_zeroCrossings_processing 0000000180012c18     SSI_model_sfun_registry.obj
+ 0002:00000c20       $unwind$mdlZeroCrossings   0000000180012c20     SSI_model_sfun_registry.obj
+ 0002:00000c28       $unwind$mdl_derivatives_processing 0000000180012c28     SSI_model_sfun_registry.obj
+ 0002:00000c30       $unwind$mdlDerivatives     0000000180012c30     SSI_model_sfun_registry.obj
+ 0002:00000c38       $unwind$mdl_initialize_conditions_processing 0000000180012c38     SSI_model_sfun_registry.obj
+ 0002:00000c40       $unwind$mdlInitializeConditions 0000000180012c40     SSI_model_sfun_registry.obj
+ 0002:00000c48       $unwind$mdl_ext_mode_exec_processing 0000000180012c48     SSI_model_sfun_registry.obj
+ 0002:00000c50       $unwind$mdlExtModeExec     0000000180012c50     SSI_model_sfun_registry.obj
+ 0002:00000c58       $unwind$mdlRTW             0000000180012c58     SSI_model_sfun_registry.obj
+ 0002:00000c60       $unwind$mdl_enable_processing 0000000180012c60     SSI_model_sfun_registry.obj
+ 0002:00000c68       $unwind$mdlEnable          0000000180012c68     SSI_model_sfun_registry.obj
+ 0002:00000c70       $unwind$mdl_disable_processing 0000000180012c70     SSI_model_sfun_registry.obj
+ 0002:00000c78       $unwind$mdlDisable         0000000180012c78     SSI_model_sfun_registry.obj
+ 0002:00000c80       $unwind$mdlOutputs         0000000180012c80     SSI_model_sfun_registry.obj
+ 0002:00000c88       $unwind$mdl_update_processing 0000000180012c88     SSI_model_sfun_registry.obj
+ 0002:00000c90       $unwind$mdlUpdate          0000000180012c90     SSI_model_sfun_registry.obj
+ 0002:00000c98       $unwind$ProcessMexSfunctionEveryCall 0000000180012c98     SSI_model_sfun_registry.obj
+ 0002:00000ca0       $unwind$_RegNumInputPortsCB 0000000180012ca0     SSI_model_sfun_registry.obj
+ 0002:00000ca8       $unwind$_RegNumOutputPortsCB 0000000180012ca8     SSI_model_sfun_registry.obj
+ 0002:00000cb0       $unwind$_CreateSimStruct   0000000180012cb0     SSI_model_sfun_registry.obj
+ 0002:00000cb8       $unwind$_ProcessMexSfunctionCmdLineCall 0000000180012cb8     SSI_model_sfun_registry.obj
+ 0002:00000cc8       $unwind$ReportIndexOutOfBoundsError 0000000180012cc8     SSI_model_sfun_registry.obj
+ 0002:00000cd0       $unwind$__report_securityfailure 0000000180012cd0     MSVCRT:gs_report.obj
+ 0002:00000cd8       $unwind$__report_securityfailureEx 0000000180012cd8     MSVCRT:gs_report.obj
+ 0002:00000ce0       $unwind$__report_rangecheckfailure 0000000180012ce0     MSVCRT:gs_report.obj
+ 0002:00000ce8       $unwind$__raise_securityfailure 0000000180012ce8     MSVCRT:gs_report.obj
+ 0002:00000cf0       $unwind$__report_gsfailure 0000000180012cf0     MSVCRT:gs_report.obj
+ 0002:00000cf8       $unwind$__GSHandlerCheckCommon 0000000180012cf8     MSVCRT:gshandler.obj
+ 0002:00000d00       $unwind$__GSHandlerCheck   0000000180012d00     MSVCRT:gshandler.obj
+ 0002:00000d08       $xdatasym                  0000000180012d08     MSVCRT:amdsecgs.obj
+ 0002:00000d0c       $unwind$_CRT_INIT          0000000180012d0c     MSVCRT:crtdll.obj
+ 0002:00000d28       $unwind$pre_c_init         0000000180012d28     MSVCRT:crtdll.obj
+ 0002:00000d30       $unwind$__DllMainCRTStartup 0000000180012d30     MSVCRT:crtdll.obj
+ 0002:00000d6c       $unwind$__DllMainCRTStartup$filt$0 0000000180012d6c     MSVCRT:crtdll.obj
+ 0002:00000d74       $unwind$__DllMainCRTStartup$fin$1 0000000180012d74     MSVCRT:crtdll.obj
+ 0002:00000d7c       $unwind$_DllMainCRTStartup 0000000180012d7c     MSVCRT:crtdll.obj
+ 0002:00000d8c       $unwind$_IsNonwritableInCurrentImage 0000000180012d8c     MSVCRT:pesect.obj
+ 0002:00000db0       $unwind$_IsNonwritableInCurrentImage$filt$0 0000000180012db0     MSVCRT:pesect.obj
+ 0002:00000db8       $unwind$atexit             0000000180012db8     MSVCRT:atonexit.obj
+ 0002:00000dc0       $unwind$_onexit            0000000180012dc0     MSVCRT:atonexit.obj
+ 0002:00000de0       $unwind$_onexit$fin$0      0000000180012de0     MSVCRT:atonexit.obj
+ 0002:00000de8       $unwind$__atonexitinit     0000000180012de8     MSVCRT:atonexit.obj
+ 0002:00000df0       $unwind$__security_init_cookie 0000000180012df0     MSVCRT:gs_support.obj
+ 0002:00000dfc       $unwind$DllMain            0000000180012dfc     MSVCRT:dllmain.obj
+ 0002:00000e04       $unwind$_RTC_Initialize    0000000180012e04     MSVCRT:initsect.obj
+ 0002:00000e10       $unwind$_RTC_Terminate     0000000180012e10     MSVCRT:initsect.obj
+ 0002:00000e20       .edata                     0000000180012e20     SSI_model_sfun.exp
+ 0002:00000e48       rgpv                       0000000180012e48     SSI_model_sfun.exp
+ 0002:00000e4c       rgszName                   0000000180012e4c     SSI_model_sfun.exp
+ 0002:00000e50       rgwOrd                     0000000180012e50     SSI_model_sfun.exp
+ 0002:00000e52       szName                     0000000180012e52     SSI_model_sfun.exp
+ 0002:00000e68       $N00001                    0000000180012e68     SSI_model_sfun.exp
+ 0002:00001c54       .idata$6                   0000000180013c54     sf_runtime:sf_runtime.dll
+ 0002:00001dcc       .idata$6                   0000000180013dcc     libmx:libmx.dll
+ 0002:00001e4e       .idata$6                   0000000180013e4e     libmex:libmex.dll
+ 0002:00001e70       .idata$6                   0000000180013e70     libut:libut.dll
+ 0002:00001e8e       .idata$6                   0000000180013e8e     libmwmathutil:libmwmathutil.dll
+ 0002:00001f68       .idata$6                   0000000180013f68     MSVCRT:MSVCR120.dll
+ 0002:000020fe       .idata$6                   00000001800140fe     kernel32:KERNEL32.dll
+ 0003:00000000       $SG17918                   0000000180015000     SSI_model_sfun.obj
+ 0003:00000018       $SG17924                   0000000180015018     SSI_model_sfun.obj
+ 0003:00000020       $SG17935                   0000000180015020     SSI_model_sfun.obj
+ 0003:00000028       $SG17957                   0000000180015028     SSI_model_sfun.obj
+ 0003:00000030       $SG17994                   0000000180015030     SSI_model_sfun.obj
+ 0003:00000050       $SG18006                   0000000180015050     SSI_model_sfun.obj
+ 0003:00000068       $SG18027                   0000000180015068     SSI_model_sfun.obj
+ 0003:00000088       $SG18061                   0000000180015088     SSI_model_sfun.obj
+ 0003:000000a8       $SG18070                   00000001800150a8     SSI_model_sfun.obj
+ 0003:000000c0       $SG18095                   00000001800150c0     SSI_model_sfun.obj
+ 0003:000000d8       $SG18104                   00000001800150d8     SSI_model_sfun.obj
+ 0003:000000f0       $SG18129                   00000001800150f0     SSI_model_sfun.obj
+ 0003:00000110       $SG18138                   0000000180015110     SSI_model_sfun.obj
+ 0003:00000128       $SG18146                   0000000180015128     SSI_model_sfun.obj
+ 0003:00000130       $SG18147                   0000000180015130     SSI_model_sfun.obj
+ 0003:00000140       $SG18172                   0000000180015140     SSI_model_sfun.obj
+ 0003:00000150       $SG18173                   0000000180015150     SSI_model_sfun.obj
+ 0003:00000160       $SG18443                   0000000180015160     c1_SSI_model.obj
+ 0003:00000168       $SG18528                   0000000180015168     c1_SSI_model.obj
+ 0003:00000174       $SG18530                   0000000180015174     c1_SSI_model.obj
+ 0003:0000017c       $SG18669                   000000018001517c     c1_SSI_model.obj
+ 0003:00000180       $SG18529                   0000000180015180     c1_SSI_model.obj
+ 0003:0000018c       $SG18531                   000000018001518c     c1_SSI_model.obj
+ 0003:00000194       $SG18727                   0000000180015194     c1_SSI_model.obj
+ 0003:00000198       $SG18532                   0000000180015198     c1_SSI_model.obj
+ 0003:000001a4       $SG17899                   00000001800151a4     c1_SSI_model.obj
+ 0003:000001a8       $SG18533                   00000001800151a8     c1_SSI_model.obj
+ 0003:000001b4       $SG17900                   00000001800151b4     c1_SSI_model.obj
+ 0003:000001b8       $SG18534                   00000001800151b8     c1_SSI_model.obj
+ 0003:000001c0       $SG18535                   00000001800151c0     c1_SSI_model.obj
+ 0003:000001c8       $SG18536                   00000001800151c8     c1_SSI_model.obj
+ 0003:000001d0       $SG18537                   00000001800151d0     c1_SSI_model.obj
+ 0003:000001d8       $SG18538                   00000001800151d8     c1_SSI_model.obj
+ 0003:000001e8       $SG18539                   00000001800151e8     c1_SSI_model.obj
+ 0003:000001f8       $SG18542                   00000001800151f8     c1_SSI_model.obj
+ 0003:00000210       $SG18543                   0000000180015210     c1_SSI_model.obj
+ 0003:0000021c       $SG18545                   000000018001521c     c1_SSI_model.obj
+ 0003:00000224       $SG18546                   0000000180015224     c1_SSI_model.obj
+ 0003:0000022c       $SG18547                   000000018001522c     c1_SSI_model.obj
+ 0003:00000234       $SG18548                   0000000180015234     c1_SSI_model.obj
+ 0003:0000023c       $SG18559                   000000018001523c     c1_SSI_model.obj
+ 0003:00000244       $SG18618                   0000000180015244     c1_SSI_model.obj
+ 0003:0000024c       $SG17901                   000000018001524c     c1_SSI_model.obj
+ 0003:00000250       $SG18549                   0000000180015250     c1_SSI_model.obj
+ 0003:0000025c       $SG17902                   000000018001525c     c1_SSI_model.obj
+ 0003:00000260       $SG18550                   0000000180015260     c1_SSI_model.obj
+ 0003:0000026c       $SG18555                   000000018001526c     c1_SSI_model.obj
+ 0003:00000274       $SG18557                   0000000180015274     c1_SSI_model.obj
+ 0003:0000027c       $SG18558                   000000018001527c     c1_SSI_model.obj
+ 0003:00000284       $SG18560                   0000000180015284     c1_SSI_model.obj
+ 0003:0000028c       $SG18646                   000000018001528c     c1_SSI_model.obj
+ 0003:00000294       $SG17903                   0000000180015294     c1_SSI_model.obj
+ 0003:00000298       $SG18561                   0000000180015298     c1_SSI_model.obj
+ 0003:000002ac       $SG18565                   00000001800152ac     c1_SSI_model.obj
+ 0003:000002b4       $SG18724                   00000001800152b4     c1_SSI_model.obj
+ 0003:000002bc       $SG17912                   00000001800152bc     c1_SSI_model.obj
+ 0003:000002c0       $SG18562                   00000001800152c0     c1_SSI_model.obj
+ 0003:000002d4       $SG18564                   00000001800152d4     c1_SSI_model.obj
+ 0003:000002dc       $SG18576                   00000001800152dc     c1_SSI_model.obj
+ 0003:000002e4       $SG17906                   00000001800152e4     c1_SSI_model.obj
+ 0003:000002ec       $SG18090                   00000001800152ec     c1_SSI_model.obj
+ 0003:000002f0       $SG18566                   00000001800152f0     c1_SSI_model.obj
+ 0003:00000304       $SG18567                   0000000180015304     c1_SSI_model.obj
+ 0003:0000030c       $SG18577                   000000018001530c     c1_SSI_model.obj
+ 0003:00000314       $SG17909                   0000000180015314     c1_SSI_model.obj
+ 0003:0000031c       $SG18092                   000000018001531c     c1_SSI_model.obj
+ 0003:00000320       $SG18568                   0000000180015320     c1_SSI_model.obj
+ 0003:0000032c       $SG18572                   000000018001532c     c1_SSI_model.obj
+ 0003:00000334       $SG18574                   0000000180015334     c1_SSI_model.obj
+ 0003:0000033c       $SG18575                   000000018001533c     c1_SSI_model.obj
+ 0003:00000344       $SG18582                   0000000180015344     c1_SSI_model.obj
+ 0003:0000034c       $SG18101                   000000018001534c     c1_SSI_model.obj
+ 0003:00000350       $SG18578                   0000000180015350     c1_SSI_model.obj
+ 0003:00000364       $SG18592                   0000000180015364     c1_SSI_model.obj
+ 0003:0000036c       $SG18102                   000000018001536c     c1_SSI_model.obj
+ 0003:00000370       $SG18579                   0000000180015370     c1_SSI_model.obj
+ 0003:00000384       $SG18581                   0000000180015384     c1_SSI_model.obj
+ 0003:0000038c       $SG18593                   000000018001538c     c1_SSI_model.obj
+ 0003:00000394       $SG18303                   0000000180015394     c1_SSI_model.obj
+ 0003:00000398       $SG18583                   0000000180015398     c1_SSI_model.obj
+ 0003:000003ac       $SG18584                   00000001800153ac     c1_SSI_model.obj
+ 0003:000003b4       $SG18598                   00000001800153b4     c1_SSI_model.obj
+ 0003:000003bc       $SG18368                   00000001800153bc     c1_SSI_model.obj
+ 0003:000003c0       $SG18585                   00000001800153c0     c1_SSI_model.obj
+ 0003:000003cc       $SG18588                   00000001800153cc     c1_SSI_model.obj
+ 0003:000003d4       $SG18590                   00000001800153d4     c1_SSI_model.obj
+ 0003:000003dc       $SG18591                   00000001800153dc     c1_SSI_model.obj
+ 0003:000003e4       $SG18608                   00000001800153e4     c1_SSI_model.obj
+ 0003:000003ec       $SG18425                   00000001800153ec     c1_SSI_model.obj
+ 0003:000003f0       $SG18594                   00000001800153f0     c1_SSI_model.obj
+ 0003:00000404       $SG18609                   0000000180015404     c1_SSI_model.obj
+ 0003:00000410       $SG18595                   0000000180015410     c1_SSI_model.obj
+ 0003:00000424       $SG18597                   0000000180015424     c1_SSI_model.obj
+ 0003:00000430       $SG18599                   0000000180015430     c1_SSI_model.obj
+ 0003:00000444       $SG18600                   0000000180015444     c1_SSI_model.obj
+ 0003:00000450       $SG18601                   0000000180015450     c1_SSI_model.obj
+ 0003:0000045c       $SG18604                   000000018001545c     c1_SSI_model.obj
+ 0003:00000464       $SG18606                   0000000180015464     c1_SSI_model.obj
+ 0003:0000046c       $SG18607                   000000018001546c     c1_SSI_model.obj
+ 0003:00000478       $SG18610                   0000000180015478     c1_SSI_model.obj
+ 0003:00000490       $SG18611                   0000000180015490     c1_SSI_model.obj
+ 0003:000004a4       $SG18613                   00000001800154a4     c1_SSI_model.obj
+ 0003:000004ac       $SG18614                   00000001800154ac     c1_SSI_model.obj
+ 0003:000004b8       $SG18615                   00000001800154b8     c1_SSI_model.obj
+ 0003:000004cc       $SG18616                   00000001800154cc     c1_SSI_model.obj
+ 0003:000004d8       $SG18617                   00000001800154d8     c1_SSI_model.obj
+ 0003:000004e8       $SG18619                   00000001800154e8     c1_SSI_model.obj
+ 0003:000004f4       $SG18621                   00000001800154f4     c1_SSI_model.obj
+ 0003:000004fc       $SG18622                   00000001800154fc     c1_SSI_model.obj
+ 0003:00000504       $SG18623                   0000000180015504     c1_SSI_model.obj
+ 0003:0000050c       $SG18624                   000000018001550c     c1_SSI_model.obj
+ 0003:00000518       $SG18625                   0000000180015518     c1_SSI_model.obj
+ 0003:00000528       $SG18626                   0000000180015528     c1_SSI_model.obj
+ 0003:00000534       $SG18631                   0000000180015534     c1_SSI_model.obj
+ 0003:0000053c       $SG18633                   000000018001553c     c1_SSI_model.obj
+ 0003:00000544       $SG18634                   0000000180015544     c1_SSI_model.obj
+ 0003:0000054c       $SG18635                   000000018001554c     c1_SSI_model.obj
+ 0003:00000554       $SG18636                   0000000180015554     c1_SSI_model.obj
+ 0003:00000560       $SG18637                   0000000180015560     c1_SSI_model.obj
+ 0003:00000578       $SG18638                   0000000180015578     c1_SSI_model.obj
+ 0003:0000058c       $SG18640                   000000018001558c     c1_SSI_model.obj
+ 0003:00000594       $SG18641                   0000000180015594     c1_SSI_model.obj
+ 0003:000005a0       $SG18642                   00000001800155a0     c1_SSI_model.obj
+ 0003:000005b4       $SG18643                   00000001800155b4     c1_SSI_model.obj
+ 0003:000005c0       $SG18644                   00000001800155c0     c1_SSI_model.obj
+ 0003:000005d0       $SG18645                   00000001800155d0     c1_SSI_model.obj
+ 0003:000005d8       $SG18648                   00000001800155d8     c1_SSI_model.obj
+ 0003:000005e8       $SG18657                   00000001800155e8     c1_SSI_model.obj
+ 0003:000005f8       $SG18658                   00000001800155f8     c1_SSI_model.obj
+ 0003:00000608       $SG18659                   0000000180015608     c1_SSI_model.obj
+ 0003:00000618       $SG18660                   0000000180015618     c1_SSI_model.obj
+ 0003:00000628       $SG18661                   0000000180015628     c1_SSI_model.obj
+ 0003:00000640       $SG18662                   0000000180015640     c1_SSI_model.obj
+ 0003:00000658       $SG18663                   0000000180015658     c1_SSI_model.obj
+ 0003:00000670       $SG18664                   0000000180015670     c1_SSI_model.obj
+ 0003:00000688       $SG18665                   0000000180015688     c1_SSI_model.obj
+ 0003:000006a0       $SG18666                   00000001800156a0     c1_SSI_model.obj
+ 0003:000006b8       $SG18671                   00000001800156b8     c1_SSI_model.obj
+ 0003:000006c8       $SG18673                   00000001800156c8     c1_SSI_model.obj
+ 0003:000006d0       $SG18685                   00000001800156d0     c1_SSI_model.obj
+ 0003:000006f8       $SG18686                   00000001800156f8     c1_SSI_model.obj
+ 0003:00000720       $SG18687                   0000000180015720     c1_SSI_model.obj
+ 0003:00000740       $SG18688                   0000000180015740     c1_SSI_model.obj
+ 0003:00000760       $SG18695                   0000000180015760     c1_SSI_model.obj
+ 0003:00000788       $SG18696                   0000000180015788     c1_SSI_model.obj
+ 0003:000007a8       $SG18701                   00000001800157a8     c1_SSI_model.obj
+ 0003:000007b8       $SG18702                   00000001800157b8     c1_SSI_model.obj
+ 0003:000007c8       $SG18703                   00000001800157c8     c1_SSI_model.obj
+ 0003:000007d0       $SG18704                   00000001800157d0     c1_SSI_model.obj
+ 0003:000007d8       $SG18723                   00000001800157d8     c1_SSI_model.obj
+ 0003:000007e0       $SG18707                   00000001800157e0     c1_SSI_model.obj
+ 0003:00000848       $SG18725                   0000000180015848     c1_SSI_model.obj
+ 0003:00000850       $SG18708                   0000000180015850     c1_SSI_model.obj
+ 0003:000008b8       $SG18726                   00000001800158b8     c1_SSI_model.obj
+ 0003:000008c8       $SG18733                   00000001800158c8     c1_SSI_model.obj
+ 0003:000008d8       $SG18779                   00000001800158d8     c1_SSI_model.obj
+ 0003:000008f0       $SG18871                   00000001800158f0     c1_SSI_model.obj
+ 0003:00000918       $SG18894                   0000000180015918     c1_SSI_model.obj
+ 0003:00000928       $SG18895                   0000000180015928     c1_SSI_model.obj
+ 0003:00000940       $SG18905                   0000000180015940     c1_SSI_model.obj
+ 0003:00000970       c1_debug_family_names      0000000180015970     c1_SSI_model.obj
+ 0003:000009e0       $SG17904                   00000001800159e0     c1_SSI_model.obj
+ 0003:000009e8       $SG17905                   00000001800159e8     c1_SSI_model.obj
+ 0003:000009f0       $SG17907                   00000001800159f0     c1_SSI_model.obj
+ 0003:000009f8       $SG17908                   00000001800159f8     c1_SSI_model.obj
+ 0003:00000a00       $SG18933                   0000000180015a00     c1_SSI_model.obj
+ 0003:00000a68       $SG17910                   0000000180015a68     c1_SSI_model.obj
+ 0003:00000a70       $SG17911                   0000000180015a70     c1_SSI_model.obj
+ 0003:00000a80       $SG18106                   0000000180015a80     c1_SSI_model.obj
+ 0003:00000a98       $SG18107                   0000000180015a98     c1_SSI_model.obj
+ 0003:00000ab0       $SG18403                   0000000180015ab0     c1_SSI_model.obj
+ 0003:00000ac0       ?c1_cv0@?1??c1_error@@9@9  0000000180015ac0     c1_SSI_model.obj
+ 0003:00000ae0       $SG18426                   0000000180015ae0     c1_SSI_model.obj
+ 0003:00000ae8       $SG18427                   0000000180015ae8     c1_SSI_model.obj
+ 0003:00000af0       $SG20484                   0000000180015af0     SSI_model_sfun_registry.obj
+ 0003:00000b00       $SG20494                   0000000180015b00     SSI_model_sfun_registry.obj
+ 0003:00000b10       $SG19524                   0000000180015b10     SSI_model_sfun_registry.obj
+ 0003:00000b90       $SG19532                   0000000180015b90     SSI_model_sfun_registry.obj
+ 0003:00000c08       $SG19546                   0000000180015c08     SSI_model_sfun_registry.obj
+ 0003:00000c1c       $SG19873                   0000000180015c1c     SSI_model_sfun_registry.obj
+ 0003:00000c20       $SG18713                   0000000180015c20     SSI_model_sfun_registry.obj
+ 0003:00000c28       $SG18714                   0000000180015c28     SSI_model_sfun_registry.obj
+ 0003:00000c30       $SG18735                   0000000180015c30     SSI_model_sfun_registry.obj
+ 0003:00000c40       $SG19870                   0000000180015c40     SSI_model_sfun_registry.obj
+ 0003:00000cb8       $SG19892                   0000000180015cb8     SSI_model_sfun_registry.obj
+ 0003:00000cc0       $SG19893                   0000000180015cc0     SSI_model_sfun_registry.obj
+ 0003:00000cc8       $SG19894                   0000000180015cc8     SSI_model_sfun_registry.obj
+ 0003:00000cd0       $SG19895                   0000000180015cd0     SSI_model_sfun_registry.obj
+ 0003:00000d48       $SG19900                   0000000180015d48     SSI_model_sfun_registry.obj
+ 0003:00000d50       $SG19898                   0000000180015d50     SSI_model_sfun_registry.obj
+ 0003:00000dcc       $SG19903                   0000000180015dcc     SSI_model_sfun_registry.obj
+ 0003:00000dd4       $SG19906                   0000000180015dd4     SSI_model_sfun_registry.obj
+ 0003:00000de0       $SG19908                   0000000180015de0     SSI_model_sfun_registry.obj
+ 0003:00000e5c       $SG19946                   0000000180015e5c     SSI_model_sfun_registry.obj
+ 0003:00000e60       $SG19910                   0000000180015e60     SSI_model_sfun_registry.obj
+ 0003:00000e70       $SG19938                   0000000180015e70     SSI_model_sfun_registry.obj
+ 0003:00000e7c       $SG19940                   0000000180015e7c     SSI_model_sfun_registry.obj
+ 0003:00000e84       $SG19942                   0000000180015e84     SSI_model_sfun_registry.obj
+ 0003:00000e8c       $SG18242                   0000000180015e8c     SSI_model_sfun_registry.obj
+ 0003:00000e98       $SG19944                   0000000180015e98     SSI_model_sfun_registry.obj
+ 0003:00000ea8       $SG18921                   0000000180015ea8     SSI_model_sfun_registry.obj
+ 0003:00000ee8       $SG18922                   0000000180015ee8     SSI_model_sfun_registry.obj
+ 0003:00000ef0       $SG18924                   0000000180015ef0     SSI_model_sfun_registry.obj
+ 0003:00000ef8       $SG18933                   0000000180015ef8     SSI_model_sfun_registry.obj
+ 0003:00000f00       $SG19951                   0000000180015f00     SSI_model_sfun_registry.obj
+ 0003:00000fac       $SG18935                   0000000180015fac     SSI_model_sfun_registry.obj
+ 0003:00000fb8       $SG17904                   0000000180015fb8     SSI_model_sfun_registry.obj
+ 0003:00000fd8       $SG17909                   0000000180015fd8     SSI_model_sfun_registry.obj
+ 0003:00000fe8       $SG18940                   0000000180015fe8     SSI_model_sfun_registry.obj
+ 0003:00000ff0       $SG18932                   0000000180015ff0     SSI_model_sfun_registry.obj
+ 0003:00001038       $SG18942                   0000000180016038     SSI_model_sfun_registry.obj
+ 0003:00001040       $SG18939                   0000000180016040     SSI_model_sfun_registry.obj
+ 0003:00001098       $SG19972                   0000000180016098     SSI_model_sfun_registry.obj
+ 0003:000010c8       $SG19973                   00000001800160c8     SSI_model_sfun_registry.obj
+ 0003:000010d0       $SG19975                   00000001800160d0     SSI_model_sfun_registry.obj
+ 0003:000010d8       $SG18954                   00000001800160d8     SSI_model_sfun_registry.obj
+ 0003:00001118       $SG18955                   0000000180016118     SSI_model_sfun_registry.obj
+ 0003:00001120       $SG19980                   0000000180016120     SSI_model_sfun_registry.obj
+ 0003:00001154       $SG18957                   0000000180016154     SSI_model_sfun_registry.obj
+ 0003:00001160       $SG19981                   0000000180016160     SSI_model_sfun_registry.obj
+ 0003:00001168       $SG19983                   0000000180016168     SSI_model_sfun_registry.obj
+ 0003:00001170       $SG19989                   0000000180016170     SSI_model_sfun_registry.obj
+ 0003:000011a8       $SG19990                   00000001800161a8     SSI_model_sfun_registry.obj
+ 0003:000011b0       $SG18965                   00000001800161b0     SSI_model_sfun_registry.obj
+ 0003:000011f8       $SG18966                   00000001800161f8     SSI_model_sfun_registry.obj
+ 0003:00001200       $SG17942                   0000000180016200     SSI_model_sfun_registry.obj
+ 0003:0000121c       $SG19992                   000000018001621c     SSI_model_sfun_registry.obj
+ 0003:00001224       $SG18968                   0000000180016224     SSI_model_sfun_registry.obj
+ 0003:00001230       $SG17947                   0000000180016230     SSI_model_sfun_registry.obj
+ 0003:00001240       $SG18972                   0000000180016240     SSI_model_sfun_registry.obj
+ 0003:00001298       $SG18973                   0000000180016298     SSI_model_sfun_registry.obj
+ 0003:000012a0       $SG18975                   00000001800162a0     SSI_model_sfun_registry.obj
+ 0003:000012a8       $SG20000                   00000001800162a8     SSI_model_sfun_registry.obj
+ 0003:000012e0       $SG20001                   00000001800162e0     SSI_model_sfun_registry.obj
+ 0003:000012e8       $SG20003                   00000001800162e8     SSI_model_sfun_registry.obj
+ 0003:000012f0       $SG20008                   00000001800162f0     SSI_model_sfun_registry.obj
+ 0003:00001328       $SG20009                   0000000180016328     SSI_model_sfun_registry.obj
+ 0003:00001330       $SG20011                   0000000180016330     SSI_model_sfun_registry.obj
+ 0003:00001338       $SG18990                   0000000180016338     SSI_model_sfun_registry.obj
+ 0003:00001340       $SG18989                   0000000180016340     SSI_model_sfun_registry.obj
+ 0003:00001390       $SG18992                   0000000180016390     SSI_model_sfun_registry.obj
+ 0003:00001398       $SG19004                   0000000180016398     SSI_model_sfun_registry.obj
+ 0003:000013a0       $SG19003                   00000001800163a0     SSI_model_sfun_registry.obj
+ 0003:000013fc       $SG20040                   00000001800163fc     SSI_model_sfun_registry.obj
+ 0003:00001408       $SG17980                   0000000180016408     SSI_model_sfun_registry.obj
+ 0003:00001420       $SG19006                   0000000180016420     SSI_model_sfun_registry.obj
+ 0003:00001428       $SG20031                   0000000180016428     SSI_model_sfun_registry.obj
+ 0003:00001430       $SG20033                   0000000180016430     SSI_model_sfun_registry.obj
+ 0003:00001448       $SG17985                   0000000180016448     SSI_model_sfun_registry.obj
+ 0003:00001458       $SG20037                   0000000180016458     SSI_model_sfun_registry.obj
+ 0003:00001490       $SG20038                   0000000180016490     SSI_model_sfun_registry.obj
+ 0003:00001498       $SG19018                   0000000180016498     SSI_model_sfun_registry.obj
+ 0003:000014a0       $SG19017                   00000001800164a0     SSI_model_sfun_registry.obj
+ 0003:00001500       $SG19020                   0000000180016500     SSI_model_sfun_registry.obj
+ 0003:00001508       $SG18018                   0000000180016508     SSI_model_sfun_registry.obj
+ 0003:00001528       $SG18023                   0000000180016528     SSI_model_sfun_registry.obj
+ 0003:00001538       $SG18056                   0000000180016538     SSI_model_sfun_registry.obj
+ 0003:00001558       $SG18061                   0000000180016558     SSI_model_sfun_registry.obj
+ 0003:00001568       $SG20115                   0000000180016568     SSI_model_sfun_registry.obj
+ 0003:00001588       $SG20126                   0000000180016588     SSI_model_sfun_registry.obj
+ 0003:000015a0       $SG20116                   00000001800165a0     SSI_model_sfun_registry.obj
+ 0003:00001628       $SG20137                   0000000180016628     SSI_model_sfun_registry.obj
+ 0003:00001640       $SG20127                   0000000180016640     SSI_model_sfun_registry.obj
+ 0003:000016c0       $SG18082                   00000001800166c0     SSI_model_sfun_registry.obj
+ 0003:000016d0       $SG20138                   00000001800166d0     SSI_model_sfun_registry.obj
+ 0003:00001750       $SG20149                   0000000180016750     SSI_model_sfun_registry.obj
+ 0003:00001770       $SG20150                   0000000180016770     SSI_model_sfun_registry.obj
+ 0003:000017f0       $SG20161                   00000001800167f0     SSI_model_sfun_registry.obj
+ 0003:00001810       $SG20162                   0000000180016810     SSI_model_sfun_registry.obj
+ 0003:00001890       $SG20169                   0000000180016890     SSI_model_sfun_registry.obj
+ 0003:000018b0       $SG20170                   00000001800168b0     SSI_model_sfun_registry.obj
+ 0003:00001930       $SG18125                   0000000180016930     SSI_model_sfun_registry.obj
+ 0003:00001948       $SG20180                   0000000180016948     SSI_model_sfun_registry.obj
+ 0003:00001970       $SG20181                   0000000180016970     SSI_model_sfun_registry.obj
+ 0003:000019f0       $SG20191                   00000001800169f0     SSI_model_sfun_registry.obj
+ 0003:00001a18       $SG20223                   0000000180016a18     SSI_model_sfun_registry.obj
+ 0003:00001a30       $SG20192                   0000000180016a30     SSI_model_sfun_registry.obj
+ 0003:00001ab0       $SG20202                   0000000180016ab0     SSI_model_sfun_registry.obj
+ 0003:00001ad0       $SG20203                   0000000180016ad0     SSI_model_sfun_registry.obj
+ 0003:00001b50       $SG18156                   0000000180016b50     SSI_model_sfun_registry.obj
+ 0003:00001b60       $SG20213                   0000000180016b60     SSI_model_sfun_registry.obj
+ 0003:00001b80       $SG20214                   0000000180016b80     SSI_model_sfun_registry.obj
+ 0003:00001c00       $SG20224                   0000000180016c00     SSI_model_sfun_registry.obj
+ 0003:00001c80       $SG20233                   0000000180016c80     SSI_model_sfun_registry.obj
+ 0003:00001c9c       $SG18248                   0000000180016c9c     SSI_model_sfun_registry.obj
+ 0003:00001ca8       $SG20252                   0000000180016ca8     SSI_model_sfun_registry.obj
+ 0003:00001cc8       $SG20263                   0000000180016cc8     SSI_model_sfun_registry.obj
+ 0003:00001ce8       $SG20271                   0000000180016ce8     SSI_model_sfun_registry.obj
+ 0003:00001d08       $SG20291                   0000000180016d08     SSI_model_sfun_registry.obj
+ 0003:00001d1c       $SG20299                   0000000180016d1c     SSI_model_sfun_registry.obj
+ 0003:00001d28       $SG18243                   0000000180016d28     SSI_model_sfun_registry.obj
+ 0003:00001d40       $SG20234                   0000000180016d40     SSI_model_sfun_registry.obj
+ 0003:00001dc0       $SG20241                   0000000180016dc0     SSI_model_sfun_registry.obj
+ 0003:00001de0       $SG20242                   0000000180016de0     SSI_model_sfun_registry.obj
+ 0003:00001e60       $SG19228                   0000000180016e60     SSI_model_sfun_registry.obj
+ 0003:00001ed8       $SG20307                   0000000180016ed8     SSI_model_sfun_registry.obj
+ 0003:00001ef0       $SG20253                   0000000180016ef0     SSI_model_sfun_registry.obj
+ 0003:00001f70       $SG19233                   0000000180016f70     SSI_model_sfun_registry.obj
+ 0003:00001fe8       $SG20323                   0000000180016fe8     SSI_model_sfun_registry.obj
+ 0003:00001ff8       $SG20331                   0000000180016ff8     SSI_model_sfun_registry.obj
+ 0003:00002008       $SG20339                   0000000180017008     SSI_model_sfun_registry.obj
+ 0003:00002020       $SG19238                   0000000180017020     SSI_model_sfun_registry.obj
+ 0003:00002098       $SG20347                   0000000180017098     SSI_model_sfun_registry.obj
+ 0003:000020b0       $SG20264                   00000001800170b0     SSI_model_sfun_registry.obj
+ 0003:00002130       $SG20272                   0000000180017130     SSI_model_sfun_registry.obj
+ 0003:000021b0       $SG19252                   00000001800171b0     SSI_model_sfun_registry.obj
+ 0003:00002220       $SG20282                   0000000180017220     SSI_model_sfun_registry.obj
+ 0003:00002240       $SG20283                   0000000180017240     SSI_model_sfun_registry.obj
+ 0003:000022c0       $SG20292                   00000001800172c0     SSI_model_sfun_registry.obj
+ 0003:00002340       $SG18249                   0000000180017340     SSI_model_sfun_registry.obj
+ 0003:00002360       $SG20300                   0000000180017360     SSI_model_sfun_registry.obj
+ 0003:000023e0       $SG20308                   00000001800173e0     SSI_model_sfun_registry.obj
+ 0003:00002460       $SG20315                   0000000180017460     SSI_model_sfun_registry.obj
+ 0003:00002470       $SG20316                   0000000180017470     SSI_model_sfun_registry.obj
+ 0003:000024f0       $SG20324                   00000001800174f0     SSI_model_sfun_registry.obj
+ 0003:00002570       $SG20332                   0000000180017570     SSI_model_sfun_registry.obj
+ 0003:000025f0       $SG20340                   00000001800175f0     SSI_model_sfun_registry.obj
+ 0003:00002670       $SG20348                   0000000180017670     SSI_model_sfun_registry.obj
+ 0003:000026f0       $SG20355                   00000001800176f0     SSI_model_sfun_registry.obj
+ 0003:00002700       $SG20356                   0000000180017700     SSI_model_sfun_registry.obj
+ 0003:00002780       $SG20367                   0000000180017780     SSI_model_sfun_registry.obj
+ 0003:00002790       $SG20368                   0000000180017790     SSI_model_sfun_registry.obj
+ 0003:00002810       $SG20375                   0000000180017810     SSI_model_sfun_registry.obj
+ 0003:00002820       $SG20376                   0000000180017820     SSI_model_sfun_registry.obj
+ 0003:000028a0       $SG20382                   00000001800178a0     SSI_model_sfun_registry.obj
+ 0003:000028b0       $SG20383                   00000001800178b0     SSI_model_sfun_registry.obj
+ 0003:00002930       $SG20393                   0000000180017930     SSI_model_sfun_registry.obj
+ 0003:00002940       $SG20394                   0000000180017940     SSI_model_sfun_registry.obj
+ 0003:000029c0       $SG20402                   00000001800179c0     SSI_model_sfun_registry.obj
+ 0003:00002a40       $SG20428                   0000000180017a40     SSI_model_sfun_registry.obj
+ 0003:00002ab8       $SG18390                   0000000180017ab8     SSI_model_sfun_registry.obj
+ 0003:00002ae0       $SG20440                   0000000180017ae0     SSI_model_sfun_registry.obj
+ 0003:00002af0       _sfcnName                  0000000180017af0     SSI_model_sfun_registry.obj
+ 0003:00002b10       $SG20450                   0000000180017b10     SSI_model_sfun_registry.obj
+ 0003:00002b20       $SG18407                   0000000180017b20     SSI_model_sfun_registry.obj
+ 0003:00002b98       $SG20462                   0000000180017b98     SSI_model_sfun_registry.obj
+ 0003:00002ba8       $SG20472                   0000000180017ba8     SSI_model_sfun_registry.obj
+ 0003:00002be0       sRtwOptimizationInfoStruct 0000000180017be0     SSI_model_sfun.obj
+ 0003:00002be8       sOptimizationInfoFlags     0000000180017be8     SSI_model_sfun.obj
+ 0003:00002bf0       $SG18675                   0000000180017bf0     c1_SSI_model.obj
+ 0003:00002bf1       $SG18677                   0000000180017bf1     c1_SSI_model.obj
+ 0003:00002bf2       $SG18692                   0000000180017bf2     c1_SSI_model.obj
+ 0003:00002bf8       _sfTime_                   0000000180017bf8     c1_SSI_model.obj
+ 0003:00002c00       $SG19887                   0000000180017c00     SSI_model_sfun_registry.obj
+ 0003:00002c10       sfGlobalMdlStartCallCounts 0000000180017c10     SSI_model_sfun_registry.obj
+ 0003:00002c20       ?msg@?3??ReportIndexOutOfBoundsError@@9@9 0000000180017c20     SSI_model_sfun_registry.obj
+ 0003:00003c20       GS_ExceptionRecord         0000000180018c20     MSVCRT:gs_report.obj
+ 0003:00003cc0       GS_ContextRecord           0000000180018cc0     MSVCRT:gs_report.obj
+ 0003:00004190       DebuggerWasPresent         0000000180019190     MSVCRT:gs_report.obj
+ 0003:00004194       __proc_attached            0000000180019194     MSVCRT:crtdll.obj
+ 0004:00000000       $pdata$load_SSI_model_optimization_info 000000018001a000     SSI_model_sfun.obj
+ 0004:0000000c       $pdata$unload_SSI_model_optimization_info 000000018001a00c     SSI_model_sfun.obj
+ 0004:00000018       $pdata$sf_SSI_model_method_dispatcher 000000018001a018     SSI_model_sfun.obj
+ 0004:00000024       $pdata$sf_SSI_model_process_check_sum_call 000000018001a024     SSI_model_sfun.obj
+ 0004:00000030       $pdata$sf_SSI_model_autoinheritance_info 000000018001a030     SSI_model_sfun.obj
+ 0004:0000003c       $pdata$sf_SSI_model_get_eml_resolved_functions_info 000000018001a03c     SSI_model_sfun.obj
+ 0004:00000048       $pdata$sf_SSI_model_third_party_uses_info 000000018001a048     SSI_model_sfun.obj
+ 0004:00000054       $pdata$sf_SSI_model_jit_fallback_info 000000018001a054     SSI_model_sfun.obj
+ 0004:00000060       $pdata$sf_SSI_model_updateBuildInfo_args_info 000000018001a060     SSI_model_sfun.obj
+ 0004:0000006c       $pdata$SSI_model_debug_initialize 000000018001a06c     SSI_model_sfun.obj
+ 0004:00000078       $pdata$sf_c1_SSI_model_get_eml_resolved_functions_info 000000018001a078     c1_SSI_model.obj
+ 0004:00000084       $pdata$sf_c1_SSI_model_get_check_sum 000000018001a084     c1_SSI_model.obj
+ 0004:00000090       $pdata$c1_SSI_model_method_dispatcher 000000018001a090     c1_SSI_model.obj
+ 0004:0000009c       $pdata$chart_debug_initialization 000000018001a09c     c1_SSI_model.obj
+ 0004:000000a8       $pdata$chart_debug_initialize_data_addresses 000000018001a0a8     c1_SSI_model.obj
+ 0004:000000b4       $pdata$initialize_c1_SSI_model 000000018001a0b4     c1_SSI_model.obj
+ 0004:000000c0       $pdata$enable_c1_SSI_model 000000018001a0c0     c1_SSI_model.obj
+ 0004:000000cc       $pdata$disable_c1_SSI_model 000000018001a0cc     c1_SSI_model.obj
+ 0004:000000d8       $pdata$get_sim_state_c1_SSI_model 000000018001a0d8     c1_SSI_model.obj
+ 0004:000000e4       $pdata$set_sim_state_c1_SSI_model 000000018001a0e4     c1_SSI_model.obj
+ 0004:000000f0       $pdata$sf_gateway_c1_SSI_model 000000018001a0f0     c1_SSI_model.obj
+ 0004:000000fc       $pdata$c1_sf_marshallOut   000000018001a0fc     c1_SSI_model.obj
+ 0004:00000108       $pdata$c1_emlrt_marshallIn 000000018001a108     c1_SSI_model.obj
+ 0004:00000114       $pdata$c1_b_emlrt_marshallIn 000000018001a114     c1_SSI_model.obj
+ 0004:00000120       $pdata$c1_sf_marshallIn    000000018001a120     c1_SSI_model.obj
+ 0004:0000012c       $pdata$c1_b_sf_marshallOut 000000018001a12c     c1_SSI_model.obj
+ 0004:00000138       $pdata$c1_c_emlrt_marshallIn 000000018001a138     c1_SSI_model.obj
+ 0004:00000144       $pdata$c1_b_sf_marshallIn  000000018001a144     c1_SSI_model.obj
+ 0004:00000150       $pdata$c1_mpower           000000018001a150     c1_SSI_model.obj
+ 0004:0000015c       $pdata$c1_error            000000018001a15c     c1_SSI_model.obj
+ 0004:00000168       $pdata$c1_e_emlrt_marshallIn 000000018001a168     c1_SSI_model.obj
+ 0004:00000174       $pdata$c1_f_emlrt_marshallIn 000000018001a174     c1_SSI_model.obj
+ 0004:00000180       $pdata$init_simulink_io_address 000000018001a180     c1_SSI_model.obj
+ 0004:0000018c       $pdata$sf_c1_SSI_model_get_post_codegen_info 000000018001a18c     c1_SSI_model.obj
+ 0004:00000198       $pdata$sf_c1_SSI_model_get_autoinheritance_info 000000018001a198     c1_SSI_model.obj
+ 0004:000001a4       $pdata$sf_c1_SSI_model_third_party_uses_info 000000018001a1a4     c1_SSI_model.obj
+ 0004:000001b0       $pdata$sf_c1_SSI_model_jit_fallback_info 000000018001a1b0     c1_SSI_model.obj
+ 0004:000001bc       $pdata$sf_c1_SSI_model_updateBuildInfo_args_info 000000018001a1bc     c1_SSI_model.obj
+ 0004:000001c8       $pdata$sf_get_sim_state_info_c1_SSI_model 000000018001a1c8     c1_SSI_model.obj
+ 0004:000001d4       $pdata$sf_opaque_initialize_c1_SSI_model 000000018001a1d4     c1_SSI_model.obj
+ 0004:000001e0       $pdata$sf_opaque_enable_c1_SSI_model 000000018001a1e0     c1_SSI_model.obj
+ 0004:000001ec       $pdata$sf_opaque_disable_c1_SSI_model 000000018001a1ec     c1_SSI_model.obj
+ 0004:000001f8       $pdata$sf_opaque_gateway_c1_SSI_model 000000018001a1f8     c1_SSI_model.obj
+ 0004:00000204       $pdata$sf_opaque_get_sim_state_c1_SSI_model 000000018001a204     c1_SSI_model.obj
+ 0004:00000210       $pdata$sf_opaque_set_sim_state_c1_SSI_model 000000018001a210     c1_SSI_model.obj
+ 0004:0000021c       $pdata$sf_opaque_terminate_c1_SSI_model 000000018001a21c     c1_SSI_model.obj
+ 0004:00000228       $pdata$mdlProcessParameters_c1_SSI_model 000000018001a228     c1_SSI_model.obj
+ 0004:00000234       $pdata$mdlSetWorkWidths_c1_SSI_model 000000018001a234     c1_SSI_model.obj
+ 0004:00000240       $pdata$mdlRTW_c1_SSI_model 000000018001a240     c1_SSI_model.obj
+ 0004:0000024c       $pdata$mdlStart_c1_SSI_model 000000018001a24c     c1_SSI_model.obj
+ 0004:00000258       $pdata$mexFunction         000000018001a258     SSI_model_sfun_registry.obj
+ 0004:00000264       $pdata$_ssSetInputPortDirectFeedThroughFcn 000000018001a264     SSI_model_sfun_registry.obj
+ 0004:00000270       $pdata$_ssGetInputPortSignalPtrsFcn 000000018001a270     SSI_model_sfun_registry.obj
+ 0004:0000027c       $pdata$_ssGetInputPortSignalFcn 000000018001a27c     SSI_model_sfun_registry.obj
+ 0004:00000288       $pdata$_ssSetInputPortReusableFcn 000000018001a288     SSI_model_sfun_registry.obj
+ 0004:00000294       $pdata$_ssSetOutputPortReusableFcn 000000018001a294     SSI_model_sfun_registry.obj
+ 0004:000002a0       $pdata$_ssSetSymbolicDimsSupport 000000018001a2a0     SSI_model_sfun_registry.obj
+ 0004:000002ac       $pdata$_ssRegisterSymbolicDimsExpr 000000018001a2ac     SSI_model_sfun_registry.obj
+ 0004:000002b8       $pdata$_ssRegisterSymbolicDims 000000018001a2b8     SSI_model_sfun_registry.obj
+ 0004:000002c4       $pdata$_ssRegisterSymbolicDimsString 000000018001a2c4     SSI_model_sfun_registry.obj
+ 0004:000002d0       $pdata$_ssRegisterSymbolicDimsIntValue 000000018001a2d0     SSI_model_sfun_registry.obj
+ 0004:000002dc       $pdata$_ssRegisterSymbolicDimsPlus 000000018001a2dc     SSI_model_sfun_registry.obj
+ 0004:000002e8       $pdata$_ssRegisterSymbolicDimsMinus 000000018001a2e8     SSI_model_sfun_registry.obj
+ 0004:000002f4       $pdata$_ssRegisterSymbolicDimsMultiply 000000018001a2f4     SSI_model_sfun_registry.obj
+ 0004:00000300       $pdata$_ssRegisterSymbolicDimsDivide 000000018001a300     SSI_model_sfun_registry.obj
+ 0004:0000030c       $pdata$_ssGetNumSymbolicDims 000000018001a30c     SSI_model_sfun_registry.obj
+ 0004:00000318       $pdata$_ssGetSymbolicDim   000000018001a318     SSI_model_sfun_registry.obj
+ 0004:00000324       $pdata$_ssSetInputPortSymbolicDimsId 000000018001a324     SSI_model_sfun_registry.obj
+ 0004:00000330       $pdata$_ssGetCompInputPortSymbolicDimsId 000000018001a330     SSI_model_sfun_registry.obj
+ 0004:0000033c       $pdata$_ssSetCompInputPortSymbolicDimsId 000000018001a33c     SSI_model_sfun_registry.obj
+ 0004:00000348       $pdata$_ssSetOutputPortSymbolicDimsId 000000018001a348     SSI_model_sfun_registry.obj
+ 0004:00000354       $pdata$_ssGetCompOutputPortSymbolicDimsId 000000018001a354     SSI_model_sfun_registry.obj
+ 0004:00000360       $pdata$_ssSetCompOutputPortSymbolicDimsId 000000018001a360     SSI_model_sfun_registry.obj
+ 0004:0000036c       $pdata$_ssSetCompDWorkSymbolicDimsId 000000018001a36c     SSI_model_sfun_registry.obj
+ 0004:00000378       $pdata$ssGetIsZeroCrossControlDisabled 000000018001a378     SSI_model_sfun_registry.obj
+ 0004:00000384       $pdata$ssSetIsInputPortUsedForContZcSignal 000000018001a384     SSI_model_sfun_registry.obj
+ 0004:00000390       $pdata$ssSetZcSignalIsZcElementDisc 000000018001a390     SSI_model_sfun_registry.obj
+ 0004:0000039c       $pdata$ssSetZcSignalName   000000018001a39c     SSI_model_sfun_registry.obj
+ 0004:000003a8       $pdata$ssSetZcSignalWidth  000000018001a3a8     SSI_model_sfun_registry.obj
+ 0004:000003b4       $pdata$ssSetZcSignalZcEventType 000000018001a3b4     SSI_model_sfun_registry.obj
+ 0004:000003c0       $pdata$ssSetZcSignalType   000000018001a3c0     SSI_model_sfun_registry.obj
+ 0004:000003cc       $pdata$ssSetZcSignalZcTol  000000018001a3cc     SSI_model_sfun_registry.obj
+ 0004:000003d8       $pdata$ssSetZcSignalNeedsEventNotification 000000018001a3d8     SSI_model_sfun_registry.obj
+ 0004:000003e4       $pdata$ssCreateAndAddZcSignalInfo 000000018001a3e4     SSI_model_sfun_registry.obj
+ 0004:000003f0       $pdata$ssCloneAndAddZcSignalInfo 000000018001a3f0     SSI_model_sfun_registry.obj
+ 0004:000003fc       $pdata$ssGetNumZcSignals   000000018001a3fc     SSI_model_sfun_registry.obj
+ 0004:00000408       $pdata$ssGetZcSignalVector 000000018001a408     SSI_model_sfun_registry.obj
+ 0004:00000414       $pdata$ssGetZcSignalName   000000018001a414     SSI_model_sfun_registry.obj
+ 0004:00000420       $pdata$ssGetZcSignalWidth  000000018001a420     SSI_model_sfun_registry.obj
+ 0004:0000042c       $pdata$ssGetZcSignalZcEventType 000000018001a42c     SSI_model_sfun_registry.obj
+ 0004:00000438       $pdata$ssGetZcSignalZcEvents 000000018001a438     SSI_model_sfun_registry.obj
+ 0004:00000444       $pdata$ssGetZcSignalType   000000018001a444     SSI_model_sfun_registry.obj
+ 0004:00000450       $pdata$ssGetZcSignalZcTol  000000018001a450     SSI_model_sfun_registry.obj
+ 0004:0000045c       $pdata$ssGetZcSignalNeedsEventNotification 000000018001a45c     SSI_model_sfun_registry.obj
+ 0004:00000468       $pdata$ssGetZcSignalIsZcElementDisc 000000018001a468     SSI_model_sfun_registry.obj
+ 0004:00000474       $pdata$ssGetIsInputPortElementContinuous 000000018001a474     SSI_model_sfun_registry.obj
+ 0004:00000480       $pdata$_ssSetIWorkValueFcn 000000018001a480     SSI_model_sfun_registry.obj
+ 0004:0000048c       $pdata$_ssGetIWorkValueFcn 000000018001a48c     SSI_model_sfun_registry.obj
+ 0004:00000498       $pdata$_ssSetRWorkValueFcn 000000018001a498     SSI_model_sfun_registry.obj
+ 0004:000004a4       $pdata$_ssGetRWorkValueFcn 000000018001a4a4     SSI_model_sfun_registry.obj
+ 0004:000004b0       $pdata$_ssSetPWorkValueFcn 000000018001a4b0     SSI_model_sfun_registry.obj
+ 0004:000004bc       $pdata$_ssGetPWorkValueFcn 000000018001a4bc     SSI_model_sfun_registry.obj
+ 0004:000004c8       $pdata$ssGetDTypeIdFromMxArray 000000018001a4c8     SSI_model_sfun_registry.obj
+ 0004:000004d4       $pdata$ssWriteRTWStr       000000018001a4d4     SSI_model_sfun_registry.obj
+ 0004:000004e0       $pdata$ssWriteRTWNameValuePair 000000018001a4e0     SSI_model_sfun_registry.obj
+ 0004:000004ec       $pdata$ssWriteRTWParamSettings 000000018001a4ec     SSI_model_sfun_registry.obj
+ 0004:000004f8       $pdata$ssWriteRTWParameters 000000018001a4f8     SSI_model_sfun_registry.obj
+ 0004:00000504       $pdata$ssWriteRTWWorkVect  000000018001a504     SSI_model_sfun_registry.obj
+ 0004:00000510       $pdata$ssWriteRTWMxVectParam 000000018001a510     SSI_model_sfun_registry.obj
+ 0004:0000051c       $pdata$ssWriteRTWMx2dMatParam 000000018001a51c     SSI_model_sfun_registry.obj
+ 0004:00000528       $pdata$_ssSetInputPortMatrixDimensions 000000018001a528     SSI_model_sfun_registry.obj
+ 0004:00000534       $pdata$_ssSetOutputPortMatrixDimensions 000000018001a534     SSI_model_sfun_registry.obj
+ 0004:00000540       $pdata$_ssSetInputPortVectorDimension 000000018001a540     SSI_model_sfun_registry.obj
+ 0004:0000054c       $pdata$_ssSetOutputPortVectorDimension 000000018001a54c     SSI_model_sfun_registry.obj
+ 0004:00000558       $pdata$ssIsRunTimeParamTunable 000000018001a558     SSI_model_sfun_registry.obj
+ 0004:00000564       $pdata$ssGetSFuncBlockHandle 000000018001a564     SSI_model_sfun_registry.obj
+ 0004:00000570       $pdata$_ssGetCurrentInputPortWidth 000000018001a570     SSI_model_sfun_registry.obj
+ 0004:0000057c       $pdata$_ssGetCurrentOutputPortWidth 000000018001a57c     SSI_model_sfun_registry.obj
+ 0004:00000588       $pdata$_ssGetCallSystemNumFcnCallDestinations 000000018001a588     SSI_model_sfun_registry.obj
+ 0004:00000594       $pdata$ssGetParameterTuningCompliance 000000018001a594     SSI_model_sfun_registry.obj
+ 0004:000005a0       $pdata$ssWarning           000000018001a5a0     SSI_model_sfun_registry.obj
+ 0004:000005ac       $pdata$_ssGetAbsTol        000000018001a5ac     SSI_model_sfun_registry.obj
+ 0004:000005b8       $pdata$sf_process_check_sum_call 000000018001a5b8     SSI_model_sfun_registry.obj
+ 0004:000005c4       $pdata$sf_process_autoinheritance_call 000000018001a5c4     SSI_model_sfun_registry.obj
+ 0004:000005d0       $pdata$sf_process_get_third_party_uses_info_call 000000018001a5d0     SSI_model_sfun_registry.obj
+ 0004:000005dc       $pdata$sf_process_get_jit_fallback_info_call 000000018001a5dc     SSI_model_sfun_registry.obj
+ 0004:000005e8       $pdata$sf_process_get_updateBuildInfo_args_info_call 000000018001a5e8     SSI_model_sfun_registry.obj
+ 0004:000005f4       $pdata$sf_process_get_eml_resolved_functions_info_call 000000018001a5f4     SSI_model_sfun_registry.obj
+ 0004:00000600       $pdata$sf_mex_unlock_call  000000018001a600     SSI_model_sfun_registry.obj
+ 0004:0000060c       $pdata$sf_debug_api_wrapper 000000018001a60c     SSI_model_sfun_registry.obj
+ 0004:00000618       $pdata$ProcessMexSfunctionCmdLineCall 000000018001a618     SSI_model_sfun_registry.obj
+ 0004:00000624       $pdata$sf_machine_global_initializer_called 000000018001a624     SSI_model_sfun_registry.obj
+ 0004:00000630       $pdata$sf_machine_global_method_dispatcher 000000018001a630     SSI_model_sfun_registry.obj
+ 0004:0000063c       $pdata$sf_machine_global_terminator 000000018001a63c     SSI_model_sfun_registry.obj
+ 0004:00000648       $pdata$sf_register_machine_exported_symbols 000000018001a648     SSI_model_sfun_registry.obj
+ 0004:00000654       $pdata$sf_machine_global_initializer 000000018001a654     SSI_model_sfun_registry.obj
+ 0004:00000660       $pdata$mdlGetSimState      000000018001a660     SSI_model_sfun_registry.obj
+ 0004:0000066c       $pdata$mdlSetSimState      000000018001a66c     SSI_model_sfun_registry.obj
+ 0004:00000678       $pdata$mdlSetWorkWidths    000000018001a678     SSI_model_sfun_registry.obj
+ 0004:00000684       $pdata$mdlProcessParameters 000000018001a684     SSI_model_sfun_registry.obj
+ 0004:00000690       $pdata$mdl_start_processing 000000018001a690     SSI_model_sfun_registry.obj
+ 0004:0000069c       $pdata$mdl_terminate_processing 000000018001a69c     SSI_model_sfun_registry.obj
+ 0004:000006a8       $pdata$mdlStart            000000018001a6a8     SSI_model_sfun_registry.obj
+ 0004:000006b4       $pdata$mdlTerminate        000000018001a6b4     SSI_model_sfun_registry.obj
+ 0004:000006c0       $pdata$mdlInitializeSizes  000000018001a6c0     SSI_model_sfun_registry.obj
+ 0004:000006cc       $pdata$mdlInitializeSampleTimes 000000018001a6cc     SSI_model_sfun_registry.obj
+ 0004:000006d8       $pdata$mdl_outputs_continuous_legacy 000000018001a6d8     SSI_model_sfun_registry.obj
+ 0004:000006e4       $pdata$mdl_outputs_processing 000000018001a6e4     SSI_model_sfun_registry.obj
+ 0004:000006f0       $pdata$mdl_zeroCrossings_processing 000000018001a6f0     SSI_model_sfun_registry.obj
+ 0004:000006fc       $pdata$mdlZeroCrossings    000000018001a6fc     SSI_model_sfun_registry.obj
+ 0004:00000708       $pdata$mdl_derivatives_processing 000000018001a708     SSI_model_sfun_registry.obj
+ 0004:00000714       $pdata$mdlDerivatives      000000018001a714     SSI_model_sfun_registry.obj
+ 0004:00000720       $pdata$mdl_initialize_conditions_processing 000000018001a720     SSI_model_sfun_registry.obj
+ 0004:0000072c       $pdata$mdlInitializeConditions 000000018001a72c     SSI_model_sfun_registry.obj
+ 0004:00000738       $pdata$mdl_ext_mode_exec_processing 000000018001a738     SSI_model_sfun_registry.obj
+ 0004:00000744       $pdata$mdlExtModeExec      000000018001a744     SSI_model_sfun_registry.obj
+ 0004:00000750       $pdata$mdlRTW              000000018001a750     SSI_model_sfun_registry.obj
+ 0004:0000075c       $pdata$mdl_enable_processing 000000018001a75c     SSI_model_sfun_registry.obj
+ 0004:00000768       $pdata$mdlEnable           000000018001a768     SSI_model_sfun_registry.obj
+ 0004:00000774       $pdata$mdl_disable_processing 000000018001a774     SSI_model_sfun_registry.obj
+ 0004:00000780       $pdata$mdlDisable          000000018001a780     SSI_model_sfun_registry.obj
+ 0004:0000078c       $pdata$mdlOutputs          000000018001a78c     SSI_model_sfun_registry.obj
+ 0004:00000798       $pdata$mdl_update_processing 000000018001a798     SSI_model_sfun_registry.obj
+ 0004:000007a4       $pdata$mdlUpdate           000000018001a7a4     SSI_model_sfun_registry.obj
+ 0004:000007b0       $pdata$ProcessMexSfunctionEveryCall 000000018001a7b0     SSI_model_sfun_registry.obj
+ 0004:000007bc       $pdata$_RegNumInputPortsCB 000000018001a7bc     SSI_model_sfun_registry.obj
+ 0004:000007c8       $pdata$_RegNumOutputPortsCB 000000018001a7c8     SSI_model_sfun_registry.obj
+ 0004:000007d4       $pdata$_CreateSimStruct    000000018001a7d4     SSI_model_sfun_registry.obj
+ 0004:000007e0       $pdata$_ProcessMexSfunctionCmdLineCall 000000018001a7e0     SSI_model_sfun_registry.obj
+ 0004:000007ec       $pdata$ReportIndexOutOfBoundsError 000000018001a7ec     SSI_model_sfun_registry.obj
+ 0004:000007f8       $pdata$__raise_securityfailure 000000018001a7f8     MSVCRT:gs_report.obj
+ 0004:00000804       $pdata$__report_gsfailure  000000018001a804     MSVCRT:gs_report.obj
+ 0004:00000810       $pdata$__report_rangecheckfailure 000000018001a810     MSVCRT:gs_report.obj
+ 0004:0000081c       $pdata$__report_securityfailure 000000018001a81c     MSVCRT:gs_report.obj
+ 0004:00000828       $pdata$__report_securityfailureEx 000000018001a828     MSVCRT:gs_report.obj
+ 0004:00000834       $pdata$__GSHandlerCheck    000000018001a834     MSVCRT:gshandler.obj
+ 0004:00000840       $pdata$__GSHandlerCheckCommon 000000018001a840     MSVCRT:gshandler.obj
+ 0004:00000858       $pdata$pre_c_init          000000018001a858     MSVCRT:crtdll.obj
+ 0004:00000864       $pdata$_CRT_INIT           000000018001a864     MSVCRT:crtdll.obj
+ 0004:00000870       $pdata$_DllMainCRTStartup  000000018001a870     MSVCRT:crtdll.obj
+ 0004:0000087c       $pdata$__DllMainCRTStartup 000000018001a87c     MSVCRT:crtdll.obj
+ 0004:00000888       $pdata$_IsNonwritableInCurrentImage 000000018001a888     MSVCRT:pesect.obj
+ 0004:00000894       $pdata$__atonexitinit      000000018001a894     MSVCRT:atonexit.obj
+ 0004:000008a0       $pdata$_onexit             000000018001a8a0     MSVCRT:atonexit.obj
+ 0004:000008ac       $pdata$atexit              000000018001a8ac     MSVCRT:atonexit.obj
+ 0004:000008b8       $pdata$__security_init_cookie 000000018001a8b8     MSVCRT:gs_support.obj
+ 0004:000008c4       $pdata$DllMain             000000018001a8c4     MSVCRT:dllmain.obj
+ 0004:000008d0       $pdata$_RTC_Initialize     000000018001a8d0     MSVCRT:initsect.obj
+ 0004:000008dc       $pdata$_RTC_Terminate      000000018001a8dc     MSVCRT:initsect.obj
+ 0004:000008e8       $pdata$__DllMainCRTStartup$filt$0 000000018001a8e8     MSVCRT:crtdll.obj
+ 0004:000008f4       $pdata$__DllMainCRTStartup$fin$1 000000018001a8f4     MSVCRT:crtdll.obj
+ 0004:00000900       $pdata$_IsNonwritableInCurrentImage$filt$0 000000018001a900     MSVCRT:pesect.obj
+ 0004:0000090c       $pdata$_onexit$fin$0       000000018001a90c     MSVCRT:atonexit.obj
