@@ -40,7 +40,8 @@ class SlowKickDetector(kick.kick_detector.KickDetector):
             time_list.append(state[0])
             ball_list.append(state[1])
             for idx, robot in enumerate(state[2]):
-                robot_list_list[idx].append(robot)
+                if robot is not None:
+                    robot_list_list[idx].append(robot)
 
         # Remove any robots that aren't in all of the state history
         robot_list_list = list(filter(

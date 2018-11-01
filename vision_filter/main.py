@@ -28,9 +28,6 @@ else: # 5 - 10 # 20~ # 51
     #log_frames = rc_ssl_logtools.log_frames("logs/2018-06-18_11-48_RoboIME-vs-ULtron.log.gz", 1, 10)
     iteration_length = len(log_frames)
 
-for i in range(0,20):
-    print(str(log_frames[i].detection.t_sent))
-
 # Get start time
 if util.config.use_fake_camera:
     current_time = 0

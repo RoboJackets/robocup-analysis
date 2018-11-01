@@ -45,6 +45,9 @@ robot_max_time_outside_vision = 2.0
 
 # Kick detection settings
 slow_kick_detector_history_length = 5
+fast_kick_detector_history_length = 3
+
+fast_kick_velocity_change_trigger = 4000
 
 # Various field information
 field_width = 12.0

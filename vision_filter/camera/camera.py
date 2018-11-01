@@ -59,7 +59,10 @@ class Camera:
         if (len(self.kalman_balls) == 0):
             # Average all the balls in this cameras view to init stuff
             self.kalman_balls.append(
-                self.avg_ball_pos_kalman_filter(camera_balls_list, previous_world_ball))
+                ball.kalman_ball.KalmanBall(
+                    calc_time,
+                    self.avg_ball_pos(camera_balls_list),
+                    previous_world_ball))
 
             return
 
@@ -114,7 +117,7 @@ class Camera:
                 time_avg = time_measurements[idx][0] / num_kf_measurements[idx][0]
 
                 pos_avg = [x_avg, y_avg]
-                avg_ball = ball.camera_ball.CameraBall(time_avg, 100, x_avg, y_avg)
+                avg_ball = ball.camera_ball.CameraBall(time_avg, x_avg, y_avg)
 
                 kalman_ball.predict_and_update(calc_time, avg_ball)
             else:
@@ -139,7 +142,7 @@ class Camera:
             self.kalman_balls.append(
                 ball.kalman_ball.KalmanBall(calc_time,
                                             self.avg_ball_pos(camera_balls_list),
-                                            previous_world_ball)
+                                            previous_world_ball))
 
             return
 
@@ -369,9 +372,9 @@ class Camera:
         time_avg = 0
 
         # Do average
-        for ball in balls_list:
-            pos_avg = np.add(pos_avg, ball.pos)
-            time_avg = time_avg + ball.time_captured
+        for b in balls_list:
+            pos_avg = np.add(pos_avg, b.pos)
+            time_avg = time_avg + b.time_captured
 
         pos_avg = np.multiply(pos_avg, 1/len(balls_list))
         time_avg /= len(balls_list)

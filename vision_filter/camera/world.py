@@ -1,6 +1,8 @@
 from camera.camera import Camera
 from ball.world_ball import WorldBall
 from robot.world_robot import WorldRobot
+from kick.fast_kick_detector import FastKickDetector
+from kick.slow_kick_detector import SlowKickDetector
 import util.config
 import matplotlib.pyplot as plt
 import matplotlib
@@ -14,6 +16,9 @@ class World:
         self.world_ball = None
         self.world_robots_blue = [None] * util.config.max_num_robots_per_team
         self.world_robots_yellow = [None] * util.config.max_num_robots_per_team
+
+        self.fast_kick_detector = FastKickDetector()
+        self.slow_kick_detector = SlowKickDetector()
 
         # Plotting stuff
         self.setup_plots()
@@ -48,6 +53,7 @@ class World:
                 self.cameras[i].update_camera_without_data(calc_time)
 
         self.update_world_objects()
+        self.detect_kicks(calc_time)
 
     def update_without_camera_frame(self, calc_time):
         self.calculate_ball_bounce()
@@ -57,6 +63,7 @@ class World:
                 camera.update_without_camera_frame(calc_time)
 
         self.update_world_objects()
+        self.detect_kicks(calc_time)
 
     def calculate_ball_bounce(self):
         robot_list = self.world_robots_blue + self.world_robots_yellow
@@ -112,6 +119,16 @@ class World:
         for idx, robot_list in enumerate(robot_yellow_list):
             if len(robot_list) > 0:
                 self.world_robots_yellow[idx] = WorldRobot(idx, robot_list)
+
+    def detect_kicks(self, calc_time):
+        fast = self.fast_kick_detector.add_record(calc_time, self.world_ball, self.world_robots_blue + self.world_robots_yellow)
+        slow = self.slow_kick_detector.add_record(calc_time, self.world_ball, self.world_robots_blue + self.world_robots_yellow)
+
+        if fast is not None:
+            print("Fast kick found")
+
+        if slow is not None:
+            print("Slow kick found")
 
     def setup_plots(self):
         self.figure, self.ax = plt.subplots()
