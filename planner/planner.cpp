@@ -5,7 +5,7 @@
 #include <vector>
 
 template<int M, int N>
-using QPMatrix = Eigen::Matrix<qpOASES::real_t, M, N>;
+using QPMatrix = Eigen::Matrix<qpOASES::real_t, M, N, N != 1 ? Eigen::RowMajor : Eigen::ColMajor>;
 
 class PathPlanner {
     public:
@@ -24,7 +24,7 @@ class PathPlanner {
         QPMatrix<12, 1> plan(QPMatrix<12, 1> target, double ti, double tf) {
             set_up_problem(target, ti, tf);
             qpOASES::int_t nWSR = 100;
-            problem.hotstart(cost_quadratic.transpose().data(), cost_linear.transpose().data(), constraint.transpose().data(), NULL, NULL, lb.data(), ub.data(), nWSR);
+            problem.hotstart(cost_quadratic.data(), cost_linear.data(), constraint.data(), NULL, NULL, lb.data(), ub.data(), nWSR);
             QPMatrix<12, 1> result = QPMatrix<12, 1>::Zero();
             problem.getPrimalSolution(result.data());
             return result;
@@ -36,7 +36,8 @@ class PathPlanner {
             target << 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0;
             set_up_problem(target, 0.0, 1.0);
             qpOASES::int_t nWSR = 100;
-            problem.init(cost_quadratic.transpose().data(), cost_linear.transpose().data(), constraint.transpose().data(), NULL, NULL, lb.data(), ub.data(), nWSR);
+
+            problem.init(cost_quadratic.data(), cost_linear.data(), constraint.data(), NULL, NULL, lb.data(), ub.data(), nWSR);
 
             QPMatrix<12, 1> result;
             problem.getPrimalSolution(result.data());
@@ -112,26 +113,34 @@ int main() {
 
     Eigen::Matrix<qpOASES::real_t, 4, 3> world_to_wheel_space;
     world_to_wheel_space << 
-        std::cos(theta_1), std::sin(theta_1), r * std::cos(M_PI * 0.75 - theta_1),
-        std::cos(theta_2), std::sin(theta_2), r * std::cos(-M_PI * 0.75 - theta_2),
-        std::cos(theta_3), std::sin(theta_3), r * std::cos(-M_PI * 0.25 - theta_3),
-        std::cos(theta_4), std::sin(theta_4), r * std::cos(M_PI * 0.25 - theta_4);
+        std::cos(theta_1), std::sin(theta_1), r,
+        std::cos(theta_2), std::sin(theta_2), r,
+        std::cos(theta_3), std::sin(theta_3), r,
+        std::cos(theta_4), std::sin(theta_4), r;
 
     PathPlanner planner(world_to_wheel_space, a_max);
 
-    int num_iterations = 1; // 130000;
-    auto start = std::chrono::high_resolution_clock::now();
     QPMatrix<12, 1> target;
-    target << 0, 1, 0, 0, 0, 3, 1, 0, 0, 3.1415, 0, 0;
-    for (int i = 0; i < num_iterations; i++) {
-        QPMatrix<12, 1> coeffs = planner.plan(target, 0, 14);
+    target << 0, 4, 0, 0, 0, 8, 3, 0, 0, 3.1415, 0, 0;
+    QPMatrix<12, 1> coeffs = planner.plan(target, 0, 5);
+
+    std::cout << std::fixed;
+    std::cout.precision(6);
+    // Print the coefficients as a polynomial
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            int idx = i * 4 + j;
+            std::cout << coeffs(idx);
+            for (int k = 0; k < j; k++) {
+                std::cout << " * t";
+            }
+            if (j != 3) {
+                std::cout << " + ";
+            }
+        }
+        if (i != 2) {
+            std::cout << "," << std::endl;
+        }
     }
-
-    QPMatrix<12, 1> coeffs = planner.plan(target, 0, 8);
-    std::cout.precision(5);
-    std::fixed(std::cout);
-    std::cout << coeffs << std::endl;
-
-    auto diff = std::chrono::high_resolution_clock::now() - start;
-    std::cout << "Total time for " << num_iterations << " iterations: " << std::chrono::duration_cast<std::chrono::milliseconds>(diff).count() / 1000.0 << "s" << std::endl;
+    std::cout << std::endl;
 }
