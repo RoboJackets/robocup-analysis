@@ -3,6 +3,7 @@
 #include "eigen3/Eigen/Core"
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 template<int M, int N>
 using QPMatrix = Eigen::Matrix<qpOASES::real_t, M, N, N != 1 ? Eigen::RowMajor : Eigen::ColMajor>;
@@ -136,26 +137,12 @@ int main() {
     PathPlanner planner(world_to_wheel_space, a_max);
 
     QPMatrix<12, 1> target;
-    target << 0, 4, 0, 0, 0, 8, 3, 0, 0, 3.1415, 0, 0;
-    QPMatrix<12, 1> coeffs = planner.plan(target, 0, 2);
+    double tf = 4.0;
+    target << 0, 6, 0, -4, 0, 8, 3, 0, 0, 3.1415, 0, 0;
+    QPMatrix<12, 1> coeffs = planner.plan(target, 0, tf);
 
-    std::cout << std::fixed;
-    std::cout.precision(6);
-    // Print the coefficients as a polynomial
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 4; j++) {
-            int idx = i * 4 + j;
-            std::cout << coeffs(idx);
-            for (int k = 0; k < j; k++) {
-                std::cout << " * t";
-            }
-            if (j != 3) {
-                std::cout << " + ";
-            }
-        }
-        if (i != 2) {
-            std::cout << "," << std::endl;
-        }
-    }
-    std::cout << std::endl;
+    std::ofstream file("coefficients.txt");
+    file << tf << "\n";
+    file << coeffs << std::endl;
+    file.close();
 }
