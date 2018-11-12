@@ -9,7 +9,7 @@ using QPMatrix = Eigen::Matrix<qpOASES::real_t, M, N, N != 1 ? Eigen::RowMajor :
 
 class PathPlanner {
     public:
-        PathPlanner(QPMatrix<4, 3> world_to_wheel_space, double a_max) : problem(12, 8), world_to_wheel(world_to_wheel_space) {
+        PathPlanner(QPMatrix<4, 3> world_to_wheel_space, double a_max) : problem(6, 8), world_to_wheel(world_to_wheel_space) {
             qpOASES::Options options;
             options.printLevel = qpOASES::PL_NONE;
             problem.setOptions(options);
@@ -26,7 +26,14 @@ class PathPlanner {
             qpOASES::int_t nWSR = 100;
             problem.hotstart(cost_quadratic.data(), cost_linear.data(), constraint.data(), NULL, NULL, lb.data(), ub.data(), nWSR);
             QPMatrix<12, 1> result = QPMatrix<12, 1>::Zero();
-            problem.getPrimalSolution(result.data());
+
+            QPMatrix<6, 1> freeCoefficients = QPMatrix<6, 1>::Zero();
+            problem.getPrimalSolution(freeCoefficients.data());
+
+            result << target(0), target(2), freeCoefficients(0), freeCoefficients(1),
+                      target(4), target(6), freeCoefficients(2), freeCoefficients(3),
+                      target(8), target(10), freeCoefficients(4), freeCoefficients(5);
+
             return result;
         }
 
@@ -44,48 +51,56 @@ class PathPlanner {
         }
 
         void set_up_problem(QPMatrix<12, 1> target, double ti, double tf) {
-            // M is the matrix such that M*coeffs = target
-            QPMatrix<4, 4> M_1d;
-            M_1d << 1.0, ti, ti * ti, ti * ti * ti,
-                 1.0, tf, tf * tf, tf * tf * tf,
-                 0.0, 1.0, 2 * ti, 3 * ti * ti,
-                 0.0, 1.0, 2 * tf, 3 * tf * tf;
-            QPMatrix<12, 12> M = QPMatrix<12, 12>::Zero();
-            M.block<4, 4>(0, 0) = M_1d;
-            M.block<4, 4>(4, 4) = M_1d;
-            M.block<4, 4>(8, 8) = M_1d;
+            // M is the matrix such that M*coeffs = target - initial_projected
+            // where initial_projected is the extrapolation of the initial state
+            // out to tf
+            QPMatrix<2, 2> M_1d;
+            M_1d << tf * tf, tf * tf * tf,
+                    2 * tf, 3 * tf * tf;
+            QPMatrix<6, 6> M = QPMatrix<6, 6>::Zero();
+            M.block<2, 2>(0, 0) = M_1d;
+            M.block<2, 2>(2, 2) = M_1d;
+            M.block<2, 2>(4, 4) = M_1d;
+
+            QPMatrix<6, 1> target_diff;
+            target_diff << target(1) - target(0) - target(2) * (tf - ti),
+                           target(3) - target(2),
+                           target(5) - target(4) - target(6) * (tf - ti),
+                           target(7) - target(6),
+                           target(9) - target(8) - target(10) * (tf - ti),
+                           target(11) - target(10);
 
             // Let `a` be the coefficients of the polynomial. Then:
             // We're minimizing (Ma - target)^2 = a^T(M^T M)a - 2target^TMa + target^T target
             // Equivalently: 1/2 a^T(M^T M)a - target^T M a
             cost_quadratic = M.transpose() * M;
-            cost_linear = -target.transpose() * M;
+            cost_linear = -target_diff.transpose() * M;
 
             // The matrix A giving the terminal world-space accelerations for given coefficients
             // A(coeffs) = (accel_begin, accel_end)^T
-            QPMatrix<2, 4> min_max_acceleration_matrix_1d;
-            min_max_acceleration_matrix_1d << 0.0, 0.0, 2.0, 6.0 * ti,
-                                              0.0, 0.0, 2.0, 6.0 * tf;
-            QPMatrix<6, 12> min_max_acceleration_matrix = QPMatrix<6, 12>::Zero();
-            min_max_acceleration_matrix.block<1, 4>(0, 0) = min_max_acceleration_matrix_1d.block<1, 4>(0, 0);
-            min_max_acceleration_matrix.block<1, 4>(1, 4) = min_max_acceleration_matrix_1d.block<1, 4>(0, 0);
-            min_max_acceleration_matrix.block<1, 4>(2, 8) = min_max_acceleration_matrix_1d.block<1, 4>(0, 0);
-            min_max_acceleration_matrix.block<1, 4>(3, 0) = min_max_acceleration_matrix_1d.block<1, 4>(1, 0);
-            min_max_acceleration_matrix.block<1, 4>(4, 4) = min_max_acceleration_matrix_1d.block<1, 4>(1, 0);
-            min_max_acceleration_matrix.block<1, 4>(5, 8) = min_max_acceleration_matrix_1d.block<1, 4>(1, 0);
+            QPMatrix<2, 2> min_max_acceleration_matrix_1d;
+            min_max_acceleration_matrix_1d << 2.0, 6.0 * ti,
+                                              2.0, 6.0 * tf;
+            QPMatrix<6, 6> min_max_acceleration_matrix = QPMatrix<6, 6>::Zero();
+            min_max_acceleration_matrix.block<1, 2>(0, 0) = min_max_acceleration_matrix_1d.block<1, 2>(0, 0);
+            min_max_acceleration_matrix.block<1, 2>(1, 2) = min_max_acceleration_matrix_1d.block<1, 2>(0, 0);
+            min_max_acceleration_matrix.block<1, 2>(2, 4) = min_max_acceleration_matrix_1d.block<1, 2>(0, 0);
+            min_max_acceleration_matrix.block<1, 2>(3, 0) = min_max_acceleration_matrix_1d.block<1, 2>(1, 0);
+            min_max_acceleration_matrix.block<1, 2>(4, 2) = min_max_acceleration_matrix_1d.block<1, 2>(1, 0);
+            min_max_acceleration_matrix.block<1, 2>(5, 4) = min_max_acceleration_matrix_1d.block<1, 2>(1, 0);
 
             // Make a matrix that is two stacked copies of world_to_wheel to
             // constrain both the start and the end acceleration.
-            QPMatrix<8, 6> world_to_wheel_twice;
+            QPMatrix<8, 6> world_to_wheel_twice = QPMatrix<8, 6>::Zero();
             world_to_wheel_twice.block<4, 3>(0, 0) = world_to_wheel;
             world_to_wheel_twice.block<4, 3>(4, 3) = world_to_wheel;
             constraint = world_to_wheel_twice * min_max_acceleration_matrix;
         }
 
-        QPMatrix<12, 12> cost_quadratic;
-        QPMatrix<1, 12> cost_linear;
+        QPMatrix<6, 6> cost_quadratic;
+        QPMatrix<1, 6> cost_linear;
 
-        QPMatrix<8, 12> constraint;
+        QPMatrix<8, 6> constraint;
         QPMatrix<8, 1> lb, ub;
         qpOASES::SQProblem problem;
         QPMatrix<4, 3> world_to_wheel;
@@ -113,8 +128,8 @@ int main() {
 
     Eigen::Matrix<qpOASES::real_t, 4, 3> world_to_wheel_space;
     world_to_wheel_space << 
-        std::cos(theta_1), std::sin(theta_1), r,
-        std::cos(theta_2), std::sin(theta_2), r,
+        std::cos(theta_1), std::sin(theta_1), -r,
+        std::cos(theta_2), std::sin(theta_2), -r,
         std::cos(theta_3), std::sin(theta_3), r,
         std::cos(theta_4), std::sin(theta_4), r;
 
@@ -122,7 +137,7 @@ int main() {
 
     QPMatrix<12, 1> target;
     target << 0, 4, 0, 0, 0, 8, 3, 0, 0, 3.1415, 0, 0;
-    QPMatrix<12, 1> coeffs = planner.plan(target, 0, 5);
+    QPMatrix<12, 1> coeffs = planner.plan(target, 0, 2);
 
     std::cout << std::fixed;
     std::cout.precision(6);
