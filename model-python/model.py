@@ -16,13 +16,13 @@ import numpy as np
 import math
 
 # Robot mass, kg
-m = 0.743
+m = 6.5
 
 # Robot radius, m
 L = 0.0789
 
 # Gear ratio
-n = 15.0 / 51.0
+n = 20.0 / 60.0
 
 # Robot moment of inertia, kg*m^2
 J = 0.5 * m * L ** 2
@@ -155,10 +155,11 @@ def inverse_dynamics(v, a, phi):
 
 def main():
     """Run the program."""
-    x = 15 * np.asmatrix([[1, -1, -1, 1]]).T
+    x = 15 * np.asmatrix([[1, 2, 0.3333]]).T
     u = np.asmatrix([[0.015, -0.015, -0.015, 0.015]]).T
-    xdot = forward_dynamics(x, u)
+    # xdot = forward_dynamics(x, u)
     Ginv = np.linalg.pinv(G)
+    print(forward_dynamics(x, inverse_dynamics(x, np.asmatrix([[0, 1, 0]]).T, 1.5), 1.5))
 
 
 if __name__ == '__main__':

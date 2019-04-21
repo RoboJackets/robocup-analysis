@@ -4,7 +4,7 @@ import model
 
 wheel_angles = [np.radians(30),
                 np.radians(150),
-                np.radians(219),
+                np.radians(-150),
                 np.radians(-39)]
 
 L = 0.0789
@@ -15,7 +15,7 @@ class Controller:
     def __init__(self, dt):
         self.integral = np.asmatrix(np.zeros((3, 1)))
         self.dt = dt
-        self.Kp, self.Ki, self.Kd = (4, 0.0, 1)
+        self.Kp, self.Ki, self.Kd = (5, 0.0, 10)
 
     def reset(self):
         self.integral = np.asmatrix(np.zeros((3, 1)))
@@ -31,12 +31,12 @@ class Controller:
 
         Ginv = np.linalg.pinv(G)
         error = gRb.T * (rx - x)
-        error[2, 0] *= .1
+        error[2, 0] *= 1e-2
 
         derivative = gRb.T * (rv - v)
         derivative[2, 0] *= 0.01
 
-        uff = model.inverse_dynamics(rv, ra, x[2])
+        uff = model.inverse_dynamics(rv, ra, x[2, 0])
         up = self.Kp * Ginv * error
         ui = self.Ki * Ginv * gRb * gRp.T * self.integral
         ud = self.Kd * Ginv * derivative
