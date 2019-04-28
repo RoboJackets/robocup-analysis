@@ -1,43 +1,39 @@
 import numpy as np
-import math
-import model
-
-wheel_angles = [np.radians(30),
-                np.radians(150),
-                np.radians(-150),
-                np.radians(-39)]
-
-L = 0.0789
-
-G = np.asmatrix([[-math.sin(th), math.cos(th), L] for th in wheel_angles]).T
+import util
 
 class Controller:
-    def __init__(self, dt):
+    def __init__(self, dt, model):
         self.integral = np.asmatrix(np.zeros((3, 1)))
         self.dt = dt
-        self.Kp, self.Ki, self.Kd = (5, 0.0, 10)
+        self.Kp, self.Ki, self.Kd = (50, 0, 5)
+        self.model = model
+        self.Mp = np.diag([50, 50, 100])
+        self.Mi = 0 * np.diag([50, 50, 100])
+        self.Md = np.diag([15, 15, 60])
 
     def reset(self):
         self.integral = np.asmatrix(np.zeros((3, 1)))
 
     def control(self, x, v, rx, rv, ra):
-        gRb = model.rotation_matrix(x[2])
+        gRb = util.rotation_matrix(x[2, 0])
 
-        gRp = model.rotation_matrix(rx[2])
+        gRp = util.rotation_matrix(rx[2, 0])
         error_path_relative = gRp * (rx - x)
 
-        self.integral += self.dt * np.asmatrix(np.diag([1, 1, 1e-2])) \
-            * error_path_relative
+        self.integral += self.dt * error_path_relative
 
-        Ginv = np.linalg.pinv(G)
+        G = self.model.geom
+
+        GTinv = np.linalg.pinv(G.T * 0.029)
         error = gRb.T * (rx - x)
-        error[2, 0] *= 1e-2
+        error[2, 0] *= 0.1
 
         derivative = gRb.T * (rv - v)
         derivative[2, 0] *= 0.01
-
-        uff = model.inverse_dynamics(rv, ra, x[2, 0])
-        up = self.Kp * Ginv * error
-        ui = self.Ki * Ginv * gRb * gRp.T * self.integral
-        ud = self.Kd * Ginv * derivative
+        goal_acceleration = ra + self.Mp * (rx - x) + self.Md * (rv - v) + self.Mi * gRp.T * self.integral
+        return self.model.inverse_dynamics_world(x, rv, goal_acceleration)
+        uff = self.model.inverse_dynamics_world(x, rv, ra)
+        up = self.Kp * GTinv * error
+        ui = self.Ki * GTinv * np.diag([1, 1, 0]) * gRb * gRp.T * self.integral
+        ud = self.Kd * GTinv * derivative
         return uff + up + ui + ud

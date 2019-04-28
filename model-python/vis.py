@@ -43,8 +43,8 @@ class Visualizer:
 
     def extract_goals(self):
         r = np.asmatrix(np.zeros((3, 1)))
-        speed_max = 5.0
-        arate_max = 6.0
+        speed_max = 8
+        arate_max = 8
         if ord('w') in self.keys:
             r[1, 0] = speed_max
         if ord('s') in self.keys:
